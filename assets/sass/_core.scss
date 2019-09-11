@@ -15,6 +15,11 @@ div,h1,h2,h3,h4,h5,h6,p,li,a,span,strong {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 }
+pre {
+	font-family: $font_pre;
+	font-size: 13px;
+	line-height: 1.3;
+}
 /* Text meant only for screen readers. */
 .text-center {text-align:center;}
 .sr {
@@ -41,4 +46,130 @@ div,h1,h2,h3,h4,h5,h6,p,li,a,span,strong {
 		width: auto;
 		z-index: 100000; /* Above WP toolbar. */
 	}
+}
+body {
+	font-family: $font_main;
+	font-size: 14px;
+	line-height: 1.4;
+}
+.wrapper {
+	position: relative;
+	margin: 0 auto;
+	max-width: 1300px;
+	width: 100%;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.flexrow {
+	position: relative;
+	@include flexbox();
+	@include flexbox-wrap(wrap);
+	@include flexbox-direction(row);
+}
+.site {
+	position: relative;
+}
+.site-header {
+	position: relative;
+	@include tab {
+		min-height: 150px;
+		// @include flexbox();
+		// @include flexbox-wrap(wrap);
+		// @include flexbox-direction(row);
+		// @include flexbox-align-content(center);
+	}
+	.wrapper {
+		@include tab {
+			@include flexbox();
+			@include flexbox-wrap(wrap);
+			@include flexbox-direction(row);
+			@include flexbox-align-items(center);
+			@include flexbox-align-content(center);
+		}
+	}
+	.midwrap {
+		@include tab {
+			width: 100%;
+			position: absolute;
+			margin-top: -10px;
+		}
+	}
+}
+body.home .site-header {
+	@include tab {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 50;
+	}
+}
+.sitename {
+	font-family: $font_secondary;
+	font-size: 2.3em;
+	font-weight: 700;
+	line-height: 1.3;
+	text-transform: uppercase;
+	text-align: center;
+	letter-spacing: 3px;
+	width: 100%;
+}
+.logo {
+	@include tab {
+		width: 160px;
+	}
+	a, img {
+		display: block;
+		float: left;
+	}
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+.home .hero {
+	min-height: 400px;
+	background: #ececec;
+	@include mid {
+		min-height: 700px;
+	}
+}
+
+.main-navigation {
+	width: 100%;
+	ul {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+	}
+	li {
+		position: relative;
+	}
+	.navwrap {
+		text-align: center;
+	}
+	.menu {
+		@include tab {
+			display: inline-block;
+		}
+	}
+	.menu a {
+		display: block;
+		text-decoration: none;
+	}
+	.menu > li > a {
+		text-transform: uppercase;
+		font-size: 16px;
+		line-height: 1.3;
+		padding: 5px 10px;
+		color: #FFF;
+	}
+	.menu > li {
+		@include tab {
+			float: left;
+		}
+	}
+}
+.menu-toggle {
+	display: none;
 }
