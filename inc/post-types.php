@@ -5,17 +5,17 @@ add_action('init', 'js_custom_init', 1);
 function js_custom_init() {
     $post_types = array(
         array(
+            'post_type' => 'faculties',
+            'menu_name' => 'Faculties',
+            'plural'    => 'Faculties',
+            'single'    => 'Faculty',
+            'supports'  => array('title','editor')
+        ),
+        array(
             'post_type' => 'locations',
             'menu_name' => 'Locations',
             'plural'    => 'Locations',
             'single'    => 'Location',
-            'supports'  => array('title','editor')
-        ),
-        array(
-            'post_type' => 'faculty',
-            'menu_name' => 'Faculties',
-            'plural'    => 'Faculties',
-            'single'    => 'Faculty',
             'supports'  => array('title','editor')
         ),
         array(
@@ -95,7 +95,7 @@ function ii_custom_taxonomies() {
         $posts = array();
         $posts = array(
             array(
-                'post_type' => 'faculty',
+                'post_type' => 'faculties',
                 'menu_name' => 'Locations',
                 'plural'    => 'Locations',
                 'single'    => 'Location',
@@ -103,7 +103,7 @@ function ii_custom_taxonomies() {
                 'slug'      => array('slug' => 'locations', 'with_front' => false)
             ),
             array(
-                'post_type' => 'faculty',
+                'post_type' => 'faculties',
                 'menu_name' => 'Programs',
                 'plural'    => 'Programs',
                 'single'    => 'Program',
@@ -111,7 +111,7 @@ function ii_custom_taxonomies() {
                 'slug'      => array('slug' => 'programs', 'with_front' => false)
             ),
             array(
-                'post_type' => 'faculty',
+                'post_type' => 'faculties',
                 'menu_name' => 'Types',
                 'plural'    => 'Types',
                 'single'    => 'Type',
