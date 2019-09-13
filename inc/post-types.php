@@ -1,6 +1,5 @@
 <?php 
 /* Custom Post Types */
-
 //DASH ICONS = https://developer.wordpress.org/resource/dashicons/
 add_action('init', 'js_custom_init', 1);
 function js_custom_init() {
@@ -94,15 +93,32 @@ function js_custom_init() {
 add_action( 'init', 'ii_custom_taxonomies', 0 );
 function ii_custom_taxonomies() {
         $posts = array();
-        // $posts = array(
-        //     array(
-        //         'post_type' => 'position',
-        //         'menu_name' => 'Categories',
-        //         'plural'    => 'Assignment Categories',
-        //         'single'    => 'Category',
-        //         'taxonomy'  => 'position_categories'
-        //     ),
-        // );
+        $posts = array(
+            array(
+                'post_type' => 'faculty',
+                'menu_name' => 'Locations',
+                'plural'    => 'Locations',
+                'single'    => 'Location',
+                'taxonomy'  => 'locationsx',
+                'slug'      => array('slug' => 'locations', 'with_front' => false)
+            ),
+            array(
+                'post_type' => 'faculty',
+                'menu_name' => 'Programs',
+                'plural'    => 'Programs',
+                'single'    => 'Program',
+                'taxonomy'  => 'programsx',
+                'slug'      => array('slug' => 'programs', 'with_front' => false)
+            ),
+            array(
+                'post_type' => 'faculty',
+                'menu_name' => 'Types',
+                'plural'    => 'Types',
+                'single'    => 'Type',
+                'taxonomy'  => 'typesx',
+                'slug'      => array('slug' => 'types', 'with_front' => false)
+            ),
+        );
     
     if($posts) {
         foreach($posts as $p) {
@@ -111,6 +127,7 @@ function ii_custom_taxonomies() {
             $plural_name = ( isset($p['plural']) && $p['plural'] ) ? $p['plural'] : "Custom Post"; 
             $menu_name = ( isset($p['menu_name']) && $p['menu_name'] ) ? $p['menu_name'] : $p['plural'];
             $taxonomy = ( isset($p['taxonomy']) && $p['taxonomy'] ) ? $p['taxonomy'] : "";
+            $rewrite_slug = ( isset($p['slug']) && $p['slug'] ) ? $p['slug'] : array( 'slug' => $taxonomy );
             
             
             if( $taxonomy && $p_type ) {
@@ -135,7 +152,7 @@ function ii_custom_taxonomies() {
                 'show_in_rest' => true,
                 'show_admin_column' => true,
                 'query_var' => true,
-                'rewrite' => array( 'slug' => $taxonomy ),
+                'rewrite' => $rewrite_slug,
               ));
             }
             
