@@ -20,6 +20,9 @@ pre {
 	font-size: 13px;
 	line-height: 1.3;
 }
+.clear:before, .clear:after { content: " "; display: table; }
+.clear { *zoom: 1; } .clear {clear: both;}
+.text-center {text-align:center;}
 /* Text meant only for screen readers. */
 .text-center {text-align:center;}
 .sr {
@@ -60,6 +63,13 @@ body {
 	padding-left: 20px;
 	padding-right: 20px;
 }
+.midwrap {
+	max-width: 900px;
+	width: 100%;
+	margin: 0 auto;
+	padding-left: 20px;
+	padding-right: 20px;
+}
 .flexrow {
 	position: relative;
 	@include flexbox();
@@ -68,35 +78,143 @@ body {
 }
 .site {
 	position: relative;
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 .site-header {
 	position: relative;
-	@include tab {
+	height: 90px;
+	@include mid {
+		height: auto;
 		min-height: 150px;
-		// @include flexbox();
-		// @include flexbox-wrap(wrap);
-		// @include flexbox-direction(row);
-		// @include flexbox-align-content(center);
 	}
 	.wrapper {
-		@include tab {
-			@include flexbox();
-			@include flexbox-wrap(wrap);
-			@include flexbox-direction(row);
-			@include flexbox-align-items(center);
-			@include flexbox-align-content(center);
-		}
+		@include flexbox();
+		@include flexbox-wrap(wrap);
+		@include flexbox-direction(row);
+		@include flexbox-align-items(center);
+		@include flexbox-align-content(center);
 	}
 	.midwrap {
-		@include tab {
+		max-width: 100%;
+		padding-left: 95px;
+		padding-right: 50%;
+		position: absolute;
+		@media screen and (min-width:600px) {
+			padding-right: 35%;
+		}
+		@include mid {
 			width: 100%;
-			position: absolute;
 			margin-top: -10px;
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	.arrowbtn {
+		display: inline-block;
+		width: auto;
+		position: absolute;
+		top: 50%;
+		right: 130px;
+		transition: all ease-out .3s;
+  		transform: translateY(-50%);
+		@include mid {
+			top: 0;
+			top: 10px;
+			right: 8%;
+			transform: none;
+		}
+		@media screen and (min-width:1400px) {
+			right: 0;
+		}
+		@include mid {
+			&:hover {
+				transform: translateX(10px);
+			}
+		}
+	}
+	.enrollbtn {
+		display: inline-block;
+		width: 100%;
+		color: #052b48;
+		font-size: 16px;
+		font-weight: 600;
+		text-decoration: none;
+		text-transform: uppercase;
+		text-align: center;
+		position: relative;
+		z-index: 10;
+		&:before, &:after {
+			content:"";
+			display: block;
+			position: absolute;
+			left: -8px;
+			width: 0; 
+   			height: 0; 
+   			border-left: 8px solid transparent; 
+		}
+		&:before {
+			top: 0;
+			border-top: 16px solid $limegreen; 
+		}
+		&:after {
+			bottom: 0;
+			border-bottom: 16px solid $limegreen; 
+		}
+		span {
+			display: inline-block;
+			background: $limegreen;
+			padding: 0 10px 0 13px;
+			position: relative;
+			z-index: 5;
+			line-height: 32px;
+			height: 32px;
+			letter-spacing: 1px;
+			&:after {
+				content:"";
+				display: block;
+				width: 0;
+				height: 0;
+				border-left: 10px solid $limegreen;
+				border-top: 16px solid transparent;
+				border-bottom: 16px solid transparent;
+				position: absolute;
+				top: 0;
+				right: -10px;
+			}
+		}
+	}
+	.btnshadow {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: -3px;
+		z-index: 2;
+		width: 110%;
+		height: 100%;
+		&:before, &:after {
+			content: "";
+			display: block;
+			width: 98%;
+			position: absolute;
+			left: 0;
+			background: $limegreen;
+			height: 16px;
+			box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.5);
+		}
+		&:before {
+			top: 0;
+			transform: skew(30deg);
+			
+		}
+		&:after {
+			bottom: 0;
+			transform: skew(-30deg);
 		}
 	}
 }
 body.home .site-header {
-	@include tab {
+	@include mid {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -105,25 +223,43 @@ body.home .site-header {
 	}
 }
 .sitename {
+	display: inline-block;
 	font-family: $font_secondary;
-	font-size: 2.5em;
+	font-size: 1.3em;
 	font-weight: 700;
 	line-height: 1.3;
 	text-transform: uppercase;
-	text-align: center;
+	text-align: left;
 	letter-spacing: 3px;
 	width: 100%;
-	color: #dbd9d6;
-	@include tab {
+	color: $blue;
+	@media screen and (min-width: 600px) {
+		font-size: 1.45em;
+	}
+	@include mid {
+		text-align: center;
+		color: #dbd9d6;
+		font-size: 2.5em;
+	}
+	@include desk {
 		font-size: 3em;
+	}
+	@media screen and (max-width:430px) {
+		display: none;
 	}
 }
 .logo {
-	width: 120px;
-	margin-top: 15px;
-	@include tab {
+	width: 70px;
+	margin-top: 0;
+	@include mid {
 		width: 160px;
 		margin-top: 20px;
+	}
+	a {
+		padding: 10px 0;
+		@include mid {
+			padding: 0 0;
+		}
 	}
 	a, img {
 		display: block;
@@ -135,14 +271,13 @@ body.home .site-header {
 	}
 }
 .home .hero {
-	height: 400px;
+	height: auto;
 	background: #ececec;
 	position: relative;
 	overflow: hidden;
-	@include mid {
-		height: 650px;
-	}
-	@include desk {
+	width: 100%;
+	float: left;
+	@media screen and (min-width:1400px) {
 		height: 800px;
 	}
 	.cover {
@@ -195,8 +330,13 @@ body.home .site-header {
 	}
 }
 
+/* MENU */
 .main-navigation {
+	display: none;
 	width: 100%;
+	@include mid {
+		display: block;
+	}
 	ul {
 		margin: 0 0;
 		padding: 0 0;
@@ -260,5 +400,167 @@ body.home .site-header {
 	}
 }
 .menu-toggle {
-	display: none;
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 5px;
+	width: 70px;
+	height: 100%;
+	background: transparent;
+	-webkit-appearance: none;
+	border: none;
+	text-shadow: none;
+	box-shadow: none;
+	border-radius: 0;
+	padding: 0 15px;
+	@include mid {
+		display: none;
+	}
+	span.bar {
+		display: block;
+		position: relative;
+	}
+	span.bar,
+	span.bar:before,
+	span.bar:after {
+		width: 100%;
+		height: 5px;
+		background: $blue;
+		transition: all ease-out .3s;
+	}
+	span.bar:before,
+	span.bar:after {
+		content:"";
+		display: block;
+		width: 100%;
+		position: absolute;
+		left: 0;
+	}
+	span.bar:before {
+		top: -11px;
+	}
+	span.bar:after {
+		top: 11px;
+	}
+	&.open {
+		span.bar {
+			background-color: transparent;
+		}
+		span.bar:before {
+			transform: translateY(11px) rotate(45deg);
+		}
+		span.bar:after {
+			transform: translateY(-11px) rotate(-45deg);
+		}
+	}
+}
+
+/* end of MENU */
+.home {
+	.site-content.wrapper {
+		max-width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+.section-intro {
+	background-image:url('images/patternBlue.png');
+	background-repeat: repeat;
+	background-position: center;
+	background-color: $navyblue;
+	color: #FFF;
+	.midwrap {
+		padding-top: 5%;
+		padding-bottom: 5%;
+		font-size: 1.8em;
+		background-image:url('images/shape-intro.png');
+		background-size: 25%;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}
+.section-why {
+	.colwrap {
+		width: 100%;
+		float: left;
+	}
+	.col {
+		width: 100%;
+		float: left;
+		position: relative;
+	}
+	.flexrow {
+		position: relative;
+		@include flexbox-align-items(center);
+	}
+	.imagecol {
+		background-color: $lightgrey;
+		@include tab {
+			width: 25%;
+		}
+		img {
+			width: 100%;
+			height: auto;
+			float: left;
+		}
+	}
+	.textcol {
+		@include tab {
+			width: 75%;
+		}
+		.text {
+			padding-left: 10%;
+			padding-right: 10%;
+			font-size: 1.5em;
+			@include mid {
+				padding-left: 10%;
+				padding-right: 10%;
+			}
+		}
+		ul {
+			margin: 0 0 35px 20px;
+			padding: 0 0;
+			list-style: none;
+			@include mid {
+				margin-bottom: 45px;
+			}
+		}
+		li {
+			position: relative;
+			margin: 10px 0;
+			padding-left: 15px;
+			&:before,
+			&:after {
+				content:"";
+				display: block;
+				position: absolute;
+				left: 0;
+				width: 4px;
+				height: 6px;
+				background: $limegreen;
+			}
+			&:before {
+				top: 8px;
+				transform: skew(25deg);
+			}
+			&:after {
+				top: 14px;
+				transform: skew(-25deg);
+			}
+		}
+	}
+	.section-title {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+.section-full {
+	.t2 {
+		text-transform: uppercase;
+		color: $navyblue;
+		font-size: 35px;
+		font-weight: 600;
+		margin: 0 0;
+	}
 }

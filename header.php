@@ -13,10 +13,10 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
+<div id="page" class="site clear">
 	<a class="skip-link sr" href="#content"><?php esc_html_e( 'Skip to content', 'bellaworks' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
+	<header id="masthead" class="site-header clear" role="banner">
 		<div class="wrapper">
 			
 			<?php if( get_custom_logo() ) { ?>
@@ -28,18 +28,32 @@
 		            <a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>
 	            </h1>
 	        <?php } ?>
-
+			
 	        <div class="midwrap">
 	        	<div class="sitename">Institute for Speech and Debate</div>
 				<nav id="site-navigation" class="main-navigation" role="navigation">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'MENU', 'bellaworks' ); ?></button>
 					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu','container_class'=>'navwrap','link_before'=>'<span>','link_after'=>'</span>' ) ); ?>
 				</nav><!-- #site-navigation -->
+
+				<?php 
+				$enrollBtn = get_field('button_name','option'); 
+				$enrollLink = get_field('button_link','option'); 
+				?>
+				<?php if ($enrollBtn && $enrollLink) { ?>
+				<div class="arrowbtn">
+					<a href="<?php echo $enrollLink ?>" target="_blank" class="enrollbtn">
+					<span><?php echo $enrollBtn ?></span></a>
+					<span class="btnshadow"></span>
+				</div>
+				
+				<?php } ?>
 	        </div>
+	        <button id="toggleMenu" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="sr"><?php esc_html_e( 'MENU', 'bellaworks' ); ?></span><span class="bar"></span></button>
+
 	        
 	</div><!-- wrapper -->
 	</header><!-- #masthead -->
 
 	<?php get_template_part('template-parts/content','hero'); ?>
 
-	<div id="content" class="site-content wrapper">
+	<div id="content" class="site-content wrapper clear">
