@@ -193,7 +193,8 @@ gulp.task( 'vendorsJs', function() {
 	gulp.src( [
 		'./assets/js/vendors/flexslider.js',
 		'./assets/js/vendors/colorbox.js',
-		'./assets/js/vendors/wow.js'
+		'./assets/js/vendors/wow.js',
+		'./assets/js/vendors/owl.carousel.js'
 		] )
 		.pipe( concat( jsVendorFile + '.js' ) )
 		.pipe( gulp.dest( jsVendorDestination ) )

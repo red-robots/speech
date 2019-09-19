@@ -36,7 +36,7 @@
 					<?php if ($text_row_2) { ?>
 						<?php if ($title_row_2) { ?>
 						<div class="section-title">
-							<span><?php echo $title_row_2 ?></span>
+							<span><?php echo $title_row_2 ?><i class="bl"></i></span>
 						</div>
 						<?php } ?>
 						<div class="text">
@@ -52,7 +52,96 @@
 		</section>
 		<?php } ?>
 
+		<?php if ($hashtag_row_2) { ?>
+		<div class="hashtagwrap"><div class="hashtag"><div class="txt"><span><?php echo $hashtag_row_2 ?></span><i class="lines"></i></div></div></div>	
+		<?php } ?>
+
+		<?php 
+			$threeboxes = get_field('3_boxes'); 
+		?>
+		<?php if ( $threeboxes ) { ?>
+		<section class="section-full clear section-boxes">
+			<div class="wrapper">
+				<div class="flexrow">
+					<?php foreach ($threeboxes as $b) { 
+						$box_title = $b['box_title'];
+						$box_image = $b['box_image'];
+						$box_description = $b['box_description'];
+						$box_button_text = $b['box_button_text'];
+						$box_button_link = $b['box_button_link'];
+						$hasImage = ($box_image) ? 'has-image':'no-image';
+						$style = ($box_image) ? ' style="background-image:url('.$box_image['url'].')"':'';
+						$pixel = get_bloginfo('template_url').'/images/rectangle.png';
+						if ($box_title) { ?>
+						<div class="box">
+							<div class="inside clear">
+								<h3 class="title"><?php echo $box_title ?></h3>
+								<div class="boximage <?php echo $hasImage ?>"<?php echo $style ?>>
+									<img src="<?php echo $pixel ?>" alt="" aria-hidden="true"/>
+								</div>
+								<div class="description clear">
+									<?php if ($box_description) { ?>
+									<div class="desc"><?php echo $box_description ?></div>
+									<?php } ?>
+									<?php if ($box_button_text && $box_button_link) { ?>
+									<div class="btndiv">
+										<a href="<?php echo $box_button_link ?>" class="morebtn"><?php echo $box_button_text ?><i class="fas fa-chevron-right"></i></a>
+									</div>
+									<?php } ?>
+								</div>
+								
+							</div>
+						</div>	
+						<?php } ?>
+					<?php } ?>
+				</div>
+			</div>
+		</section>
+		<?php } ?>
 	<?php endwhile;  ?>
+
+	<?php  
+	/* TESTIMONIALS */
+	$args = array (
+		'posts_per_page'=> -1,
+		'post_type'		=> 'testimonials',
+		'post_status'	=> 'publish'
+	);
+	$testimonials = new WP_Query($args);
+    if ( $testimonials->have_posts() ) {  ?> 
+	<section class="section-full clear section-testimonials">
+		<div class="wrapper">
+			<div id="testimony-carousel" class="wrapp clear owl-carousel">
+				<?php while ( $testimonials->have_posts() ) : $testimonials->the_post();  
+					$photo = get_field('photo');
+					$pixel = get_bloginfo('template_url').'/images/square.png';
+					$imgbox = ($photo) ? ' style="background-image:url('.$photo['url'].')"':'';
+					$hasImage = ($photo) ? 'has-image':'no-image';
+					?>
+					<div class="item <?php echo $hasImage ?>">
+						<div class="flexrow">
+							<div class="col right">
+								<div class="photo-outer clear">
+									<div class="photo"<?php echo $imgbox ?>>
+										<img class="px" src="<?php echo $pixel ?>" alt="" aria-hidden="true"/>
+									</div>
+									<div class="hlines"><div></div></div>
+								</div>
+							</div>
+							<div class="col left">
+								<div class="inside">
+									<div class="text"><?php the_content();?></div>
+									<div class="name">&ndash; <?php the_title(); ?></div>
+								</div>
+							</div>
+						</div>
+                    </div>
+				<?php endwhile; wp_reset_postdata(); ?>
+			</div>
+		</div>
+	</section>
+    <?php } ?>
+
 </div><!-- #primary -->
 <?php
 get_footer();
