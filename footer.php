@@ -1,8 +1,25 @@
 	</div><!-- #content -->
 
+	<?php  
+		$email_address = get_field('email_address','option');
+		$social_links = get_social_links();
+	?>
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="wrapper">
-			
+		<div class="wrapper text-center">
+			<?php if ($email_address) { ?>
+			<div class="col left">
+				<div class="info"><strong>Email:</strong> <a href="mailto:<?php echo antispambot($email_address,1); ?>"><?php echo antispambot($email_address); ?></a></div>
+			</div>
+			<?php } ?>
+
+			<?php if ($social_links) { ?>
+			<div class="col right social-media">
+				<strong>Follow:</strong>
+				<?php foreach ($social_links as $type=>$s) { ?>
+				<span class="social"><a href="<?php echo $s['link'] ?>"><i class="<?php echo $s['icon'] ?>"></i><em class="sr"><?php echo $type ?></em></a></span>	
+				<?php } ?>
+			</div>
+			<?php } ?>
 		</div><!-- wrapper -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
@@ -34,7 +51,6 @@ jQuery(document).ready(function($){
 	}
 
 });
-
 </script>	
 <?php } ?>
 </body>

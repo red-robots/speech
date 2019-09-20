@@ -9,10 +9,13 @@
 <script defer src="<?php bloginfo( 'template_url' ); ?>/assets/svg-with-js/js/fontawesome-all.js"></script>
 
 
-<?php wp_head(); ?>
+<?php wp_head(); 
+$banner = get_field('banner_image'); 
+$addClass = ($banner) ? 'hasbanner':'nobanner';
+?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class($addClass); ?>>
 <div id="page" class="site clear">
 	<a class="skip-link sr" href="#content"><?php esc_html_e( 'Skip to content', 'bellaworks' ); ?></a>
 
@@ -47,13 +50,13 @@
 				</div>
 				
 				<?php } ?>
-	        </div>
-	        <button id="toggleMenu" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="sr"><?php esc_html_e( 'MENU', 'bellaworks' ); ?></span><span class="bar"></span></button>
 
+				<button id="toggleMenu" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="sr"><?php esc_html_e( 'MENU', 'bellaworks' ); ?></span><span class="bar"></span></button>
+	        </div>
 	        
 	</div><!-- wrapper -->
 	</header><!-- #masthead -->
 
 	<?php get_template_part('template-parts/content','hero'); ?>
 
-	<div id="content" class="site-content wrapper clear">
+	<div id="content" class="site-content clear">

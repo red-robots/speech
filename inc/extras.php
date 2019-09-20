@@ -417,3 +417,20 @@ function email_obfuscator($string) {
     }
     return $output;
 }
+
+function get_social_links() {
+    $social_types = array(
+        'facebook'=>'fab fa-facebook-square',
+        'twitter'=>'fab fa-twitter-square',
+        'instagram'=>'fab fa-instagram',
+        'snapchat'=>'fab fa-snapchat-ghost'
+    );
+    $social = array();
+    foreach($social_types as $k=>$icon) {
+        $value = get_field($k,'option');
+        if($value) {
+            $social[$k] = array('link'=>$value,'icon'=>$icon);
+        }
+    }
+    return $social;
+}

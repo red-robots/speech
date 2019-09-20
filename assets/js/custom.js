@@ -51,6 +51,7 @@ jQuery(document).ready(function ($) {
 	$(document).on("click","#toggleMenu",function(){
 		$(this).toggleClass('open');
 		$('body').toggleClass('open-menu');
+		$('.main-navigation').toggleClass('open');
 	});
 
 });// END #####################################    END

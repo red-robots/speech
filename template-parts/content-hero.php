@@ -1,34 +1,31 @@
-<?php
-$video = get_field('video_mp4_format');  
-$video_thumb = get_field('video_thumbnail');
-$styles = ($video_thumb ) ? ' style="background-image:url('.$video_thumb['url'].')"':'';
-$video_type = '';
-$query = '';
-$v = '';
-if($video) {
-	$parts = parse_url($video);
-	$base = basename($video);
-	if( isset($parts['query']) && $parts['query'] ) {
-		parse_str($parts['query'], $query);
-		$v = ( isset($query['v']) && $query['v'] ) ? $query['v'] : '';
+<?php if ( is_front_page() || is_home() ) { 
+	$video = get_field('video_mp4_format');  
+	$video_thumb = get_field('video_thumbnail');
+	$styles = ($video_thumb ) ? ' style="background-image:url('.$video_thumb['url'].')"':'';
+	$video_type = '';
+	$query = '';
+	$v = '';
+	if($video) {
+		$parts = parse_url($video);
+		$base = basename($video);
+		if( isset($parts['query']) && $parts['query'] ) {
+			parse_str($parts['query'], $query);
+			$v = ( isset($query['v']) && $query['v'] ) ? $query['v'] : '';
+		}
+
+		if (strpos($video, 'youtube') > 0) {
+	        $video_type = 'youtube';
+	    } elseif (strpos($video, 'vimeo') > 0) {
+	        $video_type = 'vimeo';
+	    } else {
+	    	$path = pathinfo($video);
+	    	$extension = ( isset($path['extension']) && $path['extension'] ) ? strtolower($path['extension']) : '';
+	    	if($extension=='mp4') {
+	    		$video_type = 'mp4';
+	    	}
+	    }
 	}
-
-	if (strpos($video, 'youtube') > 0) {
-        $video_type = 'youtube';
-    } elseif (strpos($video, 'vimeo') > 0) {
-        $video_type = 'vimeo';
-    } else {
-    	$path = pathinfo($video);
-    	$extension = ( isset($path['extension']) && $path['extension'] ) ? strtolower($path['extension']) : '';
-    	if($extension=='mp4') {
-    		$video_type = 'mp4';
-    	}
-    }
-}
-
-
-?>
-<?php if ( is_front_page() || is_home() ) { ?>
+	?>
 	<?php if ($video) { ?>
 	<div class="hero">
 		<div class="cover"></div>
@@ -47,4 +44,16 @@ if($video) {
 		</div>
 	</div>
 	<?php } ?>
+
+<?php } else { ?>
+
+	<?php  
+		$banner = get_field('banner_image');
+	?>
+	<?php if ($banner) { ?>
+	<div class="subpage-banner clear">
+		<img src="<?php echo $banner['url'] ?>" alt="<?php echo $banner['title'] ?>" class="banner" />
+	</div>	
+	<?php } ?>
+
 <?php } ?>

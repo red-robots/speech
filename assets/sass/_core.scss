@@ -55,7 +55,7 @@ a,button,input[type="submit"] {
 }
 body {
 	font-family: $font_main;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 1.4;
 }
 .wrapper {
@@ -86,28 +86,34 @@ body {
 }
 .site-header {
 	position: relative;
-	height: 90px;
+	height: 80px;
 	@include mid {
 		height: auto;
 		min-height: 150px;
 	}
 	.wrapper {
-		@include flexbox();
-		@include flexbox-wrap(wrap);
-		@include flexbox-direction(row);
-		@include flexbox-align-items(center);
-		@include flexbox-align-content(center);
+		height: 100%;
+		@include mid {
+			@include flexbox();
+			@include flexbox-wrap(wrap);
+			@include flexbox-direction(row);
+			@include flexbox-align-items(center);
+			@include flexbox-align-content(center);
+			height: auto;
+		}
 	}
 	.midwrap {
 		max-width: 100%;
 		padding-left: 95px;
 		padding-right: 50%;
 		position: absolute;
+		height: 100%;
 		@media screen and (min-width:600px) {
 			padding-right: 35%;
 		}
 		@include mid {
 			width: 100%;
+			height: auto;
 			margin-top: -10px;
 			padding-left: 0;
 			padding-right: 0;
@@ -117,12 +123,10 @@ body {
 		display: inline-block;
 		width: auto;
 		position: absolute;
-		top: 50%;
+		top: 24px;
 		right: 130px;
 		transition: all ease-out .3s;
-  		transform: translateY(-50%);
 		@include mid {
-			top: 0;
 			top: 10px;
 			right: 8%;
 			transform: none;
@@ -226,7 +230,6 @@ body.home .site-header {
 	}
 }
 .sitename {
-	display: inline-block;
 	font-family: $font_secondary;
 	font-size: 1.3em;
 	font-weight: 700;
@@ -234,34 +237,61 @@ body.home .site-header {
 	text-transform: uppercase;
 	text-align: left;
 	letter-spacing: 3px;
-	width: 100%;
+	width: auto;
 	color: $blue;
-	@media screen and (min-width: 600px) {
-		font-size: 1.45em;
-	}
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 80px;
+	width: 100%;
+	padding-left: 95px;
+	padding-right: 250px;
+	transition: all ease-out .3s;
+	@include flexbox();
+	@include flexbox-align-items(center);
 	@include mid {
+		position: static;
+		display: inline-block!important;
+		width: 100%;
 		text-align: center;
 		color: #dbd9d6;
 		font-size: 2.5em;
+		height: auto;
+		padding-right: 0;
+		padding-left: 0;
 	}
 	@include desk {
 		font-size: 3em;
 	}
-	@media screen and (max-width:430px) {
+
+	@media screen and (max-width:560px) {
+		font-size: 1em;
+	}
+	@media screen and (max-width:480px) {
 		display: none;
 	}
 }
 .logo {
 	width: 70px;
+	height: 100%;
 	margin-top: 0;
+	position: absolute;
+	top: 0;
+	left: 20px;
+	z-index: 150;
 	@include mid {
+		height: auto;
+		position: static;
 		width: 160px;
 		margin-top: 20px;
 	}
 	a {
-		padding: 10px 0;
+		position: relative;
+    	top: 2px;
+		padding: 2px 0;
 		@include mid {
 			padding: 0 0;
+			top: 0;
 		}
 	}
 	a, img {
@@ -335,11 +365,9 @@ body.home .site-header {
 
 /* MENU */
 .main-navigation {
-	display: none;
+	display: block;
 	width: 100%;
-	@include mid {
-		display: block;
-	}
+	transition: all ease-out .5s;
 	ul {
 		margin: 0 0;
 		padding: 0 0;
@@ -388,6 +416,8 @@ body.home .site-header {
 			}
 		}
 	}
+	.menu li.current_page_item > a,
+	.menu li.current_page_item:hover > a,
 	.menu > li:hover > a {
 		@include tab {
 			span:after {
@@ -402,11 +432,45 @@ body.home .site-header {
 		}
 	}
 }
+
+@media screen and (max-width:$midwidth - 1px) {
+	.main-navigation {
+		position: absolute;
+		top: 80px;
+		left: -20px;
+		width: 100%;
+		z-index: 200;
+		background: $blue;
+		opacity: 0;
+		height: 0px;
+		max-height: 0px;
+		overflow: hidden;
+		&.open {
+			opacity: 1;
+			height: auto;
+			max-height: 800px;
+			overflow: visible;
+		}
+		.menu,
+		.menu li {
+			width: 100%;
+		}
+		.menu {
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		.menu > li > a {
+			color: #FFF;
+			padding: 12px 10px;
+			font-size: 1.45em;
+		}
+	}	
+}
 .menu-toggle {
 	display: block;
 	position: absolute;
 	top: 0;
-	right: 5px;
+	right: 25px;
 	width: 70px;
 	height: 100%;
 	background: transparent;
@@ -627,18 +691,24 @@ body.home .site-header {
 	float: left;
 	background: $limegreen;
 	position: relative;
-	margin-top: -30px;
+	margin-top: 30px;
+	@include mid {
+		margin-top: -30px;
+	}
 	.hashtag {
 		color: #FFF;
 		font-size: 1.5em;
 		font-weight: 600;
 		line-height: 1.3;
-		padding-left: 7%;
-    	padding-right: 7%;
+		padding-left: 30px;
+    	padding-right: 30px;
     	padding-top: 12px;
     	padding-bottom: 12px;
     	position: relative;
+    	width: 100%;
 		@include tab {
+			padding-left: 7%;
+			padding-right: 7%;
 			width: 72%;
 			float: right;
 		}
@@ -699,8 +769,10 @@ body.home .site-header {
 	.box {
 		padding: 20px;
 		text-align: center;
+		margin: 20px 0;
 		@include tab {
 			width: 33.3%;
+			margin: 0 0;
 		}
 		.inside {
 
@@ -796,6 +868,14 @@ body.home .site-header {
 	padding-bottom: 40px;
 	.wrapper {
 		position: relative;
+		@include tab {
+			padding-left: 50px;
+			padding-right: 50px;
+		}
+		@include desk {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
 	}
 	.flexrow {
 		@include flexbox-align-items(center);
@@ -808,11 +888,16 @@ body.home .site-header {
 	.photo-outer {
 		position: relative;
 		padding: 35px;
-		width: 100%;
-		float: left;
+		width: 60%;
+		float: none;
 		border-radius: 100%;
 		overflow:hidden;
 		box-shadow: inset 0px 0px 0px 2px $blue;
+		margin: 0 auto;
+		@include tab {
+			width: 100%;
+			float: left;
+		}
 	}
 	.photo {
 		width: 100%;
@@ -885,19 +970,34 @@ body.home .site-header {
 	.col.right {
 		width: 100%;
 		@include tab {
+			width: 40%;
+			padding-left: 30px;
+		}
+		@include desk {
 			width: 25%;
 		}
 	}
 	.col.left {
-		font-size: 1.8em;
+		font-size: 1.5em;
 		font-weight: 500;
 		font-style: italic;
 		width: 100%;
 		@include tab {
+			font-size: 1.5em;
+			width: 60%;
+		}
+		@include desk {
+			font-size: 1.8em;
 			width: 75%;
 		}
 		.inside {
-			padding: 20px 30px 20px 50px;
+			padding: 20px 20px;
+			@include mid {
+				padding: 20px 30px 20px 30px;
+			}
+			@include mid {
+				padding: 20px 30px 20px 50px;
+			}
 		}
 		p:first-child {
 			margin-top: 0;
@@ -915,13 +1015,20 @@ body.home .site-header {
 		width: 80px;
 		height: 80px;
 		background: transparent;
-	}
-	.owl-prev {
 		position: absolute;
-		left: -10%;
-		top: 50%;
-		transform: translateY(-50%);
+		top: 30%;
+		transform: translateY(-30%) scale(0.65);
 		z-index: 20;
+		transition: all ease-out .3s;
+		opacity: 0.45;
+		@include tab {
+			top: 50%;
+			transform: translateY(-50%) scale(0.65);
+		}
+		@include desk {
+			top: 50%;
+			transform: translateY(-50%) scale(1);
+		}
 		&:before, &:after {
 			content:"";
 			display: block;
@@ -929,6 +1036,17 @@ body.home .site-header {
 			height: 2px;
 			background: #FFF;
 			position: absolute;
+		}
+		&:hover {
+			opacity: 1;
+		}
+	}
+	.owl-prev {
+		left: -4%;
+		@include tab {
+			left: -50px;
+		}
+		&:before, &:after {
 			left: 0;
 		}
 		&:before {
@@ -936,6 +1054,175 @@ body.home .site-header {
 		}
 		&:after {
 			transform: translateY(30px) rotate(50deg);
+		}
+	}
+	.owl-next {
+		right: -4%;
+		@include tab {
+			right: -50px;
+		}
+		&:before, &:after {
+			right: 0;
+		}
+		&:before {
+			transform: translateY(-30px) rotate(50deg);
+		}
+		&:after {
+			transform: translateY(30px) rotate(-50deg);
+		}
+	}
+}
+
+.site-footer {
+	background: $navyblue;
+	color: rgba(255,255,255,.65);
+	padding: 24px 0 25px;
+	font-size: 16px;
+	.col {
+		display: inline-block;
+		padding: 3px 5%;
+	}
+	a {
+		text-decoration: none;
+		color: rgba(255,255,255,.65);
+		&:hover {
+			color: rgba(255,255,255,1);
+		}
+	}
+	.social-media {
+		a {
+			display: inline-block;
+			font-size: 25px;
+			color: rgba(255,255,255,.5);
+			margin: 0 5px;
+			position: relative;
+			top: 4px;
+			&:hover {
+				color: rgba(255,255,255,1);
+			}
+		}
+	}
+}
+
+body.subpage {
+	.sitename {
+		color: $blue;
+		margin-bottom: 10px;
+	}
+	.main-navigation .menu > li > a {
+		@include mid {
+			color: $navyblue;
+		}
+	}
+	.main-navigation .menu li.current_page_item > a, 
+	.main-navigation .menu li.current_page_item:hover > a {
+		font-weight: 600;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: 600;
+	}
+	h1 { font-size: 2.8em; }
+	h2 { font-size: 2.2em; }
+	h3 { font-size: 2em; }
+	h4 { font-size: 1.8em; }
+	h5 { font-size: 1.5em; }
+	h6 { font-size: 1.3em; }
+}
+
+.subpage-banner {
+	position: relative;
+	img.banner {
+		width: 100%;
+		height: auto;
+		float: left;
+	}
+}
+
+.content-area.default {
+	.site-main {
+		min-height: 40em;
+	}
+	.entry-content {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	.page-header {
+		margin: 0 0;
+		background: $blue;
+		color: #FFF;
+		padding: 15px 0;
+		position: relative;
+		text-align: center;
+		h1 {
+			margin: 0 0;
+			font-weight: 500;
+			font-size: 28px;
+			line-height: 1.3;
+			text-transform: uppercase;
+			position: relative;
+			span.title {
+				display: inline-block;
+				position: relative;
+				z-index: 5;
+				background: $blue;
+				padding: 0 15px;
+			}
+			span.stripe {
+				display: block;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				@include flexbox();
+				@include flexbox-wrap(wrap);
+				@include flexbox-align-items(center);
+				i {
+					display: block;
+					width: 100%;
+					height: 2px;
+					background: #FFF;
+					margin-top: 1px;
+					&:before,&:after {
+						content:"";
+						display: block;
+						width: 100%;
+						height: 2px;
+						background: #FFF;
+						position: relative;
+					}
+					&:before {
+						top: -6px;
+					}
+					&:after {
+						top: 5px
+					}
+				}
+			}
+		}
+
+	}
+}
+
+body.subpage {
+	&.hasbanner {
+		.subpage-banner {
+			top: -25px;
+		}
+		.content-area.default {
+			.page-header {
+				position: relative;
+				top: -25px;
+			}
+			.entry-content {
+				padding-top: 0;
+			}
+		}
+	}
+	&.nobanner {
+		.content-area.default {
+			position: relative;
+			top: -25px;
 		}
 	}
 }
