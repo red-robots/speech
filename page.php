@@ -1,6 +1,6 @@
 <?php 
 $banner = get_field('banner_image');
-$subtitle = get_field('subtitle');
+$subtitle = get_field('alternate_header_text');
 $pagetitle = ($subtitle) ? $subtitle : get_the_title();
 get_header(); ?>
 
