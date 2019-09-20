@@ -16,7 +16,7 @@
 			<div class="col right social-media">
 				<strong>Follow:</strong>
 				<?php foreach ($social_links as $type=>$s) { ?>
-				<span class="social"><a href="<?php echo $s['link'] ?>"><i class="<?php echo $s['icon'] ?>"></i><em class="sr"><?php echo $type ?></em></a></span>	
+				<span class="social"><a href="<?php echo $s['link'] ?>" target="_blank"><i class="<?php echo $s['icon'] ?>"></i><em class="sr"><?php echo $type ?></em></a></span>	
 				<?php } ?>
 			</div>
 			<?php } ?>
