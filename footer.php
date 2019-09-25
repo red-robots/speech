@@ -4,7 +4,8 @@
 		$email_address = get_field('email_address','option');
 		$social_links = get_social_links();
 	?>
-	<footer id="colophon" class="site-footer" role="contentinfo">
+
+	<footer id="colophon" class="site-footer clear" role="contentinfo">
 		<div class="wrapper text-center">
 			<?php if ($email_address) { ?>
 			<div class="col left">

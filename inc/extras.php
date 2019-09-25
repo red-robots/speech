@@ -45,8 +45,8 @@ if( function_exists('acf_add_options_page') ) {
 
 
 function add_query_vars_filter( $vars ) {
-  $vars[] = "pg";
-  return $vars;
+    $vars[] = "pg";
+    return $vars;
 }
 add_filter( 'query_vars', 'add_query_vars_filter' );
 
@@ -304,6 +304,17 @@ function shortenText($string, $limit, $break=".", $pad="...") {
   return $string;
 }
 
+function truncate($text, $chars = 25) {
+    if (strlen($text) <= $chars) {
+        return $text;
+    }
+    $text = $text." ";
+    $text = substr($text,0,$chars);
+    $text = substr($text,0,strrpos($text,' '));
+    $text = $text."...";
+    return $text;
+}
+
 /* Fixed Gravity Form Conflict Js */
 add_filter("gform_init_scripts_footer", "init_scripts");
 function init_scripts() {
@@ -433,4 +444,95 @@ function get_social_links() {
         }
     }
     return $social;
+}
+
+/* Add Confirmed years dynamically */
+
+function acf_some_field( $field ) {
+    //Change this to whatever data you are using.
+    $current_year = date('Y');
+    $max = 10;
+    $years = array();
+    for($i=0; $i<=$max; $i++) {
+        $yr = $current_year + $i;
+        $years[$yr] = $yr;
+    }
+
+    $field['choices'] = array();
+
+    //Loop through whatever data you are using, and assign a key/value
+    foreach($years as $field_key => $field_value) {
+        $field['choices'][$field_key] = $field_value;
+    }
+    return $field;
+}
+add_filter('acf/load_field/name=confirmed', 'acf_some_field');
+
+
+function get_faculties_terms() {
+    $taxonomies[] = array('title'=>'Event Program','taxonomy'=>'programsx','slug'=>'programs');
+    $taxonomies[] = array('title'=>'Location','taxonomy'=>'locationsx','slug'=>'locations');
+    $taxonomies[] = array('title'=>'Senior/Junior Faculty','taxonomy'=>'typesx','slug'=>'types');
+    return $taxonomies;
+}
+
+function get_taxonomies_faculties() {
+    $taxonomies = get_faculties_terms();
+    $taxlist = array();
+    $post_type = ( isset($_GET['cpt']) && $_GET['cpt'] ) ? $_GET['cpt'] : '';
+    foreach($taxonomies as $tax) {
+        $taxonomy = $tax['taxonomy'];
+        if( isset($_GET[$taxonomy]) && $_GET[$taxonomy] ) {
+            $term_id = ( is_numeric($_GET[$taxonomy]) ) ? $_GET[$taxonomy] : '';
+            $queries[$taxonomy] = $_GET[$taxonomy];
+            if($term_id) {
+                $taxlist[] = array(
+                    'taxonomy' => $taxonomy,
+                    'field'    => 'term_id',
+                    'terms'    => array($term_id),
+                );
+            }
+            
+        }
+    }
+    return $taxlist;
+}
+
+function get_filtered_faculties($paged=1) {
+    global $wpdb;
+    $result = '';
+    $taxonomies = get_faculties_terms();
+    $queries = array();
+    $post_type = ( isset($_GET['cpt']) && $_GET['cpt'] ) ? $_GET['cpt'] : '';
+    $posts_per_page = ( isset($_GET['perpage']) && $_GET['perpage'] ) ? $_GET['perpage'] : 20;
+    $taxlist = get_taxonomies_faculties();
+
+    if($post_type && $taxlist) {
+        $args = array(
+            'posts_per_page'=> $posts_per_page,
+            'post_type'     => $post_type,
+            'tax_query'     => array($taxlist),
+            'post_status'   => 'publish',
+            'orderby'       => 'date',
+            'order'         => 'DESC',
+            'suppress_filters' => true,
+            'paged'         => $paged
+        );
+
+        $args2 = array(
+            'posts_per_page'=> -1,
+            'post_type'     => $post_type,
+            'tax_query'     => array($taxlist),
+            'post_status'   => 'publish'
+        );
+
+        $posts = get_posts($args2);
+        $total = ($posts) ? count($posts) : 0;
+        $result = new WP_Query($args);
+        if( $result->have_posts() ) {
+            $result->total_items_found = $total;
+        }
+    }
+
+    return $result;
 }

@@ -167,13 +167,12 @@ function set_custom_cpt_columns($columns) {
     $query = isset($wp_query->query) ? $wp_query->query : '';
     $post_type = ( isset($query['post_type']) ) ? $query['post_type'] : '';
     
-    
     if($post_type=='team') {
         unset( $columns['date'] );
         $columns['photo'] = __( 'Photo', 'bellaworks' );
         $columns['date'] = __( 'Date', 'bellaworks' );
     }
-    
+
     return $columns;
 }
 
