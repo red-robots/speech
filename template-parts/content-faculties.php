@@ -44,6 +44,7 @@ if($queried) {
 }
 
 $total_found = ( isset($faculties->total_items_found) ) ? $faculties->total_items_found : 0; 
+$message_to_faculty = get_field('message_to_faculty');
 
 ?>
 <section class="section clear faculties">
@@ -143,7 +144,7 @@ $total_found = ( isset($faculties->total_items_found) ) ? $faculties->total_item
 												}
 												?>
 												<div class="boxinfo <?php echo $div_class ?>">
-													<a class="link" href="<?php echo get_permalink(); ?>">
+													<a data-href="<?php echo get_permalink(); ?>" class="link facultydata" data-postid="<?php echo $pid ?>">
 														<span class="inside clear"<?php echo $stylePic ?>>
 															<img class="px" src="<?php echo $portrait ?>" alt="" aria-hidden="true" />
 															<?php if (!$headshot) { ?>

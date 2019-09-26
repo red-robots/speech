@@ -6,6 +6,9 @@
 $banner = get_field('banner_image');
 $subtitle = get_field('alternate_header_text');
 $pagetitle = ($subtitle) ? $subtitle : get_the_title();
+//$data = ajax_get_page_content(183);
+
+
 get_header(); ?>
 
 	<div id="primary" class="content-area default">

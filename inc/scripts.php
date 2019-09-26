@@ -25,6 +25,10 @@ function bellaworks_scripts() {
 			true 
 		);
 
+	wp_localize_script( 'bellaworks-custom', 'frontajax', array(
+		'ajaxurl' => admin_url( 'admin-ajax.php' )
+	));
+
 	wp_enqueue_script( 
 		'font-awesome', 
 		'https://use.fontawesome.com/8f931eabc1.js', 

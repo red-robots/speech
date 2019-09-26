@@ -110,4 +110,58 @@ jQuery(document).ready(function ($) {
 		},800);
 	});
 
+	$( window ).resize(function() {
+	  show_popup_close_button();
+	});
+
+	//show_popup_close_button();
+	function show_popup_close_button() {
+		if( $(".ajax_contentdiv").length ) {
+			var closePos = $(".ajax_contentdiv").position();
+			$(".popclose").css('top',closePos.top + 'px');
+		}
+	}
+
+	$(document).on("click",".facultydata",function(e){
+		e.preventDefault();
+		var postid = $(this).attr('data-postid');
+		$.ajax({
+			url : frontajax.ajaxurl,
+			type : 'post',
+			dataType : "json",
+			data : {
+				action : 'get_the_page_content',
+				postid : postid
+			},
+			beforeSend:function(){
+				$("#loaderdiv").addClass("show");
+			},
+			success : function( response ) {
+				if(response.content) {
+					var content = response.content;
+					setTimeout(function(){
+						$('body').append(content);
+						$('body').addClass('modal-open');
+						$("#detailsPage").addClass('fadeIn');
+						$("#loaderdiv").removeClass("show");
+						show_popup_close_button();
+					},500);
+				} 
+			}
+		});
+	});
+
+	$(document).on("click","#closepopup",function(e){
+		e.preventDefault();
+		$(".popupwrapper").remove();
+		$('body').removeClass('modal-open');
+	});
+
+	$(document).keyup(function(e) {
+		if( $(".popupwrapper").length ) {
+			$(".popupwrapper").remove();
+			$('body').removeClass('modal-open');
+		}
+	});
+
 });// END #####################################    END

@@ -24,6 +24,7 @@
 		</div><!-- wrapper -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
+<div id="loaderdiv"><div class="loader"><span class="loadtxt">Loading...</span></div></div>
 
 <?php wp_footer(); ?>
 <?php if ( is_front_page() || is_home() ) { ?>

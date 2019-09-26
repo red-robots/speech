@@ -536,3 +536,114 @@ function get_filtered_faculties($paged=1) {
 
     return $result;
 }
+
+/* Get Faculty Details via Ajax */
+add_action( 'wp_ajax_nopriv_get_the_page_content', 'get_the_page_content' );
+add_action( 'wp_ajax_get_the_page_content', 'get_the_page_content' );
+function get_the_page_content() {
+    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        $postid = ($_POST['postid']) ? $_POST['postid'] : '';
+        $html = ajax_get_page_content($postid);
+        $response['content'] = $html;
+        echo json_encode($response);
+    }
+    else {
+        header("Location: ".$_SERVER["HTTP_REFERER"]);
+    }
+    die();
+}
+
+
+function ajax_get_page_content($postid=null) {
+    global $wpdb;
+    if(empty($postid)) return '';
+    $content = '';
+    $result = $wpdb->get_row( "SELECT * FROM {$wpdb->prefix}posts WHERE ID=".$postid." AND post_status = 'publish'", OBJECT );
+    if($result) { 
+        ob_start(); 
+        $page_title = $result->post_title;
+        $content = $result->post_content;
+        $page_content = apply_filters('the_content', $content);
+        $headshot = get_field('headshot',$postid);
+        $position = get_field('position',$postid);
+        $programs = get_the_terms($postid,'programsx');
+        $program_list = '';
+        if($programs) {
+            $p=1; foreach($programs as $p) {
+                $prog = $p->name;
+                $split = ($p>1) ? ', ':'';
+                $program_list .= $split . $prog;
+                $p++;
+            }
+        }
+        if(empty($position)) {
+            $programs = $program_list;
+        }
+        $current_school = get_field('current_school',$postid);
+        if($current_school) {
+            if($position) {
+                $position .= ' <span class="vt">|</span> ' . $current_school;
+            } else {
+                $position  = $current_school;
+            }
+        }
+        $locations = get_the_terms($postid,'locationsx');
+        $isd_locations = '';
+        if($locations) {
+            $n=1; foreach($locations as $e) {
+                $locname = $e->name;
+                $split = ($n>1) ? ' / ':'';
+                $isd_locations .= $split . 'ISD: ' . $locname;
+                $n++;
+            }
+        }
+        $confirmed = get_field('confirmed',$postid);
+        ?>
+
+        <div id="detailsPage" class="popupwrapper animated">
+            <div class="maincontent clear animated fadeIn">
+                <div class="popclose"><div class="mid"><a href="#" id="closepopup"><span>x</span></a></div></div>
+                <div class="inner clear">
+                    <div class="textwrap clear ajax_contentdiv">
+                        <span id="closeplacement" style="visibility:hidden;"><i>x</i></span>
+                        <div class="textcontent full">
+                            <header class="headertitle">
+                                <h1 class="ptitle"><?php echo $page_title;?></h1>
+                                <?php if ($position) { ?>
+                                <div class="position"><?php echo $position ?></div> 
+                                <?php } ?>
+                                <?php if ($isd_locations) { ?>
+                                <div class="otherinfo"><?php echo $isd_locations ?></div> 
+                                <?php } ?>
+                                <?php if ($confirmed) { ?>
+                                <div class="otherinfo">*Confirmed for <?php echo $confirmed ?></div> 
+                                <?php } ?>
+                            </header>
+                            <div class="content-left <?php echo ($headshot) ? 'haspic':'nopic';?>">
+                                <?php echo $page_content;?>
+
+                                <?php if( current_user_can('edit_others_pages') ) {  ?>
+                                    <p class="admin-edit"><a class="post-edit" href="<?php echo get_edit_post_link($postid); ?>">Edit</a></p>
+                                <?php } ?>
+                            </div>
+
+                            <?php if ($headshot) { ?>
+                            <div class="content-right">
+                                <img src="<?php echo $headshot['url'] ?>" alt="<?php echo $headshot['title'] ?>">
+                            </div> 
+                            <?php } ?>
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php 
+        $content = ob_get_contents();
+        ob_end_clean();
+    }
+    return $content;
+}
+
+
