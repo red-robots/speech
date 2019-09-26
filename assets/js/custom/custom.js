@@ -145,7 +145,7 @@ jQuery(document).ready(function ($) {
 						$("#detailsPage").addClass('fadeIn');
 						$("#loaderdiv").removeClass("show");
 						show_popup_close_button();
-					},500);
+					},200);
 				} 
 			}
 		});
