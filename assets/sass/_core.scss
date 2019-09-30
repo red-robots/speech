@@ -23,6 +23,13 @@ pre {
 a,button,input[type="submit"] {
 	transition: all ease-out .3s;
 }
+a {
+	text-decoration: none;
+	color: $color_link;
+	&:hover {
+		color: $color_link_hover;
+	}
+}
 .clear:before, .clear:after { content: " "; display: table; }
 .clear { *zoom: 1; } .clear {clear: both;}
 .text-center {text-align:center;}
@@ -76,10 +83,8 @@ body {
 	padding-right: 20px;
 }
 .flexrow {
+	@include flexgroup();
 	position: relative;
-	@include flexbox();
-	@include flexbox-wrap(wrap);
-	@include flexbox-direction(row);
 }
 .site {
 	position: relative;
@@ -1153,7 +1158,7 @@ body.subpage {
 
 .subpage-banner {
 	position: relative;
-	min-height: 400px;
+	min-height: 200px;
 	background: #CCC;
 	img.banner {
 		width: 100%;
@@ -1240,6 +1245,7 @@ body.subpage {
 			.page-header {
 				position: relative;
 				top: -25px;
+				z-index: 10;
 			}
 			.entry-content {
 				padding-top: 0;
@@ -1898,4 +1904,119 @@ body.admin-bar .popupwrapper {
 	border: 1px solid #1f79ea;
 	display: inline-block;
 	padding: 3px 15px;
+}
+
+.midwrap {
+	max-width: 950px;
+	width: 100%;
+	padding-left: 30px;
+	padding-right: 30px;
+	p:first-child {
+		margin-top: 0;
+	}
+}
+.bluepattern {
+	background-image:url('images/patternBlue.png');
+	background-position: top center;
+	background-repeat: repeat;
+	background-color: $navyblue;
+	color: #FFF;
+}
+.fulldiv {
+	position: relative;
+	width: 100%;
+	float: left;
+	&:before {
+		content:"";
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-image:url('images/patternBlue.png');
+		background-position: top center;
+		background-repeat: repeat;
+		background-color: $navyblue;
+		position: absolute;
+		top: -45px;
+		left: 0;
+	}
+	.textwrap {
+		position: relative;
+		z-index: 5;
+		padding-top: 40px;
+		padding-bottom: 40px;
+		text-align: center;
+	}
+}
+.text-image-block {
+	.fcol {
+		position: relative;
+		width: 100%;
+		@include tab {
+			width: 50%;
+		}
+	}
+	.imagecol {
+		background-size:cover;
+		background-position: top center;
+		background-repeat: no-repeat;
+		background-color: #CCC;
+		height: 100%;
+	}
+	.imagecol img {
+		width: 100%;
+		height: 100%;
+	}
+	.textcol {
+		@include flexgroup();
+		@include flexbox-align-items(center);
+		.inside {
+			padding: 30px;
+			@include tab {
+				padding: 5% 10%;
+			}
+		}
+	}
+	.textrow.odd .flexrow {
+		flex-direction: row-reverse;
+	}
+	.hd2 {
+		margin: 0 0;
+		color: $navyblue;
+	}
+
+}
+.bottom-section {
+	&.green {
+		background: $limegreen;
+		color: $navyblue;
+	}
+	.midwrap {
+		max-width: 680px;
+		padding-top: 30px;
+		padding-bottom: 35px;
+	}
+	.text {
+		font-size: 1.5em;
+		line-height: 1.2;
+		@include tab {
+			font-size: 1.8em;
+		}
+	}
+	.buttondiv {
+		margin-top: 15px;
+	}
+}
+
+.btnWhite {
+	text-decoration: none;
+	display: inline-block;
+	padding: 6px 30px 8px;
+	font-size: 16px;
+	line-height: 1.2;
+	background: #FFF;
+	color: $navyblue;
+	&:hover {
+		background: $navyblue;
+		color: #FFF;
+	}
 }

@@ -1,6 +1,6 @@
-$color_link: royalblue;
-$color_link_visited: purple;
-$color_link_hover: midnightblue;
+$color_link: #4099cd;
+$color_link_visited: #6ae2f8;
+$color_link_hover: #7de6fd;
 $color_text_main: #404040;
 $limegreen: #a6d339;
 $brightgreen: #b4e836;
@@ -87,9 +87,18 @@ $deskwidth: 1200px;
 	-webkit-flex-direction: $value;
 	flex-direction: $value;
   }
+
+@mixin flexgroup() {
+	@include flexbox();
+	@include flexbox-wrap(wrap);
+	@include flexbox-direction(row);
+}
+
   @mixin translatexy($value1,$value2){
 	-ms-transform: translateX($value1) translateY($value2);
 	-moz-transform: translateX($value1) translateY($value2);
 	-webkit-transform: translateX($value1) translateY($value2);
 	transform: translateX($value1) translateY($value2);
   }
+
+

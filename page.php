@@ -12,7 +12,7 @@ get_header(); ?>
 					<div class="wrapper">
 						<h1 class="page-title">
 							<span class="title"><?php echo $pagetitle; ?></span>
-							<span class="stripe"><i></span></span>
+							<span class="stripe"><i></i></span></span>
 						</h1>
 					</div>
 				</header>
