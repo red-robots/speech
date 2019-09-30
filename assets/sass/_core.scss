@@ -1489,6 +1489,9 @@ body.subpage .section {
 			float: left;
 			&.confirm {
 				text-align: right;
+				@include tab {
+					float: right;
+				}
 			}
 		}
 	}
