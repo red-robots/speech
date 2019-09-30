@@ -1957,7 +1957,7 @@ body.admin-bar .popupwrapper {
 	}
 	.imagecol {
 		background-size:cover;
-		background-position: top center;
+		background-position: center;
 		background-repeat: no-repeat;
 		background-color: #CCC;
 		height: 100%;
@@ -1970,7 +1970,7 @@ body.admin-bar .popupwrapper {
 		@include flexgroup();
 		@include flexbox-align-items(center);
 		.inside {
-			padding: 30px;
+			padding: 40px 30px;
 			@include tab {
 				padding: 5% 10%;
 			}
