@@ -2039,14 +2039,18 @@ body.subpage .sitename{color:#4099cd;margin-bottom:10px}
 @media(min-width:900px){body.subpage .main-navigation .menu>li>a{color:#052843}
 }body.subpage .main-navigation .menu li.current_page_item>a,body.subpage .main-navigation .menu li.current_page_item:hover>a{font-weight:600}
 body.subpage h1,body.subpage h2,body.subpage h3,body.subpage h4,body.subpage h5,body.subpage h6{font-weight:600;font-style:normal}
-body.subpage h1{font-size:2.8em}
-body.subpage h2{font-size:2.2em}
-body.subpage h3{font-size:2em}
-body.subpage h4{font-size:1.8em}
+body.subpage h1{font-size:2.5em}
+@media(min-width:768px){body.subpage h1{font-size:2.8em}
+}body.subpage h2{font-size:1.85em}
+@media(min-width:768px){body.subpage h2{font-size:2.2em}
+}body.subpage h3{font-size:1.8em}
+@media(min-width:768px){body.subpage h3{font-size:2em}
+}body.subpage h4{font-size:1.8em}
 body.subpage h5{font-size:1.5em}
 body.subpage h6{font-size:1.3em}
-.subpage-banner{position:relative;min-height:200px;background:#CCC}
-.subpage-banner img.banner{width:100%;height:auto;float:left}
+.subpage-banner{position:relative;background:#CCC}
+@media(min-width:900px){.subpage-banner{min-height:200px}
+}.subpage-banner img.banner{width:100%;height:auto;float:left}
 .content-area,.entry-content{font-style:normal}
 .content-area.default .site-main{min-height:40em}
 .content-area.default .entry-content{padding-top:30px;padding-bottom:30px}
@@ -2058,8 +2062,8 @@ body.subpage h6{font-size:1.3em}
 .content-area.default .page-header h1 span.stripe i:before,.content-area.default .page-header h1 span.stripe i:after{content:"";display:block;width:100%;height:2px;background:#FFF;position:relative}
 .content-area.default .page-header h1 span.stripe i:before{top:-6px}
 .content-area.default .page-header h1 span.stripe i:after{top:5px}
-body.subpage.hasbanner .subpage-banner{top:-25px}
-body.subpage.hasbanner .content-area.default .page-header{position:relative;top:-25px;z-index:10}
+@media(min-width:768px){body.subpage.hasbanner .subpage-banner{top:-25px}
+}body.subpage.hasbanner .content-area.default .page-header{position:relative;top:-25px;z-index:10}
 body.subpage.hasbanner .content-area.default .entry-content{padding-top:0}
 body.subpage.nobanner .content-area.default{position:relative;top:-25px}
 .content-area{font-size:18px;line-height:1.5;position:relative}
@@ -2073,8 +2077,9 @@ body.subpage.nobanner .content-area.default{position:relative;top:-25px}
 }.entry-content.twocol .flexrow{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .entry-content .col{position:relative;z-index:2}
 @media(min-width:900px){.entry-content .stitlecol{width:25%;float:left;padding-right:20px}
-}.entry-content .stitlecol h2{margin:0;color:#052843;font-size:2.1em;font-weight:500;line-height:1.1;display:inline}
-@media(min-width:900px){.entry-content .intro.col{width:75%;float:left;padding-left:20px}
+}.entry-content .stitlecol h2{margin:0 0 15px;color:#052843;font-size:1.8em;font-weight:500;line-height:1.1;display:block}
+@media(min-width:768px){.entry-content .stitlecol h2{font-size:2.1em;display:inline;margin:0}
+}@media(min-width:900px){.entry-content .intro.col{width:75%;float:left;padding-left:20px}
 }.entry-content .intro p{margin-top:0}
 .entry-content .intro p:last-child{margin-bottom:0}
 .message-faculty{width:100%;float:left;margin-top:30px;color:#052843;font-size:.85em;font-weight:500;font-style:italic}
@@ -2085,8 +2090,8 @@ body.subpage .section h2.notfound{font-size:1.5em;margin-top:30px}
 body.subpage .section h2.notfound a.reset{text-decoration:none;font-size:.65em;display:inline-block;padding:5px 10px;background:#a6d339;position:relative;top:-3px;margin-left:10px;color:#333}
 .postslist{position:relative}
 .postslist .posts-inner{margin:0 -5px}
-.postslist .boxinfo{width:100%;padding:5px;box-sizing:border-box}
-@media(min-width:768px){.postslist .boxinfo{width:50%}
+.postslist .boxinfo{width:100%;padding:5px;box-sizing:border-box;margin-bottom:15px}
+@media(min-width:768px){.postslist .boxinfo{width:50%;margin-bottom:0}
 }@media(min-width:900px){.postslist .boxinfo{width:25%}
 }.postslist .inside{display:block;background-color:#dadada;background-size:cover;background-repeat:no-repeat;background-position:center;width:100%;float:left;overflow:hidden;position:relative;-webkit-transition:all ease .3s;transition:all ease .3s}
 .postslist img.px{width:100%;height:auto;float:left}
@@ -2103,10 +2108,11 @@ body.subpage .section h2.notfound a.reset{text-decoration:none;font-size:.65em;d
 .postslist .position{font-style:italic;font-weight:400;font-size:.75em;line-height:1.2}
 .postslist .noimage{display:block;width:100%;height:100%;float:left;position:absolute;top:0;left:0;background-image:url("images/photo-coming.png");background-size:90%;background-position:bottom center;background-repeat:no-repeat}
 .section.faculties{padding-bottom:80px;position:relative}
-.faculties-posts{margin-top:30px}
-.faculty-terms{max-width:900px;width:100%;margin:25px auto 20px}
-.faculty-terms .termbox{box-sizing:border-box;padding:0 15px}
-@media(min-width:768px){.faculty-terms .termbox{width:33.3%}
+.faculties-posts{margin-top:0}
+@media(min-width:768px){.faculties-posts{margin-top:30px}
+}.faculty-terms{max-width:900px;width:100%;margin:25px auto 20px}
+.faculty-terms .termbox{box-sizing:border-box;padding:0 15px;width:100%;margin-bottom:15px}
+@media(min-width:768px){.faculty-terms .termbox{width:33.3%;margin-bottom:0}
 }.faculty-terms .termbox label{display:block;width:100%;font-weight:500;font-size:16px;line-height:1.2;margin-bottom:5px}
 .faculty-terms .termbox select{width:100%;height:33px;line-height:33px}
 .select2-container{display:block;width:100% !important;border-radius:0}
