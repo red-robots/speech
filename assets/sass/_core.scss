@@ -2123,3 +2123,77 @@ body.admin-bar .popupwrapper {
 		margin-top: 0;
 	}
 }
+
+.error-404 {
+	min-height: 35em;
+	@include tab {
+		min-height: 35em;
+	}
+	.site-main {
+		padding-top: 15%;
+		padding-bottom: 5%;
+		@include tab {
+			padding-top: 8%;
+			padding-bottom: 5%;
+		}
+	}
+	.page-title {
+		color: $navyblue;
+		margin: 0 0 15px;
+		font-size: 2em;
+		line-height: 1.2;
+		@include tab {
+			font-size: 2.5em;
+			margin: 0 0;
+		}
+	}
+	.warning-icon .iconw {
+		font-size: 5em;
+		color: #e4e4e4;
+	}
+	p {
+		margin-top: 0;
+		margin-bottom: 15px;
+	}
+}
+.sitemapMenu {
+	text-align: center;
+	margin-top: 20px;
+	.sitemapnav {
+		display: inline-block;
+		width: auto;
+		@include tab { 
+			max-width: 400px;
+			width: 100%;
+		}
+	}
+	ul {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+		text-align: left;
+		li {
+			position: relative;
+		}
+	}
+	.menu {
+  		@include tab { 
+  			column-count: 2;
+  			column-gap: 40px;
+  		}
+  		li {
+  			padding-left: 12px;
+			&:before {
+				content:"";
+				display: block;
+				width: 5px;
+				height: 5px;
+				background: $blue;
+				position: absolute;
+				top: 11px;
+				left: 0;
+			}
+  		}
+	}
+}
+
