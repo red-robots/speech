@@ -2212,9 +2212,9 @@ body.admin-bar .popupwrapper #closepopup{top:56px}
 .whyus-info #block2 .icondiv .icon{background-size:90%}
 .whyus-info .ptitle{color:#052843;font-size:1.75em;font-weight:600;line-height:1.2;margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid #a6d339}
 .whyus-info p:first-child{margin-top:0}
+.defaultpage{min-height:35em}
 .error-404{min-height:35em}
-@media(min-width:768px){.error-404{min-height:35em}
-}.error-404 .site-main{padding-top:15%;padding-bottom:5%}
+.error-404 .site-main{padding-top:15%;padding-bottom:5%}
 @media(min-width:768px){.error-404 .site-main{padding-top:8%;padding-bottom:5%}
 }.error-404 .page-title{color:#052843;margin:0 0 15px;font-size:2em;line-height:1.2}
 @media(min-width:768px){.error-404 .page-title{font-size:2.5em;margin:0}

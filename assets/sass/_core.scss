@@ -2123,12 +2123,12 @@ body.admin-bar .popupwrapper {
 		margin-top: 0;
 	}
 }
+.defaultpage {
+	min-height: 35em;
+}
 
 .error-404 {
 	min-height: 35em;
-	@include tab {
-		min-height: 35em;
-	}
 	.site-main {
 		padding-top: 15%;
 		padding-bottom: 5%;
