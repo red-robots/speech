@@ -1202,6 +1202,9 @@ body.subpage {
 		padding: 15px 0;
 		position: relative;
 		text-align: center;
+		@include mid {
+			padding: 25px 0;
+		}
 		h1 {
 			margin: 0 0;
 			font-weight: 500;
@@ -1980,8 +1983,10 @@ body.admin-bar .popupwrapper {
 		padding-top: 40px;
 		padding-bottom: 40px;
 		text-align: center;
+		font-size: 1.2em;
 	}
 }
+
 .text-image-block {
 	.fcol {
 		position: relative;
@@ -2053,5 +2058,68 @@ body.admin-bar .popupwrapper {
 	&:hover {
 		background: $navyblue;
 		color: #FFF;
+	}
+}
+.whyus-info {
+	.textrow {
+		width: 100%;
+		padding: 30px 30px;
+		margin: 0 0;
+		@include tab {
+			width: 50%;
+			margin: 10px 0;
+			padding-bottom: 30px;
+			padding-top: 30px;
+		}
+		&.odd .inside {
+			@include tab {
+				padding-right: 15%;
+			}
+		}
+		&.even .inside {
+			@include tab {
+				padding-left: 15%;
+			}
+		}
+	}
+	.icondiv {
+		text-align: center;
+		@include tab {
+			margin-bottom: 10px;
+		}
+		.icon {
+			display: inline-block;
+			background-size: 70%;
+			background-position: center;
+			background-repeat: no-repeat;
+			width: 150px;
+			height: 150px;
+			@include tab {
+				width: 200px;
+				height: 200px;
+			}
+		}
+		img {
+			width: 100%;
+			height: auto;
+			visibility: hidden;
+		}
+	}
+	#block2 .icondiv {
+		.icon {
+			background-size: 90%;
+		}
+	}
+	.ptitle {
+		color: $navyblue;
+		font-size: 1.75em;
+		font-weight: 600;
+		line-height: 1.2;
+		margin: 0 0 10px;
+		padding-bottom: 8px;
+		border-bottom: 1px solid $limegreen;
+	}
+	p:first-child {
+		margin-top: 0;
 	}
 }

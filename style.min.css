@@ -2055,7 +2055,8 @@ body.subpage h6{font-size:1.3em}
 .content-area.default .site-main{min-height:40em}
 .content-area.default .entry-content{padding-top:30px;padding-bottom:30px}
 .content-area.default .page-header{margin:0;background:#4099cd;color:#FFF;padding:15px 0;position:relative;text-align:center}
-.content-area.default .page-header h1{margin:0;font-weight:500;font-size:28px;line-height:1.3;text-transform:uppercase;position:relative}
+@media(min-width:900px){.content-area.default .page-header{padding:25px 0}
+}.content-area.default .page-header h1{margin:0;font-weight:500;font-size:28px;line-height:1.3;text-transform:uppercase;position:relative}
 .content-area.default .page-header h1 span.title{display:inline-block;position:relative;z-index:5;background:#4099cd;padding:0 15px}
 .content-area.default .page-header h1 span.stripe{display:block;width:100%;height:100%;position:absolute;top:0;left:0;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .content-area.default .page-header h1 span.stripe i{display:block;width:100%;height:2px;background:#FFF;margin-top:1px}
@@ -2182,7 +2183,7 @@ body.admin-bar .popupwrapper #closepopup{top:56px}
 .bluepattern{background-image:url("images/patternBlue.png");background-position:top center;background-repeat:repeat;background-color:#052843;color:#FFF}
 .fulldiv{position:relative;width:100%;float:left}
 .fulldiv:before{content:"";display:block;width:100%;height:100%;background-image:url("images/patternBlue.png");background-position:top center;background-repeat:repeat;background-color:#052843;position:absolute;top:-45px;left:0}
-.fulldiv .textwrap{position:relative;z-index:5;padding-top:40px;padding-bottom:40px;text-align:center}
+.fulldiv .textwrap{position:relative;z-index:5;padding-top:40px;padding-bottom:40px;text-align:center;font-size:1.2em}
 .text-image-block .fcol{position:relative;width:100%}
 @media(min-width:768px){.text-image-block .fcol{width:50%}
 }.text-image-block .imagecol{background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#CCC;height:100%}
@@ -2199,3 +2200,15 @@ body.admin-bar .popupwrapper #closepopup{top:56px}
 }.bottom-section .buttondiv{margin-top:15px}
 .btnWhite{text-decoration:none;display:inline-block;padding:6px 30px 8px;font-size:16px;line-height:1.2;background:#FFF;color:#052843}
 .btnWhite:hover{background:#052843;color:#FFF}
+.whyus-info .textrow{width:100%;padding:30px 30px;margin:0}
+@media(min-width:768px){.whyus-info .textrow{width:50%;margin:10px 0;padding-bottom:30px;padding-top:30px}
+}@media(min-width:768px){.whyus-info .textrow.odd .inside{padding-right:15%}
+}@media(min-width:768px){.whyus-info .textrow.even .inside{padding-left:15%}
+}.whyus-info .icondiv{text-align:center}
+@media(min-width:768px){.whyus-info .icondiv{margin-bottom:10px}
+}.whyus-info .icondiv .icon{display:inline-block;background-size:70%;background-position:center;background-repeat:no-repeat;width:150px;height:150px}
+@media(min-width:768px){.whyus-info .icondiv .icon{width:200px;height:200px}
+}.whyus-info .icondiv img{width:100%;height:auto;visibility:hidden}
+.whyus-info #block2 .icondiv .icon{background-size:90%}
+.whyus-info .ptitle{color:#052843;font-size:1.75em;font-weight:600;line-height:1.2;margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid #a6d339}
+.whyus-info p:first-child{margin-top:0}
