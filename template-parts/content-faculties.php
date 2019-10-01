@@ -59,6 +59,7 @@ $message_to_faculty = get_field('message_to_faculty');
 				<?php if ($all_terms) { ?>
 				<div class="faculty-terms clear">
 					<form action="" method="get" id="facultyfilter">
+						<!-- <input type="hidden" name="pg" id="currentPage" value="<?php //echo $paged ?>"> -->
 						<div class="flexrow">
 							<?php foreach ($all_terms as $tm) { 
 								$term_label = $tm['title'];

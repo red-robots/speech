@@ -9,6 +9,7 @@ jQuery(document).ready(function ($) {
 
 	/* Select Style */
 	$(".selectstyle").select2();
+	$(".contactform select").select2();
 	
 	/*
 	*
@@ -93,6 +94,7 @@ jQuery(document).ready(function ($) {
 
 	$(document).on("change","#facultyfilter select",function(){
 		var opt = $(this).val();
+		var currentPage = $("input#currentPage").val();
 		$("#facultyfilter").trigger("submit");
 	});
 

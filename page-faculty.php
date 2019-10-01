@@ -6,11 +6,12 @@
 $banner = get_field('banner_image');
 $subtitle = get_field('alternate_header_text');
 $pagetitle = ($subtitle) ? $subtitle : get_the_title();
+$currentPg = ( isset($_GET['pg']) && $_GET['pg'] ) ? $_GET['pg'] : 1;
 //$data = ajax_get_page_content(183);
 
 
 get_header(); ?>
-
+	
 	<div id="primary" class="content-area default">
 		<main id="main" class="site-main" role="main">
 

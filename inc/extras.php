@@ -499,3 +499,23 @@ function parse_external_url( $url = '', $internal_class = 'internal-link', $exte
 
     return $output;
 }
+
+function inline_cta_button( $atts ) {
+    
+    $atts = shortcode_atts( array(
+        'post' => '-1',
+    ), $atts, 'call-to-action-button' );
+
+    $postid = $atts['post'];
+
+    $button_text = get_field('button_text',$postid); 
+    $button_link = get_field('button_link',$postid); 
+    $cta_button = '';
+    if($button_text && $button_link) {
+        $parts = parse_external_url($button_link,'internal','external');
+        $cta_button = '<a href="'.$parts['url'].'" target="'.$parts['target'].'" class="ctaBtnGreen full '.$parts['class'].'">'.$button_text.'</a>';
+    }
+    return $cta_button;
+}
+add_shortcode( 'call-to-action-button', 'inline_cta_button' );
+
