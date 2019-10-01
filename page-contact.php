@@ -21,19 +21,29 @@ get_header(); ?>
 						</h1>
 					</div>
 				</header>
-
+				
+				<?php  
+					$main_content = ( get_the_content() ) ?  email_obfuscator( get_the_content() ) : '';
+					$the_content = ( $main_content ) ? apply_filters('the_content',$main_content) : '';
+				?>
+				<?php if ($main_content) { ?>
 				<div class="fulldiv bluepattern">
 					<div class="midwrap clear textwrap">
-						<?php the_content(); ?>
+						<?php echo $the_content; ?>
 					</div>
 				</div>
+				<?php } ?>
 
 				<?php 
 				$section_title = get_field('section_title'); 
 				$careers_description = get_field('careers_description'); 
+				$careers_description = ( $careers_description ) ?  email_obfuscator( $careers_description ) : '';
 				$careers_details = get_field('careers_details'); 
+				$careers_details = ( $careers_details ) ?  email_obfuscator( $careers_details ) : '';
+
 				$button_text = get_field('button_text'); 
 				$button_link = get_field('button_link'); 
+
 				?>
 				
 				<?php if ($careers_description || $careers_details) { ?>
