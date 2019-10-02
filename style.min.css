@@ -2215,8 +2215,10 @@ body.subpage.page-template-page-contact .fulldiv .textwrap{padding-top:30px;padd
 .btnWhite:hover{background:#052843;color:#FFF}
 .whyus-info .textrow{width:100%;padding:30px 30px;margin:0}
 @media(min-width:768px){.whyus-info .textrow{width:50%;margin:10px 0;padding-bottom:30px;padding-top:30px}
-}@media(min-width:768px){.whyus-info .textrow.odd .inside{padding-right:15%}
-}@media(min-width:768px){.whyus-info .textrow.even .inside{padding-left:15%}
+}@media(min-width:768px){.whyus-info .textrow.odd .inside{padding-right:5px}
+}@media(min-width:900px){.whyus-info .textrow.odd .inside{padding-right:5%}
+}@media(min-width:768px){.whyus-info .textrow.even .inside{padding-left:5px}
+}@media(min-width:900px){.whyus-info .textrow.even .inside{padding-left:5%}
 }.whyus-info .icondiv{text-align:center}
 @media(min-width:768px){.whyus-info .icondiv{margin-bottom:10px}
 }.whyus-info .icondiv .icon{display:inline-block;background-size:70%;background-position:center;background-repeat:no-repeat;width:150px;height:150px}

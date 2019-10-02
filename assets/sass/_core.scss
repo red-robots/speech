@@ -2143,12 +2143,18 @@ body.subpage.page-template-page-contact {
 		}
 		&.odd .inside {
 			@include tab {
-				padding-right: 15%;
+				padding-right: 5px;
+			}
+			@include mid {
+				padding-right: 5%;
 			}
 		}
 		&.even .inside {
 			@include tab {
-				padding-left: 15%;
+				padding-left: 5px;
+			}
+			@include mid {
+				padding-left: 5%;
 			}
 		}
 	}
