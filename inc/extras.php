@@ -401,6 +401,10 @@ function ajax_get_page_content($postid=null) {
                 $n++;
             }
         }
+
+        if(empty($position)) {
+            $position = $program_list;
+        }
         $confirmed = get_field('confirmed',$postid);
         ?>
 
@@ -413,15 +417,18 @@ function ajax_get_page_content($postid=null) {
                         <div class="textcontent full">
                             <header class="headertitle">
                                 <h1 class="ptitle"><?php echo $page_title;?></h1>
-                                <?php if ($position) { ?>
-                                <div class="position"><?php echo $position ?></div> 
-                                <?php } ?>
-                                <?php if ($isd_locations) { ?>
-                                <div class="otherinfo"><?php echo $isd_locations ?></div> 
-                                <?php } ?>
-                                <?php if ($confirmed) { ?>
-                                <div class="otherinfo">*Confirmed for <?php echo $confirmed ?></div> 
-                                <?php } ?>
+                                <div class="programinfo">
+                                    <?php if ($position) { ?>
+                                    <div class="position"><?php echo $position ?></div> 
+                                    <?php } ?>
+                                    <?php if ($isd_locations) { ?>
+                                    <div class="otherinfo"><?php echo $isd_locations ?></div> 
+                                    <?php } ?>
+                                    <?php if ($confirmed) { ?>
+                                    <div class="otherinfo">*Confirmed for <?php echo $confirmed ?></div> 
+                                    <?php } ?>
+                                </div>
+
                             </header>
                             <div class="content-left <?php echo ($headshot) ? 'haspic':'nopic';?>">
                                 <?php echo $page_content;?>

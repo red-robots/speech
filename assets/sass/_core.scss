@@ -1906,11 +1906,15 @@ body.subpage .section {
 	}
 	.headertitle {
 		margin-bottom: 25px;
-		.position {
+		.position,
+		.otherinfo {
 			font-weight: 600;
-			font-size: 0.95em;
-			margin-top: 7px;
-			margin-bottom: 10px;
+			font-size: 0.85em;
+			line-height: 1.2;
+		}
+		.position {
+			margin-top: 0;
+			margin-bottom: 0;
 			color: #074e84;
 			span.vt {
 				font-weight: 400;
@@ -1918,13 +1922,32 @@ body.subpage .section {
 			}
 		}
 		.otherinfo {
-			font-weight: 600;
-			font-size: 0.95em;
 			color: #074e84;
 		}
 	}
 	p:first-child {
 		margin-top: 0;
+	}
+	.programinfo {
+		.inline {
+			display: inline-block;
+			margin-top: 0!important;
+			position: relative;
+			padding-right: 0;
+			padding-left: 10px;
+			&:before {
+				content:"/";
+				display: inline-block;
+				position: absolute;
+				left: 0;
+			}
+		}
+		.inline:first-child {
+			padding-left: 0;
+			&:before {
+				display: none;
+			}
+		}
 	}
 }
 body.modal-open {

@@ -2170,10 +2170,15 @@ body.subpage .section h2.notfound a.reset{text-decoration:none;font-size:.65em;d
 }.popupwrapper .content-right img{width:100%;height:auto;float:left}
 .popupwrapper h1.ptitle{margin:0 0 5px;font-size:2.3em;font-weight:500;line-height:1;color:#052843}
 .popupwrapper .headertitle{margin-bottom:25px}
-.popupwrapper .headertitle .position{font-weight:600;font-size:.95em;margin-top:7px;margin-bottom:10px;color:#074e84}
+.popupwrapper .headertitle .position,.popupwrapper .headertitle .otherinfo{font-weight:600;font-size:.85em;line-height:1.2}
+.popupwrapper .headertitle .position{margin-top:0;margin-bottom:0;color:#074e84}
 .popupwrapper .headertitle .position span.vt{font-weight:400;padding:0 7px}
-.popupwrapper .headertitle .otherinfo{font-weight:600;font-size:.95em;color:#074e84}
+.popupwrapper .headertitle .otherinfo{color:#074e84}
 .popupwrapper p:first-child{margin-top:0}
+.popupwrapper .programinfo .inline{display:inline-block;margin-top:0 !important;position:relative;padding-right:0;padding-left:10px}
+.popupwrapper .programinfo .inline:before{content:"/";display:inline-block;position:absolute;left:0}
+.popupwrapper .programinfo .inline:first-child{padding-left:0}
+.popupwrapper .programinfo .inline:first-child:before{display:none}
 body.modal-open{overflow:hidden}
 body.admin-bar .popupwrapper{padding:70px 30px 30px}
 body.admin-bar .popupwrapper #closepopup{top:56px}
