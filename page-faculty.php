@@ -30,8 +30,8 @@ get_header(); ?>
 					</div>
 				</header>
 				
-				<div class="entry-content clear <?php echo ($subtitle) ? 'twocol':'onecol';?>">
-					<div class="wrapper clear">
+				<div class="entry-content full-left nopadbottom <?php echo ($subtitle) ? 'twocol':'onecol';?>">
+					<div class="wrapper md clear">
 						<div class="innerpad">
 							<?php if ($subtitle) { ?>
 								<div class="flexrow">

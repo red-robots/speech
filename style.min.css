@@ -1857,8 +1857,12 @@ a:hover{color:#7de6fd}
 .sr{clip:rect(1px,1px,1px,1px);position:absolute !important;height:1px;width:1px;overflow:hidden}
 .sr:focus{background-color:#333;border-radius:3px;box-shadow:0 0 2px 2px rgba(0,0,0,0.6);clip:auto !important;color:#FFF;display:block;font-size:14px;font-size:.875rem;font-weight:bold;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}
 body{font-family:"Barlow",sans-serif;font-size:16px;font-style:normal;line-height:1.4}
+.nopadtop{padding-top:0 !important}
+.nopadbottom{padding-bottom:0 !important}
 .wrapper{position:relative;margin:0 auto;max-width:1300px;width:100%;padding-left:20px;padding-right:20px}
+.wrapper.md{max-width:1000px;padding-top:10px;padding-bottom:0}
 .midwrap{max-width:900px;width:100%;margin:0 auto;padding-left:20px;padding-right:20px}
+.full-left{width:100%;float:left}
 .flexrow{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;position:relative}
 .site{position:relative;overflow-x:hidden;overflow-y:auto}
 .site-header{position:relative;height:80px;z-index:200}
@@ -2121,7 +2125,7 @@ body.subpage .section h2.notfound a.reset{text-decoration:none;font-size:.65em;d
 .section.faculties{padding-bottom:80px;position:relative}
 .faculties-posts{margin-top:0}
 @media(min-width:768px){.faculties-posts{margin-top:30px}
-}.faculty-terms{max-width:900px;width:100%;margin:25px auto 20px}
+}.faculty-terms{max-width:1000px;width:100%;margin:25px auto 20px}
 .faculty-terms .termbox{box-sizing:border-box;padding:0 15px;width:100%;margin-bottom:15px}
 @media(min-width:768px){.faculty-terms .termbox{width:33.3%;margin-bottom:0}
 }.faculty-terms .termbox label{display:block;width:100%;font-weight:500;font-size:16px;line-height:1.2;margin-bottom:5px}
