@@ -1865,7 +1865,7 @@ body.subpage .section {
 		@include flexbox-wrap(wrap);
 		@include flexbox-direction(row);
 		@include flexbox-align-items(center);
-		overflow-y:scroll;
+		overflow-y: auto;
 		overflow-x: hidden;
 	}
 	.textwrap {
