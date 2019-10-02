@@ -166,4 +166,43 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
+	$(document).on("click","#morepageBtn",function(e){
+		e.preventDefault();
+		var target = $(this);
+		var paged = target.attr('data-pg');
+		var total = target.attr('data-total');
+		$.ajax({
+			url : frontajax.ajaxurl,
+			type : 'post',
+			dataType : "json",
+			data : {
+				action : 'get_next_posts',
+				pg : paged
+			},
+			beforeSend:function(){
+				$("#loaderdiv").addClass("show");
+			},
+			success : function( obj ) {
+				var nextpage = obj.next_page;
+				var result = obj.content;
+				if(result) {
+					target.attr('data-pg',nextpage);
+					setTimeout(function(){
+						$("#loaderdiv").removeClass("show");
+						$(".postresults .postflex").append(result);
+						var count = $(".post-item").length;
+						if(total==count) {
+							$(".lastposts").removeClass("hide");
+							target.hide();
+						}
+					},300);
+				} else {
+					$("#loaderdiv").removeClass("show");
+					$(".lastposts").removeClass("hide");
+					target.hide();
+				}
+			}
+		});
+	});
+
 });// END #####################################    END

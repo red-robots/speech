@@ -699,11 +699,11 @@ body.home .site-header {
 			font-size: 1.5em;
 			@include mid {
 				padding-top: 0;
-				padding-left: 150px;
+				padding-left: 170px;
 				padding-right: 0;
 			}
-			@include desk {
-				padding-left: 160px;
+			@media screen and (min-width:1300px) {
+				padding-left: 200px;
 			}
 			@media screen and (max-width:1050px) {
 				padding-left: 40px;
@@ -1318,7 +1318,7 @@ body.subpage {
 		@include mid {
 			padding: 25px 0;
 		}
-		h1 {
+		.page-title {
 			margin: 0 0;
 			font-weight: 500;
 			font-size: 28px;
@@ -1844,7 +1844,9 @@ body.subpage .section {
 		height: 8em;
 	}
 }
-
+body.page-template-page-blog #loaderdiv {
+	background: rgba(167, 167, 167, 0.95);
+}
 #facultyfilter {
 	.input-button {
 		display: none;
@@ -2544,4 +2546,216 @@ body.subpage .contactform {
 			}
 		}
 	}
+}
+
+.blogs-section {
+	.postflex {
+		margin:0 -20px;
+	}
+	.post-item {
+		position: relative;
+		padding: 10px 15px;
+		font-size: 15px;
+		color: $navyblue;
+		@include tab {
+			width: 50%;
+			padding: 15px;
+		}
+		.inside {
+			background: #f1f2f2;
+			height: 100%;
+		}
+		p {
+			margin-top: 0;
+		}
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.imagecol, .textcol {
+		position: relative;
+	}
+	.post-item .imagecol {
+		width: 100%;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		min-height: 250px;
+		overflow: hidden;
+		@include mid {
+			width: 40%;
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	.textcol.hasimage {
+		width: 100%;
+		@include mid {
+			width: 60%;
+		}
+	}
+	.textcol .pad {
+		padding: 15px;
+	}
+	h3.title {
+		margin: 5px 0 10px;
+		font-size: 1.2em;
+		font-weight: 600;
+		line-height: 1.2;
+	}
+	.text {
+		padding-bottom: 15px;
+		@include mid {
+			padding-bottom: 50px;
+		}
+	}
+	.btnwrap {
+		.btnpad {
+			border-top: 1px solid $limegreen;
+			padding-top: 10px;
+		}
+		@include mid {
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			padding: 0 15px 15px;
+		}
+		a {
+			display: inline-block;
+			text-decoration: none;
+			color: $navyblue;
+			position: relative;
+			.arrow {
+				position: absolute;
+				font-size: 9px;
+				right: -14px;
+				top: 8px;
+				transition: all ease .3s;
+			}
+			&:hover {
+				color: $limegreen;
+				.arrow {
+					right: -20px;
+				}
+			}
+		}
+	}
+	.pagination {
+		display: none;
+		margin-bottom: 30px;
+	}
+}
+.moreposts {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	span.lastposts {
+		color: #898c80;
+		&.hide {
+			display: none;
+		}
+	}
+	a {
+		display: inline-block;
+		background: $limegreen;
+		text-decoration: none;
+		color: $navyblue;
+		max-width: 500px;
+		width: 100%;
+		text-align: center;
+		font-size: 16px;
+    	font-weight: 600;
+    	padding: 6px 20px;
+    	&:hover {
+    		background: $brightgreen;
+    	}
+	}
+}
+body.subpage.single {
+	.entry-content {
+		padding-top: 0;
+	}
+	.singlecontent .wrapper {
+		padding-top: 40px;
+		padding-bottom: 40px;
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+	.entry-title {
+		font-size: 35px;
+		font-weight: 600;
+		line-height: 1;
+		margin: 0 0 15px;
+	}
+	.postdate {
+		letter-spacing: 1px;
+	}
+	.entry-header {
+		border-bottom: 1px solid $limegreen;
+		padding-bottom: 20px;
+		margin-bottom: 30px;
+	}
+	.feat-image {
+		margin-bottom: 25px;
+	}
+	.feat-image img {
+		width: 100%;
+		height: auto;
+	}
+	.text h1,
+	.text h2,
+	.text h3,
+	.text h4,
+	.text h5,
+	.text h6 {
+		font-weight: 600;
+		line-height: 1;
+		margin: 20px 0 10px;
+	}
+	.text h1 {
+		font-size: 38px;
+	}
+	.text h2 {
+		font-size: 33px;
+	}
+	.text h3 {
+		font-size: 30px;
+	}
+	.text h4 {
+		font-size: 28px;
+	}
+	.text h5 {
+		font-size: 25px;
+	}
+	.text h6 {
+		font-size: 20px;
+	}
+	.text {
+
+	}
+}
+.alignright {
+	float: right;
+	margin-top: 10px;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+.alignleft {
+	float: left;
+	margin-top: 10px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+.aligncenter {
+	float: none;
+	margin: 20px auto;
+	display: block;
+}
+.alignnone {
+	float: none;
+	margin: 20px 0;
+	display: block;
 }

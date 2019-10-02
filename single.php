@@ -1,35 +1,39 @@
 <?php
-/**
- * The template for displaying all single posts.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package bellaworks
- */
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area default">
 		<main id="main" class="site-main" role="main">
 
-		<?php
-		while ( have_posts() ) : the_post();
+			<?php while ( have_posts() ) : the_post(); ?>
+				<header class="page-header">  
+					<div class="full-wrapper clear">
+						<div class="page-title">
+							<span class="title">Blog</span>
+							<span class="stripe"><i></i></span></span>
+						</div>
+					</div>
+				</header>
+				
+				<div class="entry-content singlecontent">
+					<div class="wrapper">
+						<div class="entry-header text-center">
+							<h1 class="entry-title"><?php the_title(); ?></h1>
+							<div class="postdate">&ndash; <?php echo get_the_date('F j, Y') ?> &ndash;</div>
+						</div>
+						<div class="text">
+							<?php if ( has_post_thumbnail() ) { ?>
+							<div class="feat-image"><?php the_post_thumbnail('large'); ?></div>
+							<?php } ?>
+							<?php the_content(); ?>
+						</div>
+					</div>
+				</div>
 
-			get_template_part( 'template-parts/content', get_post_format() );
-
-			the_post_navigation();
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
+			<?php endwhile;  ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
