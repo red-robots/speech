@@ -652,7 +652,7 @@ body.home .site-header {
 	}
 	.flexrow {
 		position: relative;
-		@include flexbox-align-items(center);
+		// @include flexbox-align-items(flex-start);
 	}
 	.imagecol {
 		background-color: $lightgrey;
@@ -667,24 +667,57 @@ body.home .site-header {
 			height: auto;
 			float: left;
 		}
+		@media screen and (max-width: 1000px) {
+			background-size: cover;
+			background-position: top center;
+			background-repeat: no-repeat;
+			img {
+				visibility: hidden;
+			}
+		}
 	}
 	.textcol {
 		z-index: 5;
 		@include tab {
 			width: 72%;
+			@include flexbox();
+			@include flexbox-wrap(wrap);
+			@include flexbox-direction(row);
+			@include flexbox-align-items(center);
 		}
 		@include mid {
 			width: 65%;
 		}
+		.inside {
+			width: 100%;
+		}
 		.text {
-			padding-left: 10%;
-			padding-right: 10%;
+			padding-top: 30px;
+			padding-left: 0;
+			padding-right: 0;
+			position: relative;
 			font-size: 1.5em;
 			@include mid {
-				padding-left: 10%;
-				padding-right: 10%;
+				padding-top: 0;
+				padding-left: 150px;
+				padding-right: 0;
+			}
+			@include desk {
+				padding-left: 160px;
+			}
+			@media screen and (max-width:1050px) {
+				padding-left: 40px;
+				padding-top: 0;
+				padding-bottom: 40px;
+			}
+			@media screen and (max-width: 860px) {
+				padding-bottom: 30px;
+				padding-left: 30px;
+				padding-right: 30px;
 			}
 		}
+
+
 		ul {
 			margin: 0 0 35px 20px;
 			padding: 0 0;
@@ -727,14 +760,21 @@ body.home .site-header {
 		margin-top: 30px;
 		margin-bottom: 30px;
 		margin-left: 75px;
-		@include mid {
+		@include tab {
 			position: absolute;
-			top: -20px;
-			left: 0;
-			display: inline-block;
-			margin-left: -10%;
+			margin-left: 0;
 			margin-top: 0;
-			margin-bottom: 0;
+			left: -65px;
+
+		}
+		@media screen and (max-width:1050px) {
+			margin-top: 30px;
+			position: relative;
+		}
+		@media screen and (max-width:899px) {
+			margin-top: 30px;
+			margin-left: 50px;
+			left: 0;
 		}
 		span {
 			display: inline-block;
@@ -783,9 +823,15 @@ body.home .site-header {
 	float: left;
 	background: $limegreen;
 	position: relative;
-	margin-top: 30px;
+	margin-top: 0;
 	@include mid {
 		margin-top: -30px;
+	}
+	@media screen and (max-width:899px) {
+		margin-top: -20px;
+	}
+	@media screen and (max-width:767px) {
+		margin-top: 0;
 	}
 	.hashtag {
 		color: #FFF;

@@ -21,31 +21,35 @@
 			$button_text_row_2 = get_field('button_text_row_2'); 
 			$button_link_row_2 = get_field('button_link_row_2'); 
 			$hashtag_row_2 = get_field('hashtag_row_2'); 
+			$colBg = ($row_2_image) ? ' style="background-image:url('.$row_2_image['url'].')"':'';
 		?>
 		<?php if ($row_2_image || $text_row_2) { ?>
 		<section class="section-full clear section-why">
 			<div class="colwrap">
 				<div class="flexrow">
-					<div class="imagecol col">
+					<div class="imagecol col"<?php echo $colBg ?>>
 					<?php if ($row_2_image) { ?>
 						<img src="<?php echo $row_2_image['url'] ?>" alt="<?php echo $row_2_image['title'] ?>" />
 					<?php } ?>
 					</div>
 					
 					<div class="textcol col">
-					<?php if ($text_row_2) { ?>
-						<?php if ($title_row_2) { ?>
-						<div class="section-title">
-							<span><?php echo $title_row_2 ?><i class="bl"></i></span>
-						</div>
-						<?php } ?>
-						<div class="text">
-							<?php if ($second_title_row_2) { ?>
-							<h2 class="t2"><?php echo $second_title_row_2 ?></h2>	
+						<div class="inside">
+							<?php if ($title_row_2) { ?>
+							<div class="section-title whytitle">
+								<span><?php echo $title_row_2 ?><i class="bl"></i></span>
+							</div>
 							<?php } ?>
-							<?php echo $text_row_2; ?>
+												
+							<?php if ($text_row_2) { ?>
+								<div class="text">
+									<?php if ($second_title_row_2) { ?>
+									<h2 class="t2"><?php echo $second_title_row_2 ?></h2>	
+									<?php } ?>
+									<?php echo $text_row_2; ?>
+								</div>
+							<?php } ?>
 						</div>
-					<?php } ?>
 					</div>
 				</div>
 			</div>
