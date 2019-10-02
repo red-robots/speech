@@ -149,16 +149,16 @@ function change_post_menu_label() {
 function change_post_object_label() {
         global $wp_post_types;
         $labels = &$wp_post_types['post']->labels;
-        $labels->name = 'News';
-        $labels->singular_name = 'News Item';
-        $labels->add_new = 'Add News Item';
-        $labels->add_new_item = 'Add News Item';
-        $labels->edit_item = 'Edit News Item';
-        $labels->new_item = 'News Item';
-        $labels->view_item = 'View News Item';
-        $labels->search_items = 'Search News';
-        $labels->not_found = 'No News found';
-        $labels->not_found_in_trash = 'No News found in Trash';
+        $labels->name = 'Blogs';
+        $labels->singular_name = 'Blog Item';
+        $labels->add_new = 'Add Blog Item';
+        $labels->add_new_item = 'Add Blog Item';
+        $labels->edit_item = 'Edit Blog Item';
+        $labels->new_item = 'Blog Item';
+        $labels->view_item = 'View Blog Item';
+        $labels->search_items = 'Search Blog';
+        $labels->not_found = 'No Blog found';
+        $labels->not_found_in_trash = 'No Blog found in Trash';
     }
 add_action( 'init', 'change_post_object_label' );
 add_action( 'admin_menu', 'change_post_menu_label' );
