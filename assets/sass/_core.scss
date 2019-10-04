@@ -2815,17 +2815,15 @@ body.subpage.single {
 	.block {
 		width: 100%;
 		overflow: hidden;
-		margin-bottom: 15px;
 		@include tab {
 			width: 50%;
-			margin-bottom: 0;
 		}
 		@include mid {
 			width: 25%;
 		}
 	}
 	.inside {
-		padding: 15px 15px 0;
+		padding: 30px 15px 0;
 		height: 100%; 
 		position: relative;
 	}
