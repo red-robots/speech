@@ -1,4 +1,9 @@
 <?php 
+/*
+ * Template Name: Programs
+*/
+
+
 $banner = get_field('banner_image');
 $subtitle = get_field('alternate_header_text');
 $pagetitle = ($subtitle) ? $subtitle : get_the_title();
@@ -16,15 +21,18 @@ get_header(); ?>
 						</h1>
 					</div>
 				</header>
-				
-				<div class="entry-content">
-					<div class="wrapper">
+			
+				<?php if ( get_the_content() ) { ?>
+				<div class="fulldiv bluepattern">
+					<div class="midwrap clear textwrap">
 						<?php the_content(); ?>
 					</div>
 				</div>
+				<?php } ?>
 
 			<?php endwhile;  ?>
 
+			
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

@@ -22,7 +22,7 @@ get_header(); ?>
 					$message_to_faculty = get_field('message_to_faculty');
 				?>
 				<header class="page-header">  
-					<div class="wrapper">
+					<div class="full-wrapper">
 						<h1 class="page-title">
 							<span class="title"><?php echo $pagetitle; ?></span>
 							<span class="stripe"><i></i></span></span>

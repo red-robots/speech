@@ -459,13 +459,22 @@ body.home .site-header {
 			}
 		}
 	}
-	.menu li.current-menu-ancestor > a,
-	.menu li.current_page_item > a,
-	.menu li.current_page_item:hover > a,
 	.menu > li:hover > a {
 		color: $limegreen;
 		@include tab {
-			color: #FFF;
+			color: $navyblue;
+			span:after {
+				transform: scaleX(1);
+				opacity: 1;
+			}
+		}
+	}
+	.menu li.current-menu-ancestor > a,
+	.menu li.current_page_item > a,
+	.menu li.current_page_item:hover > a {
+		@include tab {
+			color: $navyblue;
+			font-weight: 600;
 			span:after {
 				transform: scaleX(1);
 				opacity: 1;
@@ -1315,6 +1324,7 @@ body.subpage {
 		padding: 15px 0;
 		position: relative;
 		text-align: center;
+		z-index: 10;
 		@include mid {
 			padding: 25px 0;
 		}
@@ -2090,6 +2100,9 @@ body.admin-bar .popupwrapper {
 	p:first-child {
 		margin-top: 0;
 	}
+	p:last-child {
+		margin-bottom: 0;
+	}
 }
 body.subpage .bluepattern {
 	background-image:url('images/patternBlue.png');
@@ -2112,8 +2125,8 @@ body.subpage .bluepattern {
 }
 body.subpage.page-template-page-contact {
 	.fulldiv .textwrap {
-		padding-top: 30px;
-		padding-bottom: 45px;
+		padding-top: 15px;
+		padding-bottom: 50px;
 	}
 }
 .fulldiv {
@@ -2758,4 +2771,27 @@ body.subpage.single {
 	float: none;
 	margin: 20px 0;
 	display: block;
+}
+.blueBtn {
+	text-decoration: none;
+	display: inline-block;
+	background: $navyblue;
+	color: #FFF;
+	padding: 10px 35px 10px 20px;
+	font-size: 18px;
+	position: relative;
+	&.wicon .arrow {
+		display: inline-block;
+		position: absolute;
+		top: 16px;
+		right: 14px;
+		font-size: 13px;
+	}
+	&:hover {
+		background: $limegreen;
+		color: $navyblue;
+	}
+}
+.buttondiv.whyus {
+	margin-bottom: 30px;
 }

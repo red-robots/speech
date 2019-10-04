@@ -47,6 +47,12 @@
 									<h2 class="t2"><?php echo $second_title_row_2 ?></h2>	
 									<?php } ?>
 									<?php echo $text_row_2; ?>
+
+									<?php if ($button_text_row_2 && $button_link_row_2) { ?>
+									<div class="buttondiv whyus">
+										<a href="<?php echo $button_link_row_2 ?>" class="blueBtn wicon"><?php echo $button_text_row_2 ?><i class="arrow fas fa-chevron-right"></i></a>
+									</div>
+									<?php } ?>
 								</div>
 							<?php } ?>
 						</div>

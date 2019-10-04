@@ -14,7 +14,7 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 				<header class="page-header">  
-					<div class="wrapper">
+					<div class="full-wrapper">
 						<h1 class="page-title">
 							<span class="title"><?php echo $pagetitle; ?></span>
 							<span class="stripe"><i></i></span></span>
