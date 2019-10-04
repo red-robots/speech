@@ -34,7 +34,7 @@ get_header(); ?>
 				?>
 
 				<?php if ($repeaterItems) { ?>
-				<section class="whyus-info clear text-image-block">
+				<section class="whyus-info clear text-image-block block-icons">
 					<div class="wrapper">
 						<div class="flexrow">
 							<?php $i=1; foreach ($repeaterItems as $a) { 
