@@ -100,10 +100,6 @@ jQuery(document).ready(function ($) {
     	$(".programs-listing .block .title").height(maxHeight);
     }
 
-	$( window ).resize(function() {
-	  nophoto_placeholder();
-	  adjust_list_container();
-	});
 
 	$(document).on("submit","#facultyfilter",function(e){
 		e.preventDefault();
@@ -139,10 +135,6 @@ jQuery(document).ready(function ($) {
 				$(".selectstyle").select2();
 			});
 		},800);
-	});
-
-	$( window ).resize(function() {
-	  show_popup_close_button();
 	});
 
 	//show_popup_close_button();
@@ -233,5 +225,40 @@ jQuery(document).ready(function ($) {
 			}
 		});
 	});
+
+	append_list_part();
+
+	/* To Balance The Text under Financial Aid */
+	function append_list_part() {
+		var contentWidth = $("#content").outerWidth();
+		if( $(".ulstyle li.part").length > 0 ) {
+			$(".ulstyle li.part").each(function(){
+				var target = $(this);
+				var prev = $(this).prev();
+				var text = $(this).html();
+
+				if(contentWidth < 768 ) {
+					if( $(".ulstyle span.continue").length == 0 ) {
+						prev.append(' <span class="continue">' + text + '</span>');
+					} 
+					target.hide();
+				} else {
+					target.show();
+					$(".ulstyle span.continue").remove();
+				}
+
+			});
+		} 
+	}
+
+	/* Perform function on window resize */
+	$( window ).resize(function() {
+	  nophoto_placeholder();
+	  adjust_list_container();
+	  show_popup_close_button();
+	  append_list_part();
+	});
+	
+	
 
 });// END #####################################    END
