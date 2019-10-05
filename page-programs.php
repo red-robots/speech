@@ -53,7 +53,6 @@ get_header(); ?>
 					//'paged'			=> $paged
 				);
 				$programs = new WP_Query($args);
-				//$blog_entries = get_blog_posts($paged);
 				if ( $programs->have_posts() ) {  ?>
 				<div class="wrapper programs-listing">
 					<div class="flexlist flexrow">
@@ -129,7 +128,188 @@ get_header(); ?>
 			</section>
 			<?php } ?>
 
+
+			<?php  
+				$locations_title = get_field('locations_title'); 
+				$locations_text = get_field('locations_text'); 
+				$location_info = get_field('locations'); 
+				$program_types = get_field('program_types'); 
+				$important_notes = get_field('notes'); 
+			?>
 			
+			<section class="location-dates-tuition clear">
+				<div class="wrapper clear">
+					<div class="fcol left">
+						<?php if ($locations_title) { ?>
+							<h2 class="title"><?php echo $locations_title ?></h2>	
+						<?php } ?>
+
+						<?php if ($locations_text) { ?>
+							<div class="text"><?php echo $locations_text ?></div>	
+						<?php } ?>
+
+						<?php if ($location_info) { ?>
+							<div class="locationsinfo">
+								<?php foreach ($location_info as $e) { 
+								$loc = $e['location'];
+								$locname = ($loc) ? $loc->name : '';
+								$date = $e['date'];
+								?>
+								<div class="info">
+									<?php if ($locname) { ?>
+									<div class="location"><strong>ISD: <?php echo $locname ?></strong></div>	
+									<?php } ?>
+
+									<?php if ($date) { ?>
+									<div class="dates"><?php echo $date; ?></div>
+									<?php } ?>
+								</div>
+								<?php }  ?>
+							</div>
+						<?php } ?>
+
+						<?php if ($program_types) { ?>
+						<div class="program-types">
+							<div class="flexrow">
+							<?php foreach ($program_types as $t) { 
+								$t_title = $t['title'];
+								$t_note = $t['note'];
+								$t_desc = $t['description'];
+								?>
+								<div class="type">
+									<?php if ($t_title) { ?>
+									<h3 class="ptitle"><?php echo $t_title ?></h3>
+									<?php } ?>
+									<?php if ($t_note) { ?>
+									<div class="pnote"><?php echo $t_note ?></div>
+									<?php } ?>
+									<?php if ($t_desc) { ?>
+									<div class="pdesc"><?php echo $t_desc ?></div>
+									<?php } ?>
+								</div>
+								<?php } ?>
+							</div>
+						</div>
+						<?php } ?>
+					</div>
+					
+					<div class="fcol right">
+						<?php if ($important_notes) { ?>
+							<div class="notes ulstyle clear">
+								<div class="note-title">Important Notes</div>
+								<div class="note-text"><?php echo $important_notes; ?></div>
+							</div>
+						<?php } ?>
+					</div>
+				</div>
+			</section>
+
+
+			<?php  
+				$arrival_title = get_field('arrival_title'); 
+				$arrival_departure = get_field('arrival_departure'); 
+			?>
+			
+			<section class="arrival-departure section clear">
+				<div class="wrapper">
+					<?php if ($arrival_title) { ?>
+						<h2 class="section-title text-center"><?php echo $arrival_title ?></h2>
+					<?php } ?>
+
+					<?php if ($arrival_departure) { ?>
+					<div class="travel-info clear">
+						<div class="flexrow">
+						<?php foreach ($arrival_departure as $a) { 
+							$locationId = $a->ID;
+							$locationName = $a->post_title; 
+							$location_logo = get_field('logo',$locationId);
+							$flightsInfo = get_field('flights',$locationId);
+							
+							if($flightsInfo) { ?>
+							<div class="infobox">
+								<?php if ($location_logo) { ?>
+									<div class="isdLogo text-center"><img src="<?php echo $location_logo['url'] ?>" alt="<?php echo $location_logo['title'] ?>"></div>
+								<?php } ?>
+								<div class="flightInfo">
+									<?php echo $flightsInfo ?>
+								</div>
+							</div>
+							<?php } ?>
+
+						<?php } ?>
+						</div>
+					</div>	
+					<?php } ?>
+				</div>
+			</section>
+
+			<?php 
+				$ground_title1 = get_field('ground_title1'); 
+				$ground_title2 = get_field('ground_title2'); 
+				$ground_text = get_field('ground_text'); 
+			?>
+
+			<section class="section ground-transpo">
+				<div class="wrapper">
+					<?php if ($ground_title1) { ?>
+						<h2 class="section-title text-center"><?php echo $ground_title1 ?></h2>
+					<?php } ?>
+
+					<?php if ($ground_title2) { ?>
+						<div class="subtitle text-center"><?php echo $ground_title2 ?></div>
+					<?php } ?>
+
+					<?php if ($ground_text) { ?>
+						<div class="textwrap">
+							<div class="groundtext ulstyle"><?php echo $ground_text ?></div>
+						</div>
+					<?php } ?>
+				</div>
+			</section>
+	
+
+			<?php  
+			$groundcol1 = get_field('groundcol1'); 
+			$groundcol2 = get_field('groundcol2'); 
+			?>
+			<?php if ($groundcol1 || $groundcol2) { ?>
+				<section class="two-column-text">
+					<div class="flexrow">
+						<?php if ($groundcol1) { ?>
+						<div class="fcol text-center left">
+							<div class="inside"><?php echo $groundcol1 ?></div>
+						</div>	
+						<?php } ?>
+
+						<?php if ($groundcol2) { ?>
+						<div class="fcol text-center right">
+							<div class="inside"><?php echo $groundcol2 ?></div>
+						</div>	
+						<?php } ?>
+					</div>
+				</section>
+			<?php } ?>
+
+
+			<?php  
+			$financial_aid_title = get_field('financial_aid_title'); 
+			$financial_aid_text = get_field('financial_aid_text'); 
+			?>
+
+			<?php if ($financial_aid_text) { ?>
+			<section class="section financialAid">
+				<div class="wrapper">
+					<?php if ($financial_aid_title) { ?>
+					<h2 class="section-title text-center"><?php echo $financial_aid_title ?></h2>
+					<?php } ?>
+
+					<div class="text ulstyle">
+						<?php echo $financial_aid_text ?>
+					</div>	
+				</div>
+			</section>
+			<?php } ?>
+
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

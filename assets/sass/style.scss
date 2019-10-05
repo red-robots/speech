@@ -22,9 +22,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 
 @import "normalize";
 @import "bourbon/bourbon";
-@import "animate";
 @import "web-fonts-with-css/scss/fontawesome";
 @import "variables";
+@import "modules/animate";
 @import "modules/colorbox";
 @import "modules/flexslider";
 @import "modules/owlcarousel";

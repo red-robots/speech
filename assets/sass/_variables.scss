@@ -103,3 +103,10 @@ $deskwidth: 1200px;
   }
 
 
+@mixin blue_pattern_background() {
+	background-image:url('images/patternBlue.png');
+	background-repeat: repeat;
+	background-position: center;
+	background-color: $navyblue;
+}
+

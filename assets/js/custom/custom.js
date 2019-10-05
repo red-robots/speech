@@ -44,6 +44,9 @@ jQuery(document).ready(function ($) {
 		navText : ["<i class='custom-arrow left'><span class='sr'>Previous</span></i>","<i class='custom-arrow right'><span class='sr'>Next</span></i>"]
 	});
 
+	//$('.flightInfo li').matchHeight();
+    
+
 	/*
 	*
 	*	Wow Animation
@@ -72,8 +75,34 @@ jQuery(document).ready(function ($) {
 		}
 	}
 
+	// Cache the highest
+    adjust_list_container();
+    function adjust_list_container() {
+    	if( $(".flightInfo ul li").length > 0 ) {
+			var maxHeight = 0;
+
+			$(".flightInfo ul li").each(function(){
+			   if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
+			});
+
+			$(".flightInfo ul li").height(maxHeight);
+			$(".flightInfo ul li").each(function(){
+				$(this).wrapInner('<div class="listtext"></div>');
+			});
+		}
+    }
+
+    if( $(".programs-listing .block .title").length > 0 ) {
+    	var maxHeight = 0;
+    	$(".programs-listing .block .title").each(function() {
+    		if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
+    	});
+    	$(".programs-listing .block .title").height(maxHeight);
+    }
+
 	$( window ).resize(function() {
 	  nophoto_placeholder();
+	  adjust_list_container();
 	});
 
 	$(document).on("submit","#facultyfilter",function(e){

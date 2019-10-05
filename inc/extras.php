@@ -594,4 +594,3 @@ function get_blog_posts($paged) {
     }
     return $content;
 }
-

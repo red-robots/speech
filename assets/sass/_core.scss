@@ -632,10 +632,7 @@ body.home .site-header {
 	}
 }
 .section-intro {
-	background-image:url('images/patternBlue.png');
-	background-repeat: repeat;
-	background-position: center;
-	background-color: $navyblue;
+	@include blue_pattern_background();
 	color: #FFF;
 	.midwrap {
 		padding-top: 5%;
@@ -2105,10 +2102,7 @@ body.admin-bar .popupwrapper {
 	}
 }
 body.subpage .bluepattern {
-	background-image:url('images/patternBlue.png');
-	background-position: top center;
-	background-repeat: repeat;
-	background-color: $navyblue;
+	@include blue_pattern_background();
 	color: #FFF;
 	a {
 		color: $limegreen;
@@ -2121,6 +2115,14 @@ body.subpage .bluepattern {
 		margin-bottom: 10px;
 		font-size: 2em;
 		line-height: 1.2;
+	}
+	.midwrap {
+		p:first-child {
+			margin-top: 0;
+		}
+		p:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 body.subpage.page-template-page-contact {
@@ -2138,10 +2140,7 @@ body.subpage.page-template-page-contact {
 		display: block;
 		width: 100%;
 		height: 100%;
-		background-image:url('images/patternBlue.png');
-		background-position: top center;
-		background-repeat: repeat;
-		background-color: $navyblue;
+		@include blue_pattern_background();
 		position: absolute;
 		top: -45px;
 		left: 0;
@@ -2149,8 +2148,8 @@ body.subpage.page-template-page-contact {
 	.textwrap {
 		position: relative;
 		z-index: 5;
-		padding-top: 40px;
-		padding-bottom: 40px;
+		padding-top: 20px;
+		padding-bottom: 50px;
 		text-align: center;
 		font-size: 1.2em;
 	}
@@ -2870,13 +2869,17 @@ body.subpage.single {
 	.title {
 		background: $limegreen;
 		text-align: center;
+		@include flexgroup();
+		@include flexbox-align-items(center);
 		h2 {
 			margin: 0 0;
 			font-size: 18px;
 			line-height: 1.2;
 			color: $navyblue;
 			display: block;
-			padding: 12px 10px;
+			padding: 12px 15px;
+			width: 100%;
+			text-align: center;
 		}
 	}
 	.overview {
@@ -2953,6 +2956,245 @@ body.subpage.single {
 			box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.38);
 			&:hover {
 				transform: scale(1.1);
+			}
+		}
+	}
+}
+
+.location-dates-tuition {
+	color: #FFF;
+	width: 100%;
+	float: left;
+	padding: 40px 0;
+	@include blue_pattern_background();
+	.left, .right {
+		width: 100%;
+		float: left;
+		@include tab {
+			width: 50%;
+		}
+	}
+	.left {
+		font-size: 15px;
+		@include tab {
+			padding-right: 40px;
+		}
+	}
+	h2 {
+		font-size: 1.85em;
+		margin: 0 0 10px;
+	}
+	.locationsinfo {
+		margin-top: 25px;
+	}
+	.info {
+		margin-bottom: 10px;
+		.location strong {
+			color: $blue;
+			font-weight: 600;
+		}
+	}
+	.program-types {
+		margin-top: 35px;
+		.type {
+			width: 100%;
+			margin: 15px 0;
+			@include tab {
+				width: 50%;
+				margin: 0 0;
+			}
+		}
+	}
+	.ptitle {
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 1.2;
+		color: $limegreen;
+		margin: 0 0;
+	}
+	.notes {
+		background: $blue;
+		margin-top: 20px;
+	}
+	.note-title {
+		background: $limegreen;
+		color: $navyblue;
+		text-align: center;
+		font-weight: 600;
+		letter-spacing: 1px;
+		padding: 6px 15px;
+	}
+	.note-text {
+		padding: 30px;
+		font-size: 15px;
+		line-height: 1.5;
+	}
+	.pnote {
+		font-style: italic;
+		margin-bottom: 5px;
+	}
+}
+.section-title {
+	font-size: 33px;
+	font-weight: 600;
+	line-height: 1.2;
+	color: $navyblue;
+	margin: 0 0;
+}
+.section {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	position: relative;
+}
+.ulstyle {
+	ul {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+		li {
+			position: relative;
+		}
+	}
+	ul > li {
+		margin-top: 15px;
+		padding-left: 20px;
+		&:before {
+			content: "\203A";
+			display: inline-block;
+			position: absolute;
+			top: -4px;
+			left: 0;
+			font-size: 18px;
+		}
+		&.part {
+			&:before {
+				display: none;
+			}
+		}
+	}
+	ul > li:first-child {
+		margin-top: 0;
+	}
+}
+.arrival-departure {
+	font-size: 16px;
+	.infobox {
+		width: 100%;
+		margin: 20px 0;
+		padding: 20px;
+		@include tab {
+			width: 33.3%;
+			margin: 0 0;
+		}
+	}
+	.isdLogo {
+		position: relative;
+		bottom: -10px;
+		img {
+			width: 185px;
+			height: auto;
+		}
+	}
+}
+.flightInfo {
+	ul {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+	}
+	ul > li  {
+		border-bottom: 2px solid $limegreen;
+		padding: 15px 0;
+        width: 100%;
+        @include flexgroup();
+        @include flexbox-align-items(center);
+        @media screen and (max-width: $tabwidth - 1px) {
+        	height: auto!important;
+        	padding: 20px 0;
+        }
+	}
+}
+body.subpage .section.ground-transpo {
+	background: $blue;
+	color: #FFF;
+	font-size: 16px;
+	.wrapper {
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+	.section-title {
+		color: #FFF!important;
+	}
+	.subtitle {
+		font-size: 1.2em;
+		font-style: italic;
+	}
+	.textwrap {
+		max-width: 800px;
+		width: 100%;
+		margin: 0 auto;
+	}
+	.groundtext {
+		display: inline-block;
+		margin-top: 30px;
+	}
+}
+.two-column-text {
+	.fcol {
+		width: 100%;
+		@include tab {
+			width: 50%;
+		}
+		&.left {
+			background: #e3f0f8;
+		}
+		&.right {
+			background: #dadfe4;
+		}
+	}
+	.inside {
+		padding: 2em 3em;
+		font-size: 16px;
+		@include mid {
+			padding: 4em 5em;
+		}
+		@include desk {
+			padding: 5em 5em;
+		}
+		h2 {
+			margin: 0 0 10px;
+			font-size: 33px;
+			font-weight: 600;
+			line-height: 1.2;
+		}
+		p:first-child {
+			margin-top: 0;
+		}
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+body.subpage .section.financialAid {
+	.section-title {
+		margin-top: 10px;
+	}
+	.text {
+		margin-top: 40px;
+		margin-bottom: 30px;
+		font-size: 16px;
+		ul {
+			@include tab {
+				column-count: 2;
+				column-fill: balance;
+				column-gap: 1.5em;
+			}
+		}
+		&.ulstyle ul > li {
+			&:before {
+				font-size: 18px;
+				color: #81ab1b;
 			}
 		}
 	}
