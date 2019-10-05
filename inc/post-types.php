@@ -45,6 +45,7 @@ function js_custom_init() {
             $taxonomies = ( isset($p['taxonomies']) && $p['taxonomies'] ) ? $p['taxonomies'] : array(); 
             $parent_item_colon = ( isset($p['parent_item_colon']) && $p['parent_item_colon'] ) ? $p['parent_item_colon'] : ""; 
             $menu_position = ( isset($p['menu_position']) && $p['menu_position'] ) ? $p['menu_position'] : 20; 
+            $rewrite_slug = ( isset($p['slug']) && $p['slug'] ) ? $p['slug'] : array( 'slug' => $taxonomy );
             
             if($p_type) {
                 
@@ -100,7 +101,7 @@ function ii_custom_taxonomies() {
                 'plural'    => 'Locations',
                 'single'    => 'Location',
                 'taxonomy'  => 'locationsx',
-                'slug'      => array('slug' => 'locations', 'with_front' => false)
+                'slug'      => array('slug' => 'faculty-locations', 'with_front' => false)
             ),
             array(
                 'post_type' => 'faculties',
@@ -108,7 +109,7 @@ function ii_custom_taxonomies() {
                 'plural'    => 'Programs',
                 'single'    => 'Program',
                 'taxonomy'  => 'programsx',
-                'slug'      => array('slug' => 'programs', 'with_front' => false)
+                'slug'      => array('slug' => 'faculty-programs', 'with_front' => false)
             ),
             array(
                 'post_type' => 'faculties',
@@ -116,7 +117,7 @@ function ii_custom_taxonomies() {
                 'plural'    => 'Types',
                 'single'    => 'Type',
                 'taxonomy'  => 'typesx',
-                'slug'      => array('slug' => 'types', 'with_front' => false)
+                'slug'      => array('slug' => 'faculty-types', 'with_front' => false)
             ),
         );
     
