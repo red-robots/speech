@@ -3040,6 +3040,9 @@ body.subpage.single {
 	line-height: 1.2;
 	color: $navyblue;
 	margin: 0 0;
+	&.whytitle {
+		font-size: 16px;
+	}
 }
 .section {
 	padding-top: 40px;
