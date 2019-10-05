@@ -2421,7 +2421,9 @@ body.subpage.single .text h6{font-size:20px}
 @media(min-width:768px){.arrival-departure .infobox{width:33.3%;margin:0}
 }.arrival-departure .isdLogo{position:relative;bottom:-10px}
 .arrival-departure .isdLogo img{width:185px;height:auto}
-.flightInfo ul{margin:0;padding:0;list-style:none}
+@media(min-width:768px){.arrival-departure .isdLogo img{width:120px}
+}@media(min-width:900px){.arrival-departure .isdLogo img{width:185px}
+}.flightInfo ul{margin:0;padding:0;list-style:none}
 .flightInfo ul>li{border-bottom:2px solid #a6d339;padding:15px 0;width:100%;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 @media screen and (max-width:767px){.flightInfo ul>li{height:auto !important;padding:20px 0}
 }body.subpage .section.ground-transpo{background:#4099cd;color:#FFF;font-size:16px}

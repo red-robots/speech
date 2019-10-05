@@ -82,12 +82,18 @@ jQuery(document).ready(function ($) {
 			var maxHeight = 0;
 
 			$(".flightInfo ul li").each(function(){
-			   if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
+				if( $(this).find(".listtext").length == 0 ) {
+					if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
+				} else {
+					if ($(this).find(".listtext").height() > maxHeight) { maxHeight = $(this).find(".listtext").height(); }
+				}
 			});
 
 			$(".flightInfo ul li").height(maxHeight);
 			$(".flightInfo ul li").each(function(){
-				$(this).wrapInner('<div class="listtext"></div>');
+				if( $(this).find(".listtext").length == 0 ) {
+					$(this).wrapInner('<div class="listtext"></div>');
+				} 
 			});
 		}
     }

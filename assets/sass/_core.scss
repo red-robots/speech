@@ -3109,6 +3109,12 @@ body.subpage.single {
 		img {
 			width: 185px;
 			height: auto;
+			@include tab {
+				width: 120px;
+			}
+			@include mid {
+				width: 185px;
+			}
 		}
 	}
 }
