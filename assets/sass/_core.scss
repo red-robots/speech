@@ -2930,11 +2930,20 @@ body.subpage.single {
 		}
 	}
 	.signupbox {
+		.inside {
+			height: 300px;
+			@include tab {
+				height: 100%;
+			}
+		}
 		.wrap {
 			background-size: cover;
-			background-position: center;
+			background-position:  0 -200px;
 			background-repeat: no-repeat;
 			background-color: #4099cd;
+			@include tab {
+				background-position: center;
+			}
 			@include flexgroup();
 			@include flexbox-align-items(center);
 		}
@@ -2948,12 +2957,16 @@ body.subpage.single {
 			display: inline-block;
 			background: $limegreen;
 			color: #FFF;
-			padding: 12px 10px;
+			padding: 25px 30px;
 			line-height: 1.2;
-			font-size: 18px;
+			font-size: 20px;
 			font-weight: 500;
 			border-radius: 6px;
 			box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.38);
+			@include tab {
+				font-size: 18px;
+				padding: 12px 10px;
+			}
 			&:hover {
 				transform: scale(1.1);
 			}
