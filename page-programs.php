@@ -59,13 +59,24 @@ get_header(); ?>
 					<?php $j=1; while ( $programs->have_posts() ) : $programs->the_post(); ?>
 						<?php 
 							$featimage = get_field('featimage'); 
+							$featimagelarge = get_field('featimagelarge'); 
 							$overview = get_field('program_overview_copy'); 
-							$locations = get_field('locations_dates_info'); 
-							$px = get_bloginfo('template_url') . '/images/portrait.png';
-							$img = ($featimage) ? ' style="background-image:url('.$featimage['url'].')"':'';
+							//$locations = get_field('locations_dates_info'); 
+							$img = '';
+							$imgClass = 'noimage';
+							if($featimage) {
+								$imgClass = 'hasimage';
+								$img = ' style="background-image:url('.$featimage['url'].')"';
+							} else {
+								if($featimagelarge) {
+									$imgClass = 'hasimage';
+									$img = ' style="background-image:url('.$featimagelarge['sizes']['large'].')"';
+								}
+							}
 							$locations_dates_info = get_field('locations_dates_info');
+							$px = get_bloginfo('template_url') . '/images/portrait.png';
 						?>
-						<div class="block <?php echo ($featimage) ? 'hasimage':'noimage';?>">
+						<div class="block <?php echo $imgClass;?>">
 							<div class="inside">
 								<div class="wrap">
 									<div class="featimage fl"<?php echo $img ?>>

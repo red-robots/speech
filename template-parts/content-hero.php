@@ -47,13 +47,42 @@
 
 <?php } else { ?>
 
-	<?php  
+	<?php /* SINGLE PROGRAMS PAGE */ ?>
+	<?php if ( is_single() && get_post_type() == 'programs' ) { ?>
+		
+		<?php  
+			$featimage = get_field('featimage'); 
+			$featimagelarge = get_field('featimagelarge'); 
+			$topImage = '';
+			$topImgAlt = '';
+			if($featimagelarge) {
+				$topImage = $featimagelarge['url'];
+				$topImgAlt = $featimagelarge['title'];
+			} else {
+				if($featimage) {
+					$topImage = $featimage['url'];
+					$topImgAlt = $featimage['title'];
+				}
+			} 
+		?>
+
+		<?php if ($topImage) { ?>
+		<div class="subpage-banner clear">
+			<img src="<?php echo $topImage ?>" alt="<?php echo $topImgAlt ?>" class="banner" />
+		</div>	
+		<?php } ?>
+
+	<?php }  else  { ?>
+	
+		<?php  
 		$banner = get_field('banner_image');
-	?>
-	<?php if ($banner) { ?>
-	<div class="subpage-banner clear">
-		<img src="<?php echo $banner['url'] ?>" alt="<?php echo $banner['title'] ?>" class="banner" />
-	</div>	
+		?>
+		<?php if ($banner) { ?>
+		<div class="subpage-banner clear">
+			<img src="<?php echo $banner['url'] ?>" alt="<?php echo $banner['title'] ?>" class="banner" />
+		</div>	
+		<?php } ?>
+
 	<?php } ?>
 
 <?php } ?>

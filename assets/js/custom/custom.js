@@ -263,8 +263,22 @@ jQuery(document).ready(function ($) {
 	  adjust_list_container();
 	  show_popup_close_button();
 	  append_list_part();
+	  detect_week_span_width();
 	});
 	
+	detect_week_span_width();
+	function detect_week_span_width() {
+		if( $(".tdlength .wk").length ) {
+			$(".tdlength .wk").each(function(){
+				var textWidth = $(this).find('span').outerWidth();
+				var tw = parseInt(textWidth) + 30;
+				$(this).css('width',+tw+'px');
+			});
+		}
+	}
 	
+	
+	
+	/* Single Program page (Tuition cost) */
 
 });// END #####################################    END
