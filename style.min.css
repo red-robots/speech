@@ -2239,7 +2239,7 @@ body.subpage.page-template-page-contact .fulldiv .textwrap{padding-top:15px;padd
 }.text-image-block .textrow.odd .flexrow{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-webkit-flex-direction:row-reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
 .text-image-block .hd2{margin:0;color:#052843}
 .bottom-section.green{background:#a6d339;color:#052843}
-.bottom-section .midwrap{max-width:680px;padding-top:30px;padding-bottom:35px}
+.bottom-section .midwrap{max-width:680px;padding-top:45px;padding-bottom:50px}
 .bottom-section .text{font-size:1.5em;line-height:1.2}
 @media(min-width:768px){.bottom-section .text{font-size:1.8em}
 }.bottom-section .buttondiv{margin-top:15px}
