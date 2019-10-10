@@ -2453,22 +2453,25 @@ body.subpage .section.financialAid .section-title{margin-top:10px}
 body.subpage .section.financialAid .text{margin-top:40px;margin-bottom:30px;font-size:16px}
 @media(min-width:768px){body.subpage .section.financialAid .text ul{-webkit-column-count:2;-moz-column-count:2;column-count:2;-webkit-column-fill:balance;-moz-column-fill:balance;column-fill:balance;-webkit-column-gap:1.5em;-moz-column-gap:1.5em;column-gap:1.5em}
 }body.subpage .section.financialAid .text.ulstyle ul>li:before{font-size:18px;color:#81ab1b}
+body.subpage .bluepattern a.btngreen,.btngreen{display:inline-block;text-decoration:none;padding:10px 20px;color:#052843;background:#a6d339;font-size:15px;font-weight:500;line-height:1}
+body.subpage .bluepattern a.btngreen:hover,.btngreen:hover{color:#052843;background:#c9f75b}
 body.single-programs .subpage-banner{margin-top:-25px}
+.singleprogramtext .buttondiv{margin-top:25px}
 .singleprogramtext .wrapper{padding-top:50px;padding-bottom:50px}
 .singleprogramtext .spcol{width:100%;position:relative;z-index:5}
 .singleprogramtext .colbox{position:relative}
 .singleprogramtext .colbox .spcol.left{font-size:14px;line-height:1.3;width:100%;margin-bottom:30px;border-bottom:3px solid #a6d339;padding-bottom:30px}
-@media(min-width:768px){.singleprogramtext .colbox .spcol.left{border-bottom:0;margin-bottom:0;padding-bottom:0;width:40%}
+@media(min-width:768px){.singleprogramtext .colbox .spcol.left{border-bottom:0;margin-bottom:0;padding-bottom:0;width:40%;padding-right:20px}
 }@media(min-width:900px){.singleprogramtext .colbox .spcol.left{width:30%}
 }.singleprogramtext .colbox .spcol.right{width:100%}
-@media(min-width:768px){.singleprogramtext .colbox .spcol.right{width:60%;padding-left:20px}
+@media(min-width:768px){.singleprogramtext .colbox .spcol.right{width:60%;padding-left:20px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 }@media(min-width:900px){.singleprogramtext .colbox .spcol.right{width:70%;padding-left:30px}
 }.singleprogramtext .colbox:before{content:"";display:block;width:100%}
-@media(min-width:768px){.singleprogramtext .colbox:before{height:100%;width:38%;position:absolute;top:0;left:0;border-right:3px solid #a6d339}
+@media(min-width:768px){.singleprogramtext .colbox:before{height:100%;width:40%;position:absolute;top:0;left:0;border-right:3px solid #a6d339}
 }@media(min-width:900px){.singleprogramtext .colbox:before{width:30%}
-}@media(min-width:1200px){.singleprogramtext .colbox:before{width:calc(30% - 30px)}
 }.singleprogramtext .ltitle{color:#4099cd;font-size:16px;font-weight:600;line-height:1.2;text-transform:uppercase;margin-bottom:5px}
 .singleprogramtext .locations-dates{margin-bottom:16px}
+.singleprogramtext .locations-dates .info{margin-bottom:8px}
 .singleprogramtext .locations-dates .info strong{font-weight:600}
 .singleprogramtext h3.type{margin:0;font-size:16px;font-weight:600;line-height:1.2;position:relative}
 .singleprogramtext h3.type:before{content:"\203A";display:inline-block;color:#a6d339;position:absolute;top:-2px;left:-10px;font-size:16px}
@@ -2482,3 +2485,60 @@ body.single-programs .subpage-banner{margin-top:-25px}
 .singleprogramtext .tblflex div{width:100%}
 .singleprogramtext .tblflex .hr{border-bottom:1px solid #CCC;top:-4px}
 .singleprogramtext .tuition-info{margin:10px 0;padding-left:11px}
+.section-sp-row2 .fcol{width:100%}
+.section-sp-row2 .imagecol{background-size:cover;background-position:center;background-repeat:no-repeat}
+.section-sp-row2 .inside{padding:40px}
+@media(min-width:900px){.section-sp-row2 .inside{padding:10%}
+}.section-sp-row2 .flexrow.twcol .fcol{width:100%;position:relative}
+@media(min-width:1200px){.section-sp-row2 .flexrow.twcol .fcol{width:50%}
+}.section-sp-row2 .flexrow.twcol .fcol img{width:100%;height:auto;float:left}
+body.subpage .hd2{margin:0 0 20px;font-size:2em;font-weight:600;line-height:1.2;color:#052843}
+body.subpage .section-curriculum{background:#4099cd;color:#FFF}
+body.subpage .section-curriculum .hd2{color:#FFF;padding-bottom:20px;border-bottom:1px solid #FFF}
+body.subpage .section-curriculum .wrapper{padding-top:40px;padding-bottom:50px}
+@media(min-width:768px){body.subpage .section-curriculum .wrapper{padding-top:30px;padding-bottom:40px}
+}@media(min-width:1200px){body.subpage .section-curriculum .wrapper{padding-top:50px;padding-bottom:10px}
+}body.subpage .section-curriculum .director-message{position:relative;margin-top:-15px}
+body.subpage .section-curriculum .textcol{width:100%;text-align:center;font-size:1.2em;font-weight:600;font-style:italic;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+@media(min-width:768px){body.subpage .section-curriculum .textcol{font-size:2vw;text-align:left;padding-top:20px}
+}@media(min-width:1200px){body.subpage .section-curriculum .textcol{padding-top:0;font-size:1.2em}
+}body.subpage .section-curriculum .textcol p{margin-top:0}
+body.subpage .section-curriculum .textcol p:last-child{margin-bottom:0}
+body.subpage .section-curriculum .imagecol{width:70%;float:none;margin:0 auto}
+@media(min-width:768px){body.subpage .section-curriculum .imagecol{float:left}
+}body.subpage .section-curriculum .imagecol .frame{width:100%;float:left;padding:30px;position:relative}
+body.subpage .section-curriculum .imagecol .photo{width:100%;float:left;position:relative;overflow:hidden;background-size:cover;background-position:center;background-repeat:no-repeat;border:15px solid #4099cd;z-index:10}
+body.subpage .section-curriculum .imagecol img{width:100%;height:auto;float:left;border:5px solid #FFF}
+body.subpage .section-curriculum .imagecol .hlines{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;border-radius:100%}
+body.subpage .section-curriculum .imagecol .hlines div{display:block;width:100%;height:100%;position:absolute;top:0;left:0;background-image:-webkit-linear-gradient(bottom,#fff 11.54%,#4099cd 11.54%,#4099cd 50%,#fff 50%,#fff 61.54%,#4099cd 61.54%,#4099cd 100%);background-image:linear-gradient(0,#fff 11.54%,#4099cd 11.54%,#4099cd 50%,#fff 50%,#fff 61.54%,#4099cd 61.54%,#4099cd 100%);background-size:26.00px 26.00px;border-radius:100%;border:5px solid #4099cd}
+body.subpage .section-curriculum .imagecol .hlines:before,body.subpage .section-curriculum .imagecol .hlines:after{content:"";display:block;width:110%;height:22%;position:absolute;left:0;z-index:2;background:#4099cd}
+body.subpage .section-curriculum .imagecol .hlines:before{top:0}
+body.subpage .section-curriculum .imagecol .hlines:after{bottom:0}
+body.subpage .section-curriculum .imagecol .photo,body.subpage .section-curriculum .imagecol .photo img{border-radius:100%}
+@media(min-width:768px){body.subpage .section-curriculum .flexrow.hasimage .imagecol{width:30%}
+}body.subpage .section-curriculum .flexrow.hasimage .textcol{width:100%}
+@media(min-width:768px){body.subpage .section-curriculum .flexrow.hasimage .textcol{width:70%;padding-left:30px}
+}body.subpage .section-curriculum .author{font-style:normal;font-weight:400;font-size:.85em}
+body.subpage .section-schedules{position:relative;margin-bottom:-25px;overflow:hidden}
+@media(min-width:768px){body.subpage .section-schedules:before{content:"";display:block;width:30%;height:110%;background:#a6d339;position:absolute;top:0;left:0}
+}body.subpage .section-schedules .flexrow{position:relative;z-index:5}
+body.subpage .section-schedules .hd2{margin:0;line-height:1.2;display:inline-block;padding:20px 30px;width:100%;background:#FFF;border:1px solid #a6d339;font-size:1.6em}
+@media(min-width:768px){body.subpage .section-schedules .hd2{padding:10px 20px;font-size:3vw;width:90%}
+}@media(min-width:900px){body.subpage .section-schedules .hd2{padding:20px 35px;font-size:2em;width:75%}
+}body.subpage .section-schedules .titlecol,body.subpage .section-schedules .textcol{width:100%;position:relative}
+body.subpage .section-schedules .titlecol{padding:40px 30px;background:#a6d339}
+@media(min-width:768px){body.subpage .section-schedules .titlecol{background:transparent;padding:0;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-flex-direction:row-reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
+}body.subpage .section-schedules .textcol{padding-top:40px;padding-bottom:50px}
+body.subpage .section-schedules .textcol .tblwrap{position:relative;padding:0 30px}
+@media(min-width:768px){body.subpage .section-schedules .textcol .tblwrap{padding:0}
+}body.subpage .section-schedules .twocol .titlecol{width:100%}
+@media(min-width:768px){body.subpage .section-schedules .twocol .titlecol{width:40%;margin-bottom:0}
+}body.subpage .section-schedules .twocol .textcol{width:100%}
+@media(min-width:768px){body.subpage .section-schedules .twocol .textcol{width:60%;padding-left:40px}
+}@media(min-width:1200px){body.subpage .section-schedules .twocol .textcol{padding-left:8%}
+}.table-schedules{width:100%;border:0;font-size:15px}
+.table-schedules td{position:relative;padding:8px 0;vertical-align:top}
+.table-schedules td.time{padding-right:6px}
+.table-schedules td.time .wrap{position:relative}
+.table-schedules td.time .wrap:after{content:"";display:block;width:100%;height:1px;background:#052843;position:absolute;bottom:8px;left:0}
+.table-schedules td.time span{font-weight:600;display:inline-block;position:relative;background:#FFF;z-index:5;padding-right:10px}

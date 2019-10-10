@@ -103,6 +103,13 @@ get_header(); ?>
 									</div>
 									<?php } ?>
 
+									<?php $enrollLink = get_field('button_link','option');  ?>
+									<?php if ($enrollLink) { ?>
+									<div class="buttondiv">
+										<a href="<?php echo $enrollLink ?>" class="btngreen">Sign Up Now</a>
+									</div>
+									<?php } ?>
+
 								</div>
 								
 							<?php } ?>
@@ -113,6 +120,116 @@ get_header(); ?>
 						</div>
 					</div>
 				</div>
+
+
+				<?php
+				$second_row_title = get_field('second_row_title'); 
+				$second_row_image = get_field('second_row_image'); 
+				$second_row_text = get_field('second_row_text'); 
+				$px = get_bloginfo("template_url") . '/images/rectangle.png';
+				?>
+
+				<?php if ($second_row_text) { ?>
+				<section class="section-sp-row2 clear">
+					<div class="flexrow <?php echo ($second_row_image) ? 'twcol':'onecol' ?>">
+						<?php if ($second_row_image) { ?>
+						<div class="fcol imagecol left" style="background-image:url('<?php echo $second_row_image['url'] ?>')">
+							<img src="<?php echo $px ?>" alt="" aria-hidden="true" />
+						</div>
+						<?php } ?>
+						<div class="fcol right">
+							<div class="inside">
+								<?php if ($second_row_title) { ?>
+								<h2 class="hd2"><?php echo $second_row_title ?></h2>	
+								<?php } ?>
+								<?php echo $second_row_text ?>
+							</div>
+						</div>
+					</div>
+				</section>	
+				<?php } ?>
+
+
+				<?php  
+				$square = get_bloginfo("template_url") . '/images/square.png';
+				$curriculum_director = get_field('curriculum_director');
+				$message = get_field('message');
+				$headshot = '';
+				$authorInfo = '';
+				if ($curriculum_director) {
+					$faculty_Id = $curriculum_director->ID;
+					$faculty_name = $curriculum_director->post_title;
+					$headshot = get_field('headshot',$faculty_Id);
+					$current_school = get_field('current_school',$faculty_Id);
+					$position = get_field('position',$faculty_Id);
+					$authorArr = array($faculty_name,$current_school,$position);
+					$authorInfo = ($authorArr && array_filter($authorArr)) ? implode(", ",array_filter($authorArr)):'';
+				}
+				?>
+
+				<?php if ($message) { ?>
+				<section class="section-curriculum clear">
+					<div class="wrapper clear">
+						<h2 class="hd2 text-center">From Our Curriculum Director</h2>
+						<div class="director-message clear">
+							<div class="flexrow <?php echo ($headshot) ? 'hasimage':'noimage'; ?>">
+								<?php if ($headshot) { ?>
+									<div class="imagecol">
+										<div class="frame clear">
+											<div class="photo" style="background-image:url('<?php echo $headshot['url'] ?>')">
+												<img src="<?php echo $square ?>" alt="" aria-hidden="true"/>
+											</div>
+											<div class="hlines"><div></div></div>
+										</div>
+									</div>
+								<?php } ?>
+
+								<div class="textcol">
+									<div class="pad">
+										<?php echo $message ?>
+										<?php if ($authorInfo) { ?>
+										<div class="author">&ndash; <?php echo $authorInfo; ?></div>
+										<?php } ?>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<?php } ?>
+				
+
+				<?php
+				$schedule_title = get_field('schedule_title');  
+				$schedules = get_field('schedule');  
+				?>
+				
+				<?php if ($schedules) { ?>
+				<section class="section-schedules clear">
+					<div class="flexrow clear <?php echo ($schedule_title) ? 'twocol':'onecol' ?>">
+						<?php if ($schedule_title) { ?>
+						<div class="titlecol">
+							<h2 class="hd2"><?php echo $schedule_title ?></h2>
+						</div>	
+						<?php } ?>
+
+						<div class="textcol">
+							<div class="tblwrap clear">
+								<table class="table table-schedules">
+									<tbody>
+									<?php foreach ($schedules as $sc) { ?>
+										<tr>
+											<td class="time"><div class="wrap"><span><?php echo $sc['time'] ?></span></div></td>
+											<td class="scheduled-item"><span><?php echo $sc['schedule_item']; ?></span></td>
+										</tr>
+									<?php } ?>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</section>	
+				<?php } ?>
 
 			<?php endwhile;  ?>
 
