@@ -209,7 +209,7 @@ get_header(); ?>
 					<div class="flexrow clear <?php echo ($schedule_title) ? 'twocol':'onecol' ?>">
 						<?php if ($schedule_title) { ?>
 						<div class="titlecol">
-							<h2 class="hd2"><?php echo $schedule_title ?></h2>
+							<h2 class="hd2"><span><?php echo $schedule_title ?></span></h2>
 						</div>	
 						<?php } ?>
 

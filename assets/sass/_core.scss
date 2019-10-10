@@ -1011,23 +1011,30 @@ body.home .site-header {
 	.morebtn {
 		display: inline-block;
 		text-decoration: none;
-		color: $navyblue;
+		color: #FFF;
 		font-weight: 500;
 		font-size: .95em;
+		padding: 10px 35px 10px 20px;
+		background: $navyblue;
 		position: relative;
-		padding: 4px 10px;
 		.fa-chevron-right {
 			position: absolute;
-			top: 11px;
-			right: -2px;
-			font-size: 9px;
+			top: 16px;
+			right: 15px;
+			font-size: 12px;
+			-webkit-transition: all ease .3s;
 			transition: all ease .3s;
+			color: #FFF;
 		}
 		&:hover {
-			color: $blue;
+			background: $limegreen;
+			color: $navyblue;
 			.fa-chevron-right {
-				right: -6px;
+				color: $navyblue;
 			}
+			// .fa-chevron-right {
+			// 	right: 10px;
+			// }
 		}
 	}
 }
@@ -3610,21 +3617,28 @@ body.subpage .section-schedules {
 	.hd2 {
 		margin: 0 0;
 		line-height: 1.2;
-		display: inline-block;
-		padding: 20px 30px;
+		display: block;
 		width: 100%;
-		background: #FFF;
-		border: 1px solid $limegreen;
 		font-size: 1.6em;
+		text-align: center;
 		@include tab {
 			padding: 10px 20px;
 			font-size: 3vw;
-			width: 90%;
+			text-align: right;
 		}
 		@include mid {
 			padding: 20px 35px;
 			font-size: 2em;
-			width: 75%;
+		}
+		span {
+			padding: 20px 30px;
+			display: inline-block;
+			border: 1px solid $limegreen;
+			background: #FFF;
+			text-align: center;
+			@include tab {
+				text-align: left;
+			}
 		}
 	}
 	.titlecol, .textcol {
@@ -3666,9 +3680,11 @@ body.subpage .section-schedules {
 			@include tab {
 				width: 60%;
 				padding-left: 40px;
+				padding-right: 40px;
 			}
 			@include desk {
-				padding-left: 8%;
+				padding-left: 5%;
+				padding-right: 5%;
 			}
 		}
 	}
@@ -3708,8 +3724,22 @@ body.subpage .section-schedules {
 		}
 	}
 
+	.table-schedules td.time {
+		width: 40%;
+		@include mid {
+			width: 30%;
+		}
+	}
+
+	.table-schedules td.scheduled-item {
+		width: 60%;
+		@include mid {
+			width: 70%;
+		}
+	}
+
 	.flexrow.onecol {
-		background: $limegreen;
+		background: #FFF;
 		padding: 0 30px;
 		@include mid {
 			padding: 0 10%;
@@ -3732,20 +3762,8 @@ body.subpage .section-schedules {
 				width: 50%;
 			}
 		}
-		.table-schedules td.scheduled-item {
-			width: 40%;
-			@include mid {
-				width: 50%;
-			}
-		}
-		.table-schedules td.time {
-			width: 60%;
-			@include mid {
-				width: 50%;
-			}
-		}
 		.table-schedules td.time span {
-			background: $limegreen;
+			background: #FFF;
 		}
 	}
 }

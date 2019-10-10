@@ -2016,10 +2016,10 @@ body.home #content{position:relative;z-index:20}
 .section-boxes .description{padding-top:20px;padding-left:20px;padding-right:20px;border-top:2px solid #a6d339;font-size:1.1em;font-weight:400}
 .section-boxes p{margin-top:15px}
 .section-boxes p:first-child{margin-top:0}
-.section-boxes .morebtn{display:inline-block;text-decoration:none;color:#052843;font-weight:500;font-size:.95em;position:relative;padding:4px 10px}
-.section-boxes .morebtn .fa-chevron-right{position:absolute;top:11px;right:-2px;font-size:9px;-webkit-transition:all ease .3s;transition:all ease .3s}
-.section-boxes .morebtn:hover{color:#4099cd}
-.section-boxes .morebtn:hover .fa-chevron-right{right:-6px}
+.section-boxes .morebtn{display:inline-block;text-decoration:none;color:#FFF;font-weight:500;font-size:.95em;padding:10px 35px 10px 20px;background:#052843;position:relative}
+.section-boxes .morebtn .fa-chevron-right{position:absolute;top:16px;right:15px;font-size:12px;-webkit-transition:all ease .3s;transition:all ease .3s;color:#FFF}
+.section-boxes .morebtn:hover{background:#a6d339;color:#052843}
+.section-boxes .morebtn:hover .fa-chevron-right{color:#052843}
 .section-testimonials{background:#4099cd;color:#FFF;padding-top:40px;padding-bottom:40px}
 .section-testimonials .wrapper{position:relative}
 @media(min-width:768px){.section-testimonials .wrapper{padding-left:50px;padding-right:50px}
@@ -2523,9 +2523,11 @@ body.subpage .section-curriculum .imagecol .photo,body.subpage .section-curricul
 body.subpage .section-schedules{position:relative;overflow:hidden}
 @media(min-width:768px){body.subpage .section-schedules:before{content:"";display:block;width:30%;height:110%;background:#a6d339;position:absolute;top:0;left:0}
 }body.subpage .section-schedules .flexrow{position:relative;z-index:5}
-body.subpage .section-schedules .hd2{margin:0;line-height:1.2;display:inline-block;padding:20px 30px;width:100%;background:#FFF;border:1px solid #a6d339;font-size:1.6em}
-@media(min-width:768px){body.subpage .section-schedules .hd2{padding:10px 20px;font-size:3vw;width:90%}
-}@media(min-width:900px){body.subpage .section-schedules .hd2{padding:20px 35px;font-size:2em;width:75%}
+body.subpage .section-schedules .hd2{margin:0;line-height:1.2;display:block;width:100%;font-size:1.6em;text-align:center}
+@media(min-width:768px){body.subpage .section-schedules .hd2{padding:10px 20px;font-size:3vw;text-align:right}
+}@media(min-width:900px){body.subpage .section-schedules .hd2{padding:20px 35px;font-size:2em}
+}body.subpage .section-schedules .hd2 span{padding:20px 30px;display:inline-block;border:1px solid #a6d339;background:#FFF;text-align:center}
+@media(min-width:768px){body.subpage .section-schedules .hd2 span{text-align:left}
 }body.subpage .section-schedules .titlecol,body.subpage .section-schedules .textcol{width:100%;position:relative}
 body.subpage .section-schedules .titlecol{padding:40px 30px;background:#a6d339}
 @media(min-width:768px){body.subpage .section-schedules .titlecol{background:transparent;padding:0;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-flex-direction:row-reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
@@ -2535,21 +2537,21 @@ body.subpage .section-schedules .textcol .tblwrap{position:relative;padding:0 30
 }body.subpage .section-schedules .twocol .titlecol{width:100%}
 @media(min-width:768px){body.subpage .section-schedules .twocol .titlecol{width:40%;margin-bottom:0}
 }body.subpage .section-schedules .twocol .textcol{width:100%}
-@media(min-width:768px){body.subpage .section-schedules .twocol .textcol{width:60%;padding-left:40px}
-}@media(min-width:1200px){body.subpage .section-schedules .twocol .textcol{padding-left:8%}
+@media(min-width:768px){body.subpage .section-schedules .twocol .textcol{width:60%;padding-left:40px;padding-right:40px}
+}@media(min-width:1200px){body.subpage .section-schedules .twocol .textcol{padding-left:5%;padding-right:5%}
 }body.subpage .section-schedules .table-schedules{width:100%;border:0;font-size:15px}
 body.subpage .section-schedules .table-schedules td{position:relative;padding:8px 0;vertical-align:top}
 body.subpage .section-schedules .table-schedules td.time{padding-right:6px}
 body.subpage .section-schedules .table-schedules td.time .wrap{position:relative}
 body.subpage .section-schedules .table-schedules td.time .wrap:after{content:"";display:block;width:100%;height:1px;background:#052843;position:absolute;bottom:8px;left:0}
 body.subpage .section-schedules .table-schedules td.time span{font-weight:600;display:inline-block;position:relative;background:#FFF;z-index:5;padding-right:10px}
-body.subpage .section-schedules .flexrow.onecol{background:#a6d339;padding:0 30px}
+body.subpage .section-schedules .table-schedules td.time{width:40%}
+@media(min-width:900px){body.subpage .section-schedules .table-schedules td.time{width:30%}
+}body.subpage .section-schedules .table-schedules td.scheduled-item{width:60%}
+@media(min-width:900px){body.subpage .section-schedules .table-schedules td.scheduled-item{width:70%}
+}body.subpage .section-schedules .flexrow.onecol{background:#FFF;padding:0 30px}
 @media(min-width:900px){body.subpage .section-schedules .flexrow.onecol{padding:0 10%}
 }body.subpage .section-schedules .flexrow.onecol .tblwrap{max-width:900px;width:100%;margin:0 auto;padding-top:10px;padding-bottom:10px;padding-left:0;padding-right:0}
 @media(min-width:900px){body.subpage .section-schedules .flexrow.onecol .tblwrap{padding-top:30px;padding-bottom:30px}
 }@media(min-width:900px){body.subpage .section-schedules .flexrow.onecol .table-schedules td{width:50%}
-}body.subpage .section-schedules .flexrow.onecol .table-schedules td.scheduled-item{width:40%}
-@media(min-width:900px){body.subpage .section-schedules .flexrow.onecol .table-schedules td.scheduled-item{width:50%}
-}body.subpage .section-schedules .flexrow.onecol .table-schedules td.time{width:60%}
-@media(min-width:900px){body.subpage .section-schedules .flexrow.onecol .table-schedules td.time{width:50%}
-}body.subpage .section-schedules .flexrow.onecol .table-schedules td.time span{background:#a6d339}
+}body.subpage .section-schedules .flexrow.onecol .table-schedules td.time span{background:#FFF}
