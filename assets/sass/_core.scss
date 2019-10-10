@@ -3269,6 +3269,9 @@ body.single-programs {
 	.subpage-banner  {
 		margin-top: -25px;
 	}
+	#content {
+		margin-bottom: -25px;
+	}
 }
 .singleprogramtext {
 	.buttondiv {
@@ -3587,7 +3590,6 @@ body.subpage .section-curriculum {
 
 body.subpage .section-schedules {
 	position: relative;
-	margin-bottom: -25px;
 	overflow: hidden;
 	@include tab {
 		&:before {

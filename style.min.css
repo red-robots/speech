@@ -2456,6 +2456,7 @@ body.subpage .section.financialAid .text{margin-top:40px;margin-bottom:30px;font
 body.subpage .bluepattern a.btngreen,.btngreen{display:inline-block;text-decoration:none;padding:10px 20px;color:#052843;background:#a6d339;font-size:15px;font-weight:500;line-height:1}
 body.subpage .bluepattern a.btngreen:hover,.btngreen:hover{color:#052843;background:#c9f75b}
 body.single-programs .subpage-banner{margin-top:-25px}
+body.single-programs #content{margin-bottom:-25px}
 .singleprogramtext .buttondiv{margin-top:25px}
 .singleprogramtext .wrapper{padding-top:50px;padding-bottom:50px}
 .singleprogramtext .spcol{width:100%;position:relative;z-index:5}
@@ -2519,7 +2520,7 @@ body.subpage .section-curriculum .imagecol .photo,body.subpage .section-curricul
 }body.subpage .section-curriculum .flexrow.hasimage .textcol{width:100%}
 @media(min-width:768px){body.subpage .section-curriculum .flexrow.hasimage .textcol{width:70%;padding-left:30px}
 }body.subpage .section-curriculum .author{font-style:normal;font-weight:400;font-size:.85em}
-body.subpage .section-schedules{position:relative;margin-bottom:-25px;overflow:hidden}
+body.subpage .section-schedules{position:relative;overflow:hidden}
 @media(min-width:768px){body.subpage .section-schedules:before{content:"";display:block;width:30%;height:110%;background:#a6d339;position:absolute;top:0;left:0}
 }body.subpage .section-schedules .flexrow{position:relative;z-index:5}
 body.subpage .section-schedules .hd2{margin:0;line-height:1.2;display:inline-block;padding:20px 30px;width:100%;background:#FFF;border:1px solid #a6d339;font-size:1.6em}
