@@ -2537,9 +2537,19 @@ body.subpage .section-schedules .textcol .tblwrap{position:relative;padding:0 30
 }body.subpage .section-schedules .twocol .textcol{width:100%}
 @media(min-width:768px){body.subpage .section-schedules .twocol .textcol{width:60%;padding-left:40px}
 }@media(min-width:1200px){body.subpage .section-schedules .twocol .textcol{padding-left:8%}
-}.table-schedules{width:100%;border:0;font-size:15px}
-.table-schedules td{position:relative;padding:8px 0;vertical-align:top}
-.table-schedules td.time{padding-right:6px}
-.table-schedules td.time .wrap{position:relative}
-.table-schedules td.time .wrap:after{content:"";display:block;width:100%;height:1px;background:#052843;position:absolute;bottom:8px;left:0}
-.table-schedules td.time span{font-weight:600;display:inline-block;position:relative;background:#FFF;z-index:5;padding-right:10px}
+}body.subpage .section-schedules .table-schedules{width:100%;border:0;font-size:15px}
+body.subpage .section-schedules .table-schedules td{position:relative;padding:8px 0;vertical-align:top}
+body.subpage .section-schedules .table-schedules td.time{padding-right:6px}
+body.subpage .section-schedules .table-schedules td.time .wrap{position:relative}
+body.subpage .section-schedules .table-schedules td.time .wrap:after{content:"";display:block;width:100%;height:1px;background:#052843;position:absolute;bottom:8px;left:0}
+body.subpage .section-schedules .table-schedules td.time span{font-weight:600;display:inline-block;position:relative;background:#FFF;z-index:5;padding-right:10px}
+body.subpage .section-schedules .flexrow.onecol{background:#a6d339;padding:0 30px}
+@media(min-width:900px){body.subpage .section-schedules .flexrow.onecol{padding:0 10%}
+}body.subpage .section-schedules .flexrow.onecol .tblwrap{max-width:900px;width:100%;margin:0 auto;padding-top:10px;padding-bottom:10px;padding-left:0;padding-right:0}
+@media(min-width:900px){body.subpage .section-schedules .flexrow.onecol .tblwrap{padding-top:30px;padding-bottom:30px}
+}@media(min-width:900px){body.subpage .section-schedules .flexrow.onecol .table-schedules td{width:50%}
+}body.subpage .section-schedules .flexrow.onecol .table-schedules td.scheduled-item{width:40%}
+@media(min-width:900px){body.subpage .section-schedules .flexrow.onecol .table-schedules td.scheduled-item{width:50%}
+}body.subpage .section-schedules .flexrow.onecol .table-schedules td.time{width:60%}
+@media(min-width:900px){body.subpage .section-schedules .flexrow.onecol .table-schedules td.time{width:50%}
+}body.subpage .section-schedules .flexrow.onecol .table-schedules td.time span{background:#a6d339}

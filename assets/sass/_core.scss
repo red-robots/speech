@@ -3672,38 +3672,81 @@ body.subpage .section-schedules {
 			}
 		}
 	}
-}
-.table-schedules {
-	width: 100%;
-	border: none;
-	font-size: 15px;
-	td {
-		position: relative;
-		padding: 8px 0;
-		vertical-align: top;
-	}
-	td.time {
-		padding-right: 6px;
-		.wrap {
+
+	.table-schedules {
+		width: 100%;
+		border: none;
+		font-size: 15px;
+		td {
 			position: relative;
-			&:after {
-				content:"";
-				display: block;
-				width: 100%;
-				height: 1px;
-				background: $navyblue;
-				position: absolute;
-				bottom: 8px;
-				left: 0;
+			padding: 8px 0;
+			vertical-align: top;
+		}
+		td.time {
+			padding-right: 6px;
+			.wrap {
+				position: relative;
+				&:after {
+					content:"";
+					display: block;
+					width: 100%;
+					height: 1px;
+					background: $navyblue;
+					position: absolute;
+					bottom: 8px;
+					left: 0;
+				}
+			}
+			span {
+				font-weight: 600;
+				display: inline-block;
+				position: relative;
+				background: #FFF;
+				z-index: 5;
+				padding-right: 10px;
 			}
 		}
-		span {
-			font-weight: 600;
-			display: inline-block;
-			position: relative;
-			background: #FFF;
-			z-index: 5;
-			padding-right: 10px;
+	}
+
+	.flexrow.onecol {
+		background: $limegreen;
+		padding: 0 30px;
+		@include mid {
+			padding: 0 10%;
+		}
+		.tblwrap {
+			max-width: 900px;
+			width: 100%;
+			margin: 0 auto;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			padding-left: 0;
+			padding-right: 0;
+			@include mid {
+				padding-top: 30px;
+				padding-bottom: 30px;
+			}
+		}
+		.table-schedules td {
+			@include mid {
+				width: 50%;
+			}
+		}
+		.table-schedules td.scheduled-item {
+			width: 40%;
+			@include mid {
+				width: 50%;
+			}
+		}
+		.table-schedules td.time {
+			width: 60%;
+			@include mid {
+				width: 50%;
+			}
+		}
+		.table-schedules td.time span {
+			background: $limegreen;
 		}
 	}
 }
+
