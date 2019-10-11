@@ -3453,6 +3453,12 @@ body.single-programs {
 				height: auto;
 				float: left;
 			}
+			&.right {
+				@include mid {
+					@include flexgroup();
+					@include flexbox-align-items(center);
+				}
+			}
 		}
 	}
 }

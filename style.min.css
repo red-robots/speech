@@ -2492,7 +2492,8 @@ body.single-programs #content{margin-bottom:-25px}
 }.section-sp-row2 .flexrow.twcol .fcol{width:100%;position:relative}
 @media(min-width:1200px){.section-sp-row2 .flexrow.twcol .fcol{width:50%}
 }.section-sp-row2 .flexrow.twcol .fcol img{width:100%;height:auto;float:left}
-body.subpage .hd2{margin:0 0 20px;font-size:2em;font-weight:600;line-height:1.2;color:#052843}
+@media(min-width:900px){.section-sp-row2 .flexrow.twcol .fcol.right{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+}body.subpage .hd2{margin:0 0 20px;font-size:2em;font-weight:600;line-height:1.2;color:#052843}
 body.subpage .section-curriculum{background:#4099cd;color:#FFF}
 body.subpage .section-curriculum .hd2{color:#FFF;padding-bottom:20px;border-bottom:1px solid #FFF}
 body.subpage .section-curriculum .wrapper{padding-top:40px;padding-bottom:50px}
