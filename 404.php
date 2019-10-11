@@ -8,6 +8,8 @@
  */
 
 $banner = get_field('page404image','option');
+$page_404_title = get_field('page_404_title','option');
+$page_title = ($page_404_title) ? $page_404_title : 'Page Not Found';
 $pageErrorMessage = get_field('page_error_message','option');
 get_header(); ?>
 
@@ -18,7 +20,7 @@ get_header(); ?>
 			<header class="page-header">  
 				<div class="full-wrapper">
 					<h1 class="page-title">
-						<span class="title">Page Not Found</span>
+						<span class="title"><?php echo $page_title; ?></span>
 						<span class="stripe"><i></i></span></span>
 					</h1>
 				</div>
