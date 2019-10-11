@@ -34,6 +34,7 @@ get_header(); ?>
 
 			<?php  
 			$posts_per_page = 6;
+			$post_type = 'post';
 			$paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
 			$args = array(
 				'posts_per_page'=> $posts_per_page,
@@ -42,7 +43,7 @@ get_header(); ?>
 				'paged'			=> $paged
 			);
 			$blogs = new WP_Query($args);
-			$blog_entries = get_blog_posts($paged);
+			$blog_entries = get_blog_posts($paged,$post_type);
 			if ( $blogs->have_posts() ) {  ?>	
 			<section class="blogs-section clear">
 				<div class="postresults wrapper">
@@ -59,7 +60,7 @@ get_header(); ?>
 				    if ($total_pages > 1){ ?>
 				    	<div class="moreposts">
 				    		<span class="lastposts hide">No more posts to load.</span>
-				    		<a href="#" id="morepageBtn" data-total="<?php echo $totalpost ?>" data-pg="1">More Posts</a>
+				    		<a href="#" id="morepageBtn" data-posttype="post" data-total="<?php echo $totalpost ?>" data-pg="1">More Posts</a>
 				    	</div>
 				        <div id="pagination" class="pagination clear">
 				            <?php

@@ -533,8 +533,9 @@ add_action( 'wp_ajax_get_next_posts', 'get_next_posts' );
 function get_next_posts() {
     if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
         $paged = ($_POST['pg']) ? $_POST['pg'] : 0;
+        $posttype = ($_POST['posttype']) ? $_POST['posttype'] : 'post';
         $paged = $paged + 1;
-        $html = get_blog_posts($paged);
+        $html = get_blog_posts($paged,$posttype);
         $response['content'] = $html;
         $response['next_page'] = $paged;
         echo json_encode($response);
@@ -546,47 +547,51 @@ function get_next_posts() {
 }
 
 
-function get_blog_posts($paged) {
+function get_blog_posts($paged,$post_type='post') {
     $posts_per_page = 6;
     $content = '';
     $args = array(
         'posts_per_page'=> $posts_per_page,
-        'post_type'     => 'post',
+        'post_type'     => $post_type,
         'post_status'   => 'publish',
         'paged'         => $paged
     );
     $blogs = new WP_Query($args);
     if ( $blogs->have_posts() ) { ob_start(); ?>
+
+        <?php if ($post_type=='post') { /* BLOGS */ ?>
     
-        <?php $j=1; while ( $blogs->have_posts() ) : $blogs->the_post(); 
-            $content = get_the_content();
-            $content = ($content) ? strip_tags($content) : '';
-            $excerpt = ($content) ? shortenText($content,200,' ',' [&hellip;]') : '';
-            $thumbnail_id = get_post_thumbnail_id( get_the_ID() );
-            $featImage = wp_get_attachment_image_src($thumbnail_id,'large');
-            $pix = get_bloginfo('template_url') . '/images/rectangle.png';
-            ?>
-            <article id="paged<?php echo $paged.'-'.$j ?>" data-pagegroup="<?php echo $paged ?>" class="post-item">
-                <div class="inside flexrow">
-                    <?php if ($featImage) { ?>
-                    <div class="imagecol" style="background-image:url('<?php echo $featImage[0] ?>')">
-                        <img src="<?php echo $pix ?>" alt="" aria-hidden="true" />
-                    </div>
-                    <?php } ?>
-                    <div class="textcol <?php echo ($featImage) ? 'hasimage':'noimage';?>">
-                        <div class="pad">
-                            <h3 class="title"><?php the_title(); ?></h3>
-                            <div class="text"><?php echo $excerpt ?></div>
-                            <div class="btnwrap">
-                                <div class="btnpad">
-                                    <a href="<?php echo get_permalink(); ?>">Read Post <i class="arrow fas fa-chevron-right"></i></a>
+            <?php $j=1; while ( $blogs->have_posts() ) : $blogs->the_post(); 
+                $content = get_the_content();
+                $content = ($content) ? strip_tags($content) : '';
+                $excerpt = ($content) ? shortenText($content,200,' ',' [&hellip;]') : '';
+                $thumbnail_id = get_post_thumbnail_id( get_the_ID() );
+                $featImage = wp_get_attachment_image_src($thumbnail_id,'large');
+                $pix = get_bloginfo('template_url') . '/images/rectangle.png';
+                ?>
+                <article id="paged<?php echo $paged.'-'.$j ?>" data-pagegroup="<?php echo $paged ?>" class="post-item">
+                    <div class="inside flexrow">
+                        <?php if ($featImage) { ?>
+                        <div class="imagecol" style="background-image:url('<?php echo $featImage[0] ?>')">
+                            <img src="<?php echo $pix ?>" alt="" aria-hidden="true" />
+                        </div>
+                        <?php } ?>
+                        <div class="textcol <?php echo ($featImage) ? 'hasimage':'noimage';?>">
+                            <div class="pad">
+                                <h3 class="title"><?php the_title(); ?></h3>
+                                <div class="text"><?php echo $excerpt ?></div>
+                                <div class="btnwrap">
+                                    <div class="btnpad">
+                                        <a href="<?php echo get_permalink(); ?>">Read Post <i class="arrow fas fa-chevron-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </article>
-        <?php $j++; endwhile; wp_reset_postdata(); ?>
+                </article>
+            <?php $j++; endwhile; wp_reset_postdata(); ?>
+
+        <?php } ?>
 
     <?php
      $content = ob_get_contents();

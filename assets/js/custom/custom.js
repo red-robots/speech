@@ -115,7 +115,7 @@ jQuery(document).ready(function ($) {
 		setTimeout(function(){
 			$(".loaderwrap").addClass('show');
 			$("#facultiesInner").load(url + ' .loadcontent',function(){
-				window.history.pushState('', pageTitle, url);
+				//window.history.pushState('', pageTitle, url);
 				$(".loaderwrap").removeClass('show');
 				$(".selectstyle").select2();
 			});
@@ -136,7 +136,7 @@ jQuery(document).ready(function ($) {
 		setTimeout(function(){
 			$(".loaderwrap").addClass('show');
 			$("#facultiesInner").load(url + ' .loadcontent',function(){
-				window.history.pushState('', pageTitle, url);
+				//window.history.pushState('', pageTitle, url);
 				$(".loaderwrap").removeClass('show');
 				$(".selectstyle").select2();
 			});
@@ -193,18 +193,74 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
+	$(document).on("click","#morepageBtnFaculty",function(e){
+		e.preventDefault();
+		var target = $(this);
+		var paged = target.attr('data-pg');
+		var nextPage = parseInt(paged) + 1;
+		var total = target.attr('data-total');
+		var post_type = target.attr('data-posttype');
+		var $postContainer = $(".innerPosts");
+		var pageLink = '';
+		var nextPageLink = '';
+		target.attr('data-pg',nextPage);
+
+		if( $("#pagination a").length ) {
+			var part = $("#pagination a")[0];
+			pageLink = $(part).attr('href');
+			var paramsArr = pageLink.split("?");
+			var params = paramsArr[1];
+			var pgArr = pageLink.split("pg=");
+			var xpg = pgArr[1];		
+			var theParams = params.replace('pg='+xpg,'pg='+nextPage);
+			nextPageLink = currentPage + '?' + theParams;	
+		}
+
+		if(nextPageLink) {
+			$.ajax({
+				url: nextPageLink,
+				type: 'GET',
+				beforeSend:function(){
+					$("#loaderdiv").addClass("show");
+				},
+				success: function(res) {
+					if( $(res).find('div.innerPosts .boxinfo').length ) {
+						var content = $(res).find('div.innerPosts').html();
+						$postContainer.append(content);
+						var totalItems = $("#faculties .boxinfo").length;
+						$("#loaderdiv").removeClass("show");
+						//window.history.pushState("","",nextPageLink);
+						if(total == totalItems) {
+							$(".lastposts").removeClass("hide");
+							target.hide();
+						}
+					}  else {
+						//console.log("NOT FOUND!");
+					}
+				},
+				error: function (xhr, ajaxOptions, thrownError) {
+					$("#loaderdiv").removeClass("show");
+				}
+			});
+		}
+
+	});
+
+
 	$(document).on("click","#morepageBtn",function(e){
 		e.preventDefault();
 		var target = $(this);
 		var paged = target.attr('data-pg');
 		var total = target.attr('data-total');
+		var post_type = target.attr('data-posttype');
 		$.ajax({
 			url : frontajax.ajaxurl,
 			type : 'post',
 			dataType : "json",
 			data : {
 				action : 'get_next_posts',
-				pg : paged
+				pg : paged,
+				posttype : post_type
 			},
 			beforeSend:function(){
 				$("#loaderdiv").addClass("show");

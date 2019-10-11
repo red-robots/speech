@@ -2337,7 +2337,7 @@ body.subpage .contactform .gform_wrapper .gform_footer input.gform_button:hover{
 .blogs-section .btnwrap a:hover{color:#a6d339}
 .blogs-section .btnwrap a:hover .arrow{right:-20px}
 .blogs-section .pagination{display:none;margin-bottom:30px}
-.moreposts{text-align:center;margin-top:20px;margin-bottom:30px}
+.moreposts{text-align:center;margin-top:30px;margin-bottom:30px}
 .moreposts span.lastposts{color:#898c80}
 .moreposts span.lastposts.hide{display:none}
 .moreposts a{display:inline-block;background:#a6d339;text-decoration:none;color:#052843;max-width:500px;width:100%;text-align:center;font-size:16px;font-weight:600;padding:6px 20px}

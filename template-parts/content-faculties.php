@@ -1,14 +1,10 @@
 <?php  
 
-$posts_per_page = 20;
+$posts_per_page = 16;
 $paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
 
 /* Terms */
 $post_type = 'faculties';
-// $taxonomies[] = array('title'=>'Event Program','taxonomy'=>'programsx','slug'=>'programs');
-// $taxonomies[] = array('title'=>'Location','taxonomy'=>'locationsx','slug'=>'locations');
-// $taxonomies[] = array('title'=>'Senior/Junior Faculty','taxonomy'=>'typesx','slug'=>'types');
-
 $queried = get_taxonomies_faculties();
 
 $taxonomies = get_faculties_terms();
@@ -104,7 +100,7 @@ $message_to_faculty = get_field('message_to_faculty');
 									<?php } ?>
 
 									<div class="posts-inner clear">
-										<div class="flexrow">
+										<div class="flexrow innerPosts">
 											<?php while ( $faculties->have_posts() ) : $faculties->the_post();  
 												$pid = get_the_ID();
 												$headshot = get_field('headshot');
@@ -179,20 +175,29 @@ $message_to_faculty = get_field('message_to_faculty');
 
 									<?php
 								    $total_pages = $faculties->max_num_pages;
+								    $totalpost = $faculties->found_posts; 
 								    if ($total_pages > 1){ ?>
-								        <div id="pagination" class="pagination clear">
-								            <?php
-								                $pagination = array(
-								                    'base' => @add_query_arg('pg','%#%'),
-								                    'format' => '?paged=%#%',
-								                    'current' => $paged,
-								                    'total' => $total_pages,
-								                    'prev_text' => __( '&laquo;', 'red_partners' ),
-								                    'next_text' => __( '&raquo;', 'red_partners' ),
-								                    'type' => 'plain'
-								                );
-								                echo paginate_links($pagination);
-								            ?>
+
+								    	<div class="moreposts">
+								    		<span class="lastposts hide">No more posts to load.</span>
+								    		<a href="#" id="morepageBtnFaculty" data-posttype="faculties" data-total="<?php echo $totalpost ?>" data-pg="1">Load More</a>
+								    	</div>
+										
+										<div id="paginationWrap" class="clear" style="display:none;">
+									        <div id="pagination" class="pagination clear">
+									            <?php
+									                $pagination = array(
+									                    'base' => @add_query_arg('pg','%#%'),
+									                    'format' => '?paged=%#%',
+									                    'current' => $paged,
+									                    'total' => $total_pages,
+									                    'prev_text' => __( '&laquo;', 'red_partners' ),
+									                    'next_text' => __( '&raquo;', 'red_partners' ),
+									                    'type' => 'plain'
+									                );
+									                echo paginate_links($pagination);
+									            ?>
+									        </div>
 								        </div>
 								        <?php
 						    		} ?>
