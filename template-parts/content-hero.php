@@ -76,6 +76,10 @@
 	
 		<?php  
 		$banner = get_field('banner_image');
+		if( is_404() ) {
+			$banner = get_field('page404image','option');
+		}
+
 		?>
 		<?php if ($banner) { ?>
 		<div class="subpage-banner clear">
@@ -84,5 +88,7 @@
 		<?php } ?>
 
 	<?php } ?>
+
+
 
 <?php } ?>

@@ -141,7 +141,7 @@ get_header(); ?>
 						<div class="fcol right">
 							<div class="inside">
 								<?php if ($second_row_title) { ?>
-								<h2 class="hd2"><?php echo $second_row_title ?></h2>	
+								<p class="pgtitle"><strong><?php echo $second_row_title ?></strong></p>	
 								<?php } ?>
 								<?php echo $second_row_text ?>
 							</div>

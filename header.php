@@ -11,6 +11,9 @@
 
 <?php wp_head(); 
 $banner = get_field('banner_image'); 
+if( is_404() ) {
+	$banner = get_field('page404image','option');
+}
 $addClass = ($banner) ? 'hasbanner':'nobanner';
 ?>
 </head>
