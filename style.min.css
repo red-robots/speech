@@ -2085,6 +2085,7 @@ body.subpage h6{font-size:1.3em}
 }.subpage-banner img.banner{width:100%;height:auto;float:left}
 .content-area,.entry-content{font-style:normal}
 .content-area.default .site-main{min-height:40em}
+.content-area.default.error-404 .site-main{min-height:30em}
 .content-area.default .entry-content{padding-top:30px;padding-bottom:30px}
 .content-area.default .page-header{margin:0;background:#4099cd;color:#FFF;padding:15px 0;position:relative;text-align:center;z-index:10}
 @media(min-width:900px){.content-area.default .page-header{padding:25px 0}
@@ -2260,7 +2261,6 @@ body.subpage.page-template-page-contact .fulldiv .textwrap{padding-top:15px;padd
 .whyus-info .ptitle{color:#052843;font-size:1.75em;font-weight:600;line-height:1.2;margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid #a6d339}
 .whyus-info p:first-child{margin-top:0}
 .defaultpage{min-height:35em}
-.error-404{min-height:35em}
 .error-404 h2{margin:0 0 5px}
 .error-404 .warning-icon .iconw{font-size:5em;color:#e4e4e4}
 .error-404 p{margin-top:0;margin-bottom:15px}

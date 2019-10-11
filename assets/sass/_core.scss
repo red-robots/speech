@@ -1344,6 +1344,9 @@ body.subpage {
 	.site-main {
 		min-height: 40em;
 	}
+	&.error-404 .site-main {
+		min-height: 30em;
+	}
 	.entry-content {
 		padding-top: 30px;
 		padding-bottom: 30px;
@@ -2336,7 +2339,6 @@ body.subpage.page-template-page-contact {
 }
 
 .error-404 {
-	min-height: 35em;
 	// .site-main {
 	// 	padding-top: 15%;
 	// 	padding-bottom: 5%;
