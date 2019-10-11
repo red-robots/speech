@@ -312,15 +312,26 @@ function get_filtered_faculties($paged=1) {
     $taxlist = get_taxonomies_faculties();
 
     if($post_type && $taxlist) {
+        // $args = array(
+        //     'posts_per_page'=> $posts_per_page,
+        //     'post_type'     => $post_type,
+        //     'tax_query'     => array($taxlist),
+        //     'post_status'   => 'publish',
+        //     'orderby'       => 'date',
+        //     'order'         => 'DESC',
+        //     'suppress_filters' => true,
+        //     'paged'         => $paged
+        // );
+
         $args = array(
             'posts_per_page'=> $posts_per_page,
             'post_type'     => $post_type,
             'tax_query'     => array($taxlist),
             'post_status'   => 'publish',
-            'orderby'       => 'date',
-            'order'         => 'DESC',
             'suppress_filters' => true,
-            'paged'         => $paged
+            'paged'         => $paged,
+            'orderby'       => 'title',       
+            'order'         => 'ASC'
         );
 
         $args2 = array(

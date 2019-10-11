@@ -29,7 +29,9 @@ $args = array(
 	'posts_per_page'=> $posts_per_page,
 	'post_type'		=> 'faculties',
 	'post_status'	=> 'publish',
-	'paged'			=> $paged
+	'paged'			=> $paged,
+	'orderby'       => 'title',       
+  	'order'         => 'ASC'
 );
 
 $portrait = get_bloginfo('template_url') . '/images/portrait.png';

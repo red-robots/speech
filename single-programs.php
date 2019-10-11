@@ -10,7 +10,8 @@ get_header(); ?>
 				<?php  
 				$featimage = get_field('featimage'); 
 				$featimagelarge = get_field('featimagelarge'); 
-				$overview = get_field('program_overview_copy'); 
+				//$overview = get_field('program_overview_copy'); 
+				$overview = get_field('program_full_description'); 
 				$tuition = get_field('tuition'); 
 				$locations_dates_info = get_field('locations_dates_info');
 				$px = get_bloginfo('template_url') . '/images/portrait.png';
