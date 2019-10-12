@@ -2484,16 +2484,17 @@ body.single-programs #content{margin-bottom:-25px}
 .singleprogramtext .tblflex div{width:100%}
 .singleprogramtext .tblflex .hr{border-bottom:1px solid #CCC;top:-4px}
 .singleprogramtext .tuition-info{margin:10px 0;padding-left:11px}
-.section-sp-row2 strong{font-weight:600}
-.section-sp-row2 .fcol{width:100%;font-size:16px}
-.section-sp-row2 .imagecol{background-size:cover;background-position:center;background-repeat:no-repeat}
-.section-sp-row2 .inside{padding:40px}
-@media(min-width:900px){.section-sp-row2 .inside{padding:10%}
-}.section-sp-row2 .flexrow.twcol .fcol{width:100%;position:relative}
-@media(min-width:1200px){.section-sp-row2 .flexrow.twcol .fcol{width:50%}
-}.section-sp-row2 .flexrow.twcol .fcol img{width:100%;height:auto;float:left}
-@media(min-width:900px){.section-sp-row2 .flexrow.twcol .fcol.right{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
-}body.subpage .hd2{margin:0 0 20px;font-size:2em;font-weight:600;line-height:1.2;color:#052843}
+body.subpage .section-sp-row2 strong{font-weight:600}
+body.subpage .section-sp-row2 .fcol{width:100%}
+body.subpage .section-sp-row2 .hd2{font-size:1.65em}
+body.subpage .section-sp-row2 .imagecol{background-size:cover;background-position:center;background-repeat:no-repeat}
+body.subpage .section-sp-row2 .inside{padding:40px}
+@media(min-width:900px){body.subpage .section-sp-row2 .inside{padding:10%}
+}body.subpage .section-sp-row2 .flexrow.twcol .fcol{width:100%;position:relative}
+@media(min-width:1200px){body.subpage .section-sp-row2 .flexrow.twcol .fcol{width:50%}
+}body.subpage .section-sp-row2 .flexrow.twcol .fcol img{width:100%;height:auto;float:left}
+@media(min-width:900px){body.subpage .section-sp-row2 .flexrow.twcol .fcol.right{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+}body.subpage .hd2{margin:0 0 20px;font-size:1.8em;font-weight:600;line-height:1.2;color:#052843}
 body.subpage .section-curriculum{background:#4099cd;color:#FFF}
 body.subpage .section-curriculum .hd2{color:#FFF;padding-bottom:20px;border-bottom:1px solid #FFF}
 body.subpage .section-curriculum .wrapper{padding-top:40px;padding-bottom:50px}

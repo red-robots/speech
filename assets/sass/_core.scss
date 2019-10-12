@@ -3422,13 +3422,15 @@ body.single-programs {
 	}
 }
 
-.section-sp-row2 {
+body.subpage .section-sp-row2 {
 	strong {
 		font-weight: 600;
 	}
 	.fcol {
 		width: 100%;
-		font-size: 16px;
+	}
+	.hd2 {
+		font-size: 1.65em;
 	}
 	.imagecol {
 		background-size: cover;
@@ -3465,7 +3467,7 @@ body.single-programs {
 body.subpage {
 	.hd2 {
 		margin: 0 0 20px;
-		font-size: 2em;
+		font-size: 1.8em;
 		font-weight: 600;
 		line-height: 1.2;
 		color: $navyblue;
