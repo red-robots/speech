@@ -3797,11 +3797,15 @@ body.subpage .section-schedules {
 	.btn.btn-blue {
 		transition: all ease-out .3s;
 		background-color: $navyblue;
+		border: 1px solid $navyblue;
+		color: #FFF;
 		padding: 10px 25px;
 		letter-spacing: 1px;
 		&:hover {
 			color: $navyblue;
-			background-color: $limegreen;
+			background-color: $brightgreen;
+			border: 1px solid $limegreen;
+			// box-shadow: 0 0 5px rgba(0,0,0,0.35);
 		}
 	}
 }

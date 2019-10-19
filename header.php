@@ -34,6 +34,7 @@ if($popup_btn_link_option=='external') {
 }
 ?>
 
+<?php if ( is_front_page() ) { ?>
 <?php if ($popup_message && $enable_popup=='Yes') { ?>
 <div id="homePopUpmessage" style="display:none;">
 	<div class="messageAlert">
@@ -44,6 +45,7 @@ if($popup_btn_link_option=='external') {
 		<?php } ?>
 	</div>
 </div>	
+<?php } ?>
 <?php } ?>
 
 <div id="page" class="site clear">
