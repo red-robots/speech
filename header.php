@@ -28,8 +28,10 @@ $link_internal = get_field('link_internal','option');
 $link_external = get_field('link_external','option');  
 $enable_popup = get_field('enable_popup','option');  
 if($popup_btn_link_option=='external') {
+	$target = ' target="_blank"';
 	$buttonLink = $link_external;
 } else {
+	$target = '';
 	$buttonLink = $link_internal;
 }
 ?>
@@ -40,7 +42,7 @@ if($popup_btn_link_option=='external') {
 	<div class="messageAlert">
 		<?php echo $popup_message; ?>
 		<?php if ($popup_btn_name && $buttonLink) { ?>
-		<div id="buttonOption" data-link="<?php echo $buttonLink ?>" data-name="<?php echo $popup_btn_name ?>">
+		<div id="buttonOption" data-link="<?php echo $buttonLink ?>" data-name="<?php echo $popup_btn_name ?>" data-target="<?php echo $target ?>">
 		</div>	
 		<?php } ?>
 	</div>
