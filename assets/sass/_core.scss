@@ -3697,7 +3697,7 @@ body.subpage .section-schedules {
 		.titlecol {
 			width: 100%;
 			@include tab {
-				width: 40%;
+				width: 39.5%;
 				margin-bottom: 0;
 			}
 		}
@@ -3793,4 +3793,45 @@ body.subpage .section-schedules {
 		}
 	}
 }
-
+.jconfirm .jconfirm-box .jconfirm-buttons {
+	.btn.btn-blue {
+		transition: all ease-out .3s;
+		background-color: $navyblue;
+		padding: 10px 25px;
+		letter-spacing: 1px;
+		&:hover {
+			color: $navyblue;
+			background-color: $limegreen;
+		}
+	}
+}
+.jconfirm.jconfirm-modern .jconfirm-box {
+	border-top: 10px solid $limegreen;
+}
+.jconfirm.jconfirm-modern .jconfirm-box div.jconfirm-closeIcon {
+	color: #000;
+	opacity: 1;
+}
+.jconfirm .jconfirm-box div.jconfirm-closeIcon {
+	font-size: 30px!important;
+}
+.jconfirm.jconfirm-modern .jconfirm-bg {
+	background-color: rgba(0,0,0,.75);
+	opacity: 1;
+}
+.jconfirm.jconfirm-modern .jconfirm-box div.jconfirm-content {
+	margin-bottom: 0;
+}
+.messageAlert {
+	font-size: 18px;
+    line-height: 1.4;
+    color: #333;
+    h1, h2, h3, h4, h5, h6 {
+    	margin-top: 0;
+    	margin-bottom: 20px;
+    	color: $navyblue;
+    }
+    p {
+    	margin-top: 0;
+    }
+}

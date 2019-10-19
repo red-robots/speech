@@ -19,6 +19,33 @@ $addClass = ($banner) ? 'hasbanner':'nobanner';
 </head>
 
 <body <?php body_class($addClass); ?>>
+<?php /* Homepage Alert Message */ ?>
+<?php
+$popup_message = get_field('popup_message','option');  
+$popup_btn_name = get_field('popup_btn_name','option');  
+$popup_btn_link_option = get_field('popup_btn_link_option','option');  
+$link_internal = get_field('link_internal','option');  
+$link_external = get_field('link_external','option');  
+$enable_popup = get_field('enable_popup','option');  
+if($popup_btn_link_option=='external') {
+	$buttonLink = $link_external;
+} else {
+	$buttonLink = $link_internal;
+}
+?>
+
+<?php if ($popup_message && $enable_popup=='Yes') { ?>
+<div id="homePopUpmessage" style="display:none;">
+	<div class="messageAlert">
+		<?php echo $popup_message; ?>
+		<?php if ($popup_btn_name && $buttonLink) { ?>
+		<div id="buttonOption" data-link="<?php echo $buttonLink ?>" data-name="<?php echo $popup_btn_name ?>">
+		</div>	
+		<?php } ?>
+	</div>
+</div>	
+<?php } ?>
+
 <div id="page" class="site clear">
 	<a class="skip-link sr" href="#content"><?php esc_html_e( 'Skip to content', 'bellaworks' ); ?></a>
 

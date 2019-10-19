@@ -7,10 +7,77 @@
 
 jQuery(document).ready(function ($) {
 
+	// $.confirm({
+	//     title: '',
+	//     content: 'Simple confirm!',
+	//     boxWidth: '50%',
+ //    	useBootstrap: false,
+ //    	draggable: false,
+ //    	theme: 'modern',
+	//     buttons: {
+	//         confirm: function () {
+	//             $.alert('Confirmed!');
+	//         },
+	//         close: function () {
+	//             $.alert('Canceled!');
+	//         },
+	//         somethingElse: {
+	//             text: 'Something else',
+	//             btnClass: 'btn-blue',
+	//             keys: ['enter', 'shift'],
+	//             action: function(){
+	//                 $.alert('Something else?');
+	//             }
+	//         }
+	//     }
+	// });
+
+	var homePopupMessage = $("#homePopUpmessage");
+	if( homePopupMessage.length ) {
+		var message = $("#homePopUpmessage").text();
+		if(message) {
+			var messageAlert = $("#homePopUpmessage").html();
+			var link='', buttonName = '';
+			var button_obj= {
+					close: function () {
+					}
+				};
+			var buttonOption = $("#buttonOption");
+			if( buttonOption.length ) {
+				link = buttonOption.attr("data-link");
+				buttonName = buttonOption.attr("data-name");
+				button_obj = {
+					ok: {
+			            text: buttonName, // text for button
+			            btnClass: 'btn-blue', // class for the button
+			            action: function(heyThereButton){
+			                location.href = link;
+			            }
+			        }
+				}
+			}
+			
+			$.confirm({
+			    title: '',
+			    content: messageAlert,
+			    boxWidth: '50%',
+		    	useBootstrap: false,
+		    	draggable: false,
+		    	theme: 'modern',
+		    	closeIcon: true,
+			    buttons: button_obj,
+			    onContentReady: function () {
+
+			    }
+			});
+		}
+	}
+
 	/* Select Style */
 	$(".selectstyle").select2();
 	$(".contactform select").select2();
 	
+
 	/*
 	*
 	*	Flexslider

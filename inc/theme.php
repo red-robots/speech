@@ -17,13 +17,16 @@ function my_login_logo() {
   if($custom_logo_id) { ?>
   <style type="text/css">
     body.login div#login h1 a {
-      <?php if($logo_url) { ?>
-        background-image: url(<?php echo $logo_url; ?>);
-      <?php } ?> 
+      background-image: url(<?php echo $logo_url; ?>);
       background-size: contain;
       width: 100%;
-      height: 67px;
+      height: 110px;
+      margin-bottom: 10px;
     }
+    .login #backtoblog, .login #nav {
+      text-align: center;
+    }
+
   </style>
 <?php }
 }
