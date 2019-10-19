@@ -9,7 +9,7 @@ get_header(); ?>
 				<header class="page-header">  
 					<div class="full-wrapper clear">
 						<div class="page-title">
-							<span class="title">Blog</span>
+							<span class="title">News</span>
 							<span class="stripe"><i></i></span></span>
 						</div>
 					</div>
