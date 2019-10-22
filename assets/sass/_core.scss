@@ -276,6 +276,7 @@ body.home .site-header {
 		z-index: 50;
 	}
 }
+
 .sitename {
 	font-family: $font_secondary;
 	font-size: 1.3em;
@@ -3820,7 +3821,7 @@ body.subpage .section-schedules {
 	font-size: 30px!important;
 }
 .jconfirm.jconfirm-modern .jconfirm-bg {
-	background-color: rgba(0,0,0,.88);
+	background-color: rgba(0,0,0,.45);
 	opacity: 1;
 }
 .jconfirm.jconfirm-modern .jconfirm-box div.jconfirm-content {
@@ -3838,4 +3839,10 @@ body.subpage .section-schedules {
     p {
     	margin-top: 0;
     }
+}
+.hero {
+	// height: 500px;
+	// @include tab {
+	// 	height: 600px;
+	// }
 }

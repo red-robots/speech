@@ -2759,7 +2759,7 @@ body.subpage .section-schedules .table-schedules td.time{width:40%}
 .jconfirm.jconfirm-modern .jconfirm-box{border-top:10px solid #a6d339}
 .jconfirm.jconfirm-modern .jconfirm-box div.jconfirm-closeIcon{color:#000;opacity:1}
 .jconfirm .jconfirm-box div.jconfirm-closeIcon{font-size:30px !important}
-.jconfirm.jconfirm-modern .jconfirm-bg{background-color:rgba(0,0,0,0.88);opacity:1}
+.jconfirm.jconfirm-modern .jconfirm-bg{background-color:rgba(0,0,0,0.45);opacity:1}
 .jconfirm.jconfirm-modern .jconfirm-box div.jconfirm-content{margin-bottom:0}
 .messageAlert{font-size:18px;line-height:1.4;color:#333}
 .messageAlert h1,.messageAlert h2,.messageAlert h3,.messageAlert h4,.messageAlert h5,.messageAlert h6{margin-top:0;margin-bottom:20px;color:#052843}
