@@ -16,7 +16,7 @@ $font_secondary: 'Anton', sans-serif;
 
 $xswidth: 500px;
 $tabwidth: 768px;
-$midwidth: 900px;
+$midwidth: 980px;
 $deskwidth: 1200px;
 
 @mixin xs { @media (min-width: $xswidth) { @content; } }

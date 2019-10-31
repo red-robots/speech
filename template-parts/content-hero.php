@@ -68,6 +68,7 @@
 
 		<?php if ($topImage) { ?>
 		<div class="subpage-banner clear">
+			<div class="imagediv" style="background-image:url('<?php echo $topImage; ?>');"></div>
 			<img src="<?php echo $topImage ?>" alt="<?php echo $topImgAlt ?>" class="banner" />
 		</div>	
 		<?php } ?>
@@ -83,6 +84,7 @@
 		?>
 		<?php if ($banner) { ?>
 		<div class="subpage-banner clear">
+			<div class="imagediv" style="background-image:url('<?php echo $banner['url']; ?>');"></div>
 			<img src="<?php echo $banner['url'] ?>" alt="<?php echo $banner['title'] ?>" class="banner" />
 		</div>	
 		<?php } ?>
