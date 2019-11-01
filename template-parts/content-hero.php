@@ -48,6 +48,10 @@
 <?php } else { ?>
 
 	<?php /* SINGLE PROGRAMS PAGE */ ?>
+	<?php  
+		$banner_mobile = get_field('banner_image_mobile');
+		$hasMobile = ($banner_mobile) ? 'mobile':'desktop';
+	?>
 	<?php if ( is_single() && get_post_type() == 'programs' ) { ?>
 		
 		<?php  
@@ -67,9 +71,12 @@
 		?>
 
 		<?php if ($topImage) { ?>
-		<div class="subpage-banner clear">
+		<div class="subpage-banner clear <?php echo $hasMobile ?>">
 			<div class="imagediv" style="background-image:url('<?php echo $topImage; ?>');"></div>
 			<img src="<?php echo $topImage ?>" alt="<?php echo $topImgAlt ?>" class="banner" />
+			<?php if ($banner_mobile) { ?>
+			<img src="<?php echo $banner_mobile['url'] ?>" alt="<?php echo $banner_mobile['title'] ?>" class="banner-mobile" />
+			<?php } ?>
 		</div>	
 		<?php } ?>
 
@@ -83,9 +90,12 @@
 
 		?>
 		<?php if ($banner) { ?>
-		<div class="subpage-banner clear">
+		<div class="subpage-banner clear <?php echo $hasMobile ?>">
 			<div class="imagediv" style="background-image:url('<?php echo $banner['url']; ?>');"></div>
 			<img src="<?php echo $banner['url'] ?>" alt="<?php echo $banner['title'] ?>" class="banner" />
+			<?php if ($banner_mobile) { ?>
+			<img src="<?php echo $banner_mobile['url'] ?>" alt="<?php echo $banner_mobile['title'] ?>" class="banner-mobile" />
+			<?php } ?>
 		</div>	
 		<?php } ?>
 

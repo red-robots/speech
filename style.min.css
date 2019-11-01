@@ -2765,8 +2765,11 @@ body.subpage .section-schedules .table-schedules td.time{width:40%}
 .messageAlert{font-size:18px;line-height:1.4;color:#333}
 .messageAlert h1,.messageAlert h2,.messageAlert h3,.messageAlert h4,.messageAlert h5,.messageAlert h6{margin-top:0;margin-bottom:20px;color:#052843}
 .messageAlert p{margin-top:0}
-@media screen and (max-width:980px){.subpage-banner .imagediv{height:350px;background-size:cover;background-position:center;background-repeat:no-repeat}
+.subpage-banner img.banner-mobile{display:none}
+@media screen and (max-width:980px){.subpage-banner .imagediv{display:none;height:350px;background-size:cover;background-position:center;background-repeat:no-repeat}
 .subpage-banner img{display:none}
+.subpage-banner.desktop .imagediv{display:block}
+.subpage-banner img.banner-mobile{display:block;width:100%;height:auto;float:left}
 .programs-section .overview,.programs-section .postlink a,.programs-section .locations-dates .ltitle{font-size:16px}
 .programs-section .title h2{font-size:20px}
 .location-dates-tuition .left,.singleprogramtext .colbox .spcol.left{font-size:16px}

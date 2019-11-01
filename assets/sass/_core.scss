@@ -3846,17 +3846,18 @@ body.subpage .section-schedules {
     	margin-top: 0;
     }
 }
-.hero {
-	// height: 500px;
-	// @include tab {
-	// 	height: 600px;
-	// }
+
+.subpage-banner {
+	img.banner-mobile {
+		display: none;
+	}	
 }
 
 /* Mobile View */
 @media screen and (max-width: $midwidth) {
 	.subpage-banner {
 		.imagediv {
+			display: none;
 			height: 350px;
 			background-size: cover;
 			background-position: center;
@@ -3865,6 +3866,18 @@ body.subpage .section-schedules {
 		img {
 			display: none;
 		}
+		&.desktop {
+			.imagediv {
+				display: block;
+			}
+		}
+		
+		img.banner-mobile {
+			display: block;
+			width: 100%;
+			height: auto;
+			float: left;
+		}	
 	}
 	.programs-section {
 		.overview,
