@@ -129,6 +129,9 @@ get_header(); ?>
 								<div class="block signupbox">
 									<div class="inside">
 										<div class="wrap"<?php echo $signUpStyle ?>>
+											<?php if ($signUpImage) { ?>
+											<img src="<?php echo $signUpImage ?>" alt="<?php echo $signup['SignUpImage']['title'] ?>" class="signupImg">	
+											<?php } ?>
 											<div class="btndiv"><a href="<?php echo $signButtonLink ?>" class="signUpBtn" target="<?php echo $signlink['target'] ?>"><?php echo $signButtonName ?></a></div>
 										</div>
 									</div>
