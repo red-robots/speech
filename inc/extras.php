@@ -610,3 +610,35 @@ function get_blog_posts($paged,$post_type='post') {
     }
     return $content;
 }
+
+function check_taxonomy($slug,$taxonomy) {
+    global $wpdb;
+    $result = $wpdb->get_row( "SELECT tax.term_id, terms.name, terms.slug, tax.taxonomy FROM $wpdb->term_taxonomy tax, $wpdb->terms terms WHERE tax.term_id=terms.term_id AND tax.taxonomy='".$taxonomy."' AND terms.slug='".$slug."'", OBJECT );
+    return ($result) ? $result : '';
+}
+
+/* Add Location Taxonomy automatically when adding a location custom post */
+add_action('save_post','custom_save_post_callback');
+function custom_save_post_callback($post_id){
+    global $post;
+    if ($post->post_type == 'locations'){
+        $obj = get_post($post_id);
+        if($obj) {
+            $taxonomy = 'locationsx';
+            $term = $obj->post_title;
+            //$slug = $obj->post_name;
+            $slug = sanitize_title($term );
+            $status = $obj->post_status;
+            $res = check_taxonomy($slug,$taxonomy);
+            if(empty($res)) {
+                wp_insert_term( $term, $taxonomy, array(
+                    'description' => '',
+                    'parent'      => 0,
+                    'slug'        => $slug,
+                ) );
+            }
+        }
+        return;
+    }
+}
+
