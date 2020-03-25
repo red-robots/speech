@@ -117,22 +117,25 @@ get_header(); ?>
 					<?php $j++; endwhile; wp_reset_postdata(); ?>
 
 						<?php
-						$signUpImage = get_field('SignUpImage');
-						$signButtonName = get_field('SignButtonName');
-						$signButtonLink = get_field('SignButtonLink');  
-						$signupbox = ($signUpImage) ? ' style="background-image:url('.$signUpImage['url'].')"':'';
+						$signup = get_field("signupbox");
+						$showSignUp = ( isset($signup['showthisbox']) && $signup['showthisbox'] ) ? $signup['showthisbox'] : '';
+						$signUpImage = ( isset($signup['SignUpImage']) && $signup['SignUpImage'] ) ? $signup['SignUpImage']['url'] : '';
+						$signButtonName = ( isset($signup['SignButtonName']) && $signup['SignButtonName'] ) ? $signup['SignButtonName'] : '';
+						$signButtonLink = ( isset($signup['SignButtonLink']) && $signup['SignButtonLink'] ) ? $signup['SignButtonLink'] : '';
 						$signlink = ($signButtonLink) ? parse_external_url($signButtonLink,'internal','external') : '';
-						?>
-
-						<?php if ($signButtonName && $signButtonLink) { ?>
-							<div class="block signupbox">
-								<div class="inside">
-									<div class="wrap"<?php echo $signupbox ?>>
-										<div class="btndiv"><a href="<?php echo $signButtonLink ?>" class="signUpBtn" target="<?php echo $signlink['target'] ?>"><?php echo $signButtonName ?></a></div>
+						$signUpStyle = ($signUpImage) ? ' style="background-image:url('.$signUpImage.')"':'';
+						if($showSignUp=='yes') { ?>
+							<?php if ($signButtonName && $signButtonLink) { ?>
+								<div class="block signupbox">
+									<div class="inside">
+										<div class="wrap"<?php echo $signUpStyle ?>>
+											<div class="btndiv"><a href="<?php echo $signButtonLink ?>" class="signUpBtn" target="<?php echo $signlink['target'] ?>"><?php echo $signButtonName ?></a></div>
+										</div>
 									</div>
 								</div>
-							</div>
+							<?php } ?>
 						<?php } ?>
+
 					</div>
 				</div>
 				<?php } ?>
