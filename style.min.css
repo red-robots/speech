@@ -2756,9 +2756,13 @@ body.subpage .section-schedules .table-schedules td.time{width:40%}
 @media(min-width:980px){body.subpage .section-schedules .flexrow.onecol .tblwrap{padding-top:30px;padding-bottom:30px}
 }@media(min-width:980px){body.subpage .section-schedules .flexrow.onecol .table-schedules td{width:50%}
 }body.subpage .section-schedules .flexrow.onecol .table-schedules td.time span{background:#FFF}
+.jconfirm,.jconfirm *{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
 .jconfirm .jconfirm-box .jconfirm-buttons .btn.btn-blue{-webkit-transition:all ease-out .3s;transition:all ease-out .3s;background-color:#052843;border:1px solid #052843;color:#FFF;padding:10px 25px;letter-spacing:1px}
 .jconfirm .jconfirm-box .jconfirm-buttons .btn.btn-blue:hover{color:#052843;background-color:#c9f75b;border:1px solid #a6d339}
-.jconfirm.jconfirm-modern .jconfirm-box{border-top:10px solid #a6d339}
+.jconfirm .jconfirm-box{max-width:800px;width:93% !important;margin:0 auto}
+.jconfirm .jconfirm-box .jconfirm-buttons button{white-space:pre-wrap}
+@media screen and (max-width:500px){.jconfirm .jconfirm-box .jconfirm-content p img{width:100%;height:auto;margin:10px auto;float:none}
+}.jconfirm.jconfirm-modern .jconfirm-box{border-top:10px solid #a6d339}
 .jconfirm.jconfirm-modern .jconfirm-box div.jconfirm-closeIcon{color:#000;opacity:1}
 .jconfirm .jconfirm-box div.jconfirm-closeIcon{font-size:30px !important}
 .jconfirm.jconfirm-modern .jconfirm-bg{background-color:rgba(0,0,0,0.45);opacity:1}

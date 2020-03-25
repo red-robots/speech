@@ -41,12 +41,12 @@ jQuery(document).ready(function ($) {
 			$.confirm({
 			    title: '',
 			    content: messageAlert,
-			    boxWidth: '50%',
 		    	useBootstrap: false,
 		    	draggable: false,
 		    	theme: 'modern',
 		    	closeIcon: true,
 		    	draggable: false,
+		    	animation: 'zoom',
 			    buttons: button_obj,
 			    onContentReady: function () {
 

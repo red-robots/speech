@@ -3812,6 +3812,11 @@ body.subpage .section-schedules {
 		}
 	}
 }
+.jconfirm, .jconfirm * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
 .jconfirm .jconfirm-box .jconfirm-buttons {
 	.btn.btn-blue {
 		transition: all ease-out .3s;
@@ -3825,6 +3830,22 @@ body.subpage .section-schedules {
 			background-color: $brightgreen;
 			border: 1px solid $limegreen;
 			// box-shadow: 0 0 5px rgba(0,0,0,0.35);
+		}
+	}
+}
+.jconfirm .jconfirm-box {
+	max-width: 800px;
+	width: 93%!important;
+	margin: 0 auto;
+	.jconfirm-buttons button {
+		white-space: pre-wrap;
+	}
+	.jconfirm-content p img {
+		@media screen and (max-width: $xswidth) {
+			width: 100%;
+			height: auto;
+			margin: 10px auto;
+			float: none;
 		}
 	}
 }
