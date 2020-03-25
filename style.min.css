@@ -2697,7 +2697,7 @@ body.subpage .section-curriculum .hd2{color:#FFF;padding-bottom:20px;border-bott
 body.subpage .section-curriculum .wrapper{padding-top:40px;padding-bottom:50px}
 @media(min-width:768px){body.subpage .section-curriculum .wrapper{padding-top:30px;padding-bottom:40px}
 }@media(min-width:1200px){body.subpage .section-curriculum .wrapper{padding-top:50px;padding-bottom:10px}
-}body.subpage .section-curriculum .director-message{position:relative;margin-top:-15px}
+}body.subpage .section-curriculum .director-message{position:relative;margin-top:-15px;padding-bottom:20px}
 body.subpage .section-curriculum .textcol{width:100%;text-align:center;font-size:1.2em;font-weight:600;font-style:italic;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 @media(min-width:768px){body.subpage .section-curriculum .textcol{font-size:2vw;text-align:left;padding-top:20px}
 }@media(min-width:1200px){body.subpage .section-curriculum .textcol{padding-top:0;font-size:1.2em}

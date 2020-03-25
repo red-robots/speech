@@ -166,12 +166,16 @@ get_header(); ?>
 					$authorArr = array($faculty_name,$current_school,$position);
 					$authorInfo = ($authorArr && array_filter($authorArr)) ? implode(", ",array_filter($authorArr)):'';
 				}
+				$curriculum_title = get_field("curriculum_section_title");
+				$curriculum_section_title = ($curriculum_title) ? $curriculum_title : '';
 				?>
 
 				<?php if ($message) { ?>
 				<section class="section-curriculum clear">
 					<div class="wrapper clear">
-						<h2 class="hd2 text-center">From Our Curriculum Director</h2>
+						<?php if ($curriculum_section_title) { ?>
+						<h2 class="hd2 text-center"><?php echo $curriculum_section_title; ?></h2>
+						<?php } ?>
 						<div class="director-message clear">
 							<div class="flexrow <?php echo ($headshot) ? 'hasimage':'noimage'; ?>">
 								<?php if ($headshot) { ?>
