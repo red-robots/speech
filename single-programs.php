@@ -120,8 +120,8 @@ get_header(); ?>
 										<?php } ?>
 
 										<?php if ($hide_signup==false) { ?>
-											<?php if ($enrollLink) { ?>
-												<a href="<?php echo $enrollLink ?>" class="btngreen">Sign Up Now</a>
+											<?php if ($enrollLink) { $p = parse_external_url($enrollLink); ?>
+												<a href="<?php echo $enrollLink ?>" target="<?php echo $p['target'] ?>" class="btngreen">Sign Up Now</a>
 											<?php } ?>
 										<?php } ?>
 									</div>
