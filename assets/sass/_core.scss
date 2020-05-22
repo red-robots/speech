@@ -3305,6 +3305,11 @@ body.single-programs {
 .singleprogramtext {
 	.buttondiv {
 		margin-top: 25px;
+		&.programsBtn {
+			a.btngreen {
+				margin-right: 15px;
+			}
+		}
 	}
 	.wrapper {
 		padding-top: 50px;
@@ -3835,7 +3840,7 @@ body.subpage .section-schedules {
 }
 .jconfirm .jconfirm-box {
 	max-width: 800px;
-	width: 93%!important;
+	width: 85%!important;
 	margin: 0 auto;
 	.jconfirm-buttons button {
 		white-space: pre-wrap;

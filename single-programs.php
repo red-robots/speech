@@ -104,13 +104,27 @@ get_header(); ?>
 									</div>
 									<?php } ?>
 
-									<?php $enrollLink = get_field('button_link','option');  ?>
-									<?php if ($enrollLink) { ?>
-									<div class="buttondiv">
-										<a href="<?php echo $enrollLink ?>" class="btngreen">Sign Up Now</a>
-									</div>
-									<?php } ?>
+									<?php 
+									$enrollLink = get_field('button_link','option');  
+									$ctaButtonName = get_field("ctaButtonName");
+									$ctaButtonLink = get_field("ctaButtonLink");
+									$displaySignUp = get_field("displaySignUp");
+									$hide_signup = ($displaySignUp=='yes') ? true : false;
+									$part = ( $ctaButtonName && $ctaButtonLink ) ? parse_external_url($ctaButtonLink) : '';
+									$btnTarget = ( isset($part['target']) && $part['target'] ) ? $part['target'] : '_self';
+									?>
 
+									<div class="buttondiv programsBtn">
+										<?php if ($ctaButtonName && $ctaButtonLink) { ?>
+											<a href="<?php echo $ctaButtonLink ?>" target="<?php echo $btnTarget ?>" class="btngreen customCtaBtn"><?php echo $ctaButtonName ?></a>
+										<?php } ?>
+
+										<?php if ($hide_signup==false) { ?>
+											<?php if ($enrollLink) { ?>
+												<a href="<?php echo $enrollLink ?>" class="btngreen">Sign Up Now</a>
+											<?php } ?>
+										<?php } ?>
+									</div>
 								</div>
 								
 							<?php } ?>
