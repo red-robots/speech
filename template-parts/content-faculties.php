@@ -129,14 +129,25 @@ $message_to_faculty = get_field('message_to_faculty');
 														$n++;
 													}
 												}
+												// $program_list = '';
+												// if($programs) {
+												// 	$p=1; foreach($programs as $p) {
+												// 		$prog = $p->name;
+												// 		$split = ($p>1) ? ', ':'';
+												// 		$program_list .= $split . $prog;
+												// 		$p++;
+												// 	}
+												// }
 												$program_list = '';
-												if($programs) {
-													$p=1; foreach($programs as $p) {
-														$prog = $p->name;
-														$split = ($p>1) ? ', ':'';
-														$program_list .= $split . $prog;
-														$p++;
+											
+												if ( $programs && ! is_wp_error( $programs ) ) {
+													$program_names = array();
+												
+													foreach ( $programs as $program ) {
+														$program_names[] = $program->name;
 													}
+												
+													$program_list = implode( ', ', $program_names );
 												}
 												if(empty($position)) {
 													$position = $program_list;
