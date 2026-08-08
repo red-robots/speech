@@ -23,6 +23,11 @@ require get_template_directory() . '/inc/scripts.php';
 require get_template_directory() . '/inc/post-types.php';
 
 /**
+ * FAQ page helpers.
+ */
+require get_template_directory() . '/inc/faqs-function.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

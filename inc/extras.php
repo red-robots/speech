@@ -621,7 +621,7 @@ function check_taxonomy($slug,$taxonomy) {
 add_action('save_post','custom_save_post_callback');
 function custom_save_post_callback($post_id){
     global $post;
-    if ($post->post_type == 'locations'){
+    if ( isset($post) && $post->post_type == 'locations'){
         $obj = get_post($post_id);
         if($obj) {
             $taxonomy = 'locationsx';
